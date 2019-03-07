@@ -8,22 +8,113 @@ Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-def add_user(username, password):
+"""
+The function adds the user to the database given the parameters.
+Input:  String username - The user's name.
+		String email - The user's email.
+		String phone - The user's phone.
+		String city - The user's city.
+		String address - The user's exact address.
+Output: Boolean, if the operation was successful or not.
+"""
+
+def add_user(user_name, email, password, city, address):
     
-	session.add(User(name = username, password = password, record = 0))
-	session.commit()
-	
-def get_user(name):
-	
+	if phone.isdigit():
+		session.add(User(name = user_name, password = password, email = email, city = city[0].upper() + city[1:].lower(), address = address.lower()))
+		session.commit()
+		return True
+	return False
+
+"""
+The function returns the user which has the given user name.
+Inpput: String name - The name of the user.
+Output: The user with that name.
+"""
+def get_user_by_name(name):
 	return session.query(User).filter_by(name = name).first()
 
-def set_new_record(name, new_record):
+"""
+The function returns the user which has the given email.
+Inpput: String email - The user's email.
+Output: The user with that email.
+"""
+def get_user_by_email(email = email):
+	return session.query(User).filter_by(email = email).first()
 
-	user = get_user(name)
-	print(user)
-	user.set_record(new_record)
-	session.add(user)
-	session.commit()
-
+"""
+The function checks if the password of the user with the given email or username matches the given password.
+Inpput: String name - The name of the user or the user's email, String password - The password to check.
+Output: Boolean, if the username matches the password.
+"""
 def is_the_user(name, password):
-	return get_user(name).password == password
+
+	return get_user_by_name(name).password == password or get_user_by_email(name).password == password
+	
+#================================================================================================================
+
+"""
+The function adds the farm to the database given the parameters.
+Input:  String farm_name - The farm's name.
+		String email - The farm's email.
+		String phone - The farm's phone.
+		String city - The farm's city.
+		String address - The farm's exact address.
+Output: Boolean, if the operation was successful or not.
+"""
+
+def add_farm(farm_name, email, phone, password, city, address):
+    
+	if phone.isdigit():
+		session.add(Farm(name = farm_name[0].upper()+farm_name[1:].lower(), password = password, phone = phone, city = city[0].upper() + city[1:].lower(), address = address.lower()))
+		session.commit()
+		return True
+	return False
+
+"""
+The function returns the farm with the given farm-name.
+Input: String name - the farm's name.
+Output: The farm with this farm-name.
+"""
+def get_farm_by_name(name):
+	return session.query(Farm).filter_by(name = name).first()
+
+"""
+The function returns the farm with the given phone number.
+Input: String phone - the farm's phone number.
+Output: The farm with this phone number.
+"""
+def get_farm_by_phone(phone):
+	return session.query(Farm).filter_by(phone = phone).first()
+
+"""
+The function returns the farm with the given email address.
+Input: String email - the farm's email address.
+Output: The farm with this email address.
+"""
+def get_farm_by_email(email):
+	return session.query(User).filter_by(email = email).first()
+
+"""
+The function returns the farm with the given address.
+Input: String address - the farm's address.
+Output: The farm with this address.
+"""
+def get_farm_by_address(address):
+	return session.query(Farm).filter_by(address = address).first()
+
+"""
+The function returns all farms in the given city.
+Input: String city - the city to filter by.
+Output: The list of farms in this city.
+"""
+def get_farms_by_city(city):
+	return session.query(Farm).filter_by(city = city).all()
+
+"""
+The function checks if the password of the farm with the given email or username matches the given password.
+Inpput: String name - The name of the farm or the farm's email, String password - The password to check.
+Output: Boolean, if the farm-name matches the password.
+"""	
+def is_the_farm(name, password):
+	return get_farm_by_name(name).password == password

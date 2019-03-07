@@ -5,18 +5,46 @@ from sqlalchemy import create_engine
 
 Base = declarative_base()
 
-# Write your classes here :
 class User(Base):
-	__tablename__ = "users"
+	
+	"""
+	The user model is the template for the table to know what to contain.
+	Fields:
+	id - The number of the object in the column.
+	name - The name of the user.
+	password - The user's password.
+	email - The email address of the user.
+	city - The city the user lives in.
+	address - The user's address.
+	"""
+	
+	__tablename__ = "Users"
 	id = Column(Integer, primary_key = True)
 	name = Column(String)
 	password = Column(String)
-	record = Column(Integer)
+	email = Column(String)
+	city = Column(String)
+	address = Column(String)
 	
-	def set_record(self, new_record):
+class Farm(Base):
 	
-		if new_record > self.record:
-			self.record = new_record
+	"""
+	The user model is the template for the table to know what to contain.
+	Fields:
+	id - The number of the object in the column.
+	name - The name of the user.
+	password - The user's password.
+	email - The email address of the user.
+	phone - The farm's phone number.
+	location - The farm's location.
+	"""
 	
-	def get_record(self):
-		return self.record
+	__tablename__ = "Farms"
+	id = Column(Integer, primary_key = True)
+	name = Column(String)
+	password = Column(String)
+	email = Column(String)
+	phone = Column(String)
+	city = Column(String)
+	address = Column(String)
+	
