@@ -10,22 +10,46 @@ app = Flask(__name__)
 connected_user = ''
 source = ''
 
-@app.route('/')
-def home():
-	
-	return redirect('/signup')
+@app.route('/home')
+def home():	
+	return render_template("home.html")
 
-@app.route('/farmsignup', methods = ['GET', 'POST'])
-def farm_sign_up():
-	
+
+@app.route('/user_signup' , methods = ['GET', 'POST'])
+def user_signup():
 	if request.method == 'GET':
-		return render_template('/templates/farmSignup.html', flag = False)
+        return render_template('user_signup.html')
+    elif request.method == "POST":
+        first_name = request.form['firstname']
+        last_name = request.form['lastname']
+        username = request.form['username']
+        password = request.form['password']
+        age = request.form['age']
+
+
+
+
+@app.route('/farm_signup', methods = ['GET', 'POST'])
+def farm_signup():
+	if request.method == 'GET':
+        return render_template('farm_signup.html')
+    elif request.method == "POST":
+        first_name = request.form['firstname']
+        last_name = request.form['lastname']
+        username = request.form['username']
+        password = request.form['password']
+        age = request.form['age']
+
+
+
+	# if request.method == 'GET':
+	# 	return render_template('/templates/farmSignup.html', flag = False)
 	
-	if request.method == 'POST' and get_user(request.form['username']) == None:
-		adduser(uname = request.form['userName'], upass = request.form['pass'], fname = request.form['farmName'], location = request.form['farmLocation'])
-		return redirect('/')
+	# if request.method == 'POST' and get_user(request.form['username']) == None:
+	# 	adduser(uname = request.form['userName'], upass = request.form['pass'], fname = request.form['farmName'], location = request.form['farmLocation'])
+	# 	return redirect('/')
 	
-	return redirect('login')
+	# return redirect('login')
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
