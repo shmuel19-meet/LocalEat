@@ -10,15 +10,15 @@ app = Flask(__name__)
 connected_user = ''
 source = ''
 
-@app.route('/home')
+@app.route('/')
 def home():	
-	return render_template("home.html")
+    return render_template("home.html")
 
 
 @app.route('/user_signup' , methods = ['GET', 'POST'])
 def user_signup():
-	if request.method == 'GET':
-        return render_template('user_signup.html')
+    if request.method == 'GET':
+        return render_template("user_signup.html")
     elif request.method == "POST":
         first_name = request.form['firstname']
         last_name = request.form['lastname']
@@ -31,15 +31,14 @@ def user_signup():
 
 @app.route('/farm_signup', methods = ['GET', 'POST'])
 def farm_signup():
-	if request.method == 'GET':
+    if request.method == 'GET':
         return render_template('farm_signup.html')
     elif request.method == "POST":
-        first_name = request.form['firstname']
-        last_name = request.form['lastname']
-        username = request.form['username']
+        farm_name = request.form['farmname']
+        
+        farm_username = request.form['username']
         password = request.form['password']
-        age = request.form['age']
-
+  
 
 
 	# if request.method == 'GET':
@@ -51,16 +50,27 @@ def farm_signup():
 	
 	# return redirect('login')
 
-@app.route('/login', methods = ['GET', 'POST'])
-def login():
+@app.route('/user_login', methods = ['GET', 'POST'])
+def user_login():
+    if request.method == 'GET':
+        return render_template('user_login.html')	
+
+
+@app.route('/farm_login', methods = ['GET', 'POST'])
+def farm_login():
+    if request.method == 'GET':
+        return render_template('farm_login.html')	
+
+# @app.route('/login', methods = ['GET', 'POST'])
+# def login():
 	
-	if request.method == 'GET':
-		return render_template('/templates/login.html')
+# 	if request.method == 'GET':
+# 		return render_template('/templates/login.html')
 	
-	if request.method == 'POST' and get_user(request.form['username'] == None):
-		return redirect('/signup')
+# 	if request.method == 'POST' and get_user(request.form['username'] == None):
+# 		return redirect('/signup')
 	
-	return 'signup'
+# 	return 'signup'
 
 if __name__ == '__main__':
     app.run(debug=True)
