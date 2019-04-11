@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Column, Integer, String, Boolean, Float 
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
@@ -55,8 +55,9 @@ class Product(Base):
 	id = Column(Integer, primary_key = True)
 	name = Column(String)
 	quantity = Column(Integer)
-	price = Column(Integer)
+	weight = Column(Float)
+	price = Column(Float)
 	fresh = Column(Boolean)
 	fertilizer = Column(Boolean)
-	
+	modified = Column(Boolean)
 	farm_id = Column(Integer)
