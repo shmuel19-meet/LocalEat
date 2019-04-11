@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      
+    
+
+    </head>
+
+
+
+
+    <body >
+<h1>contact via Whatssap</h1>
+              
+   <h3><big><p>To have a session Send a message to <a rel="nofollow" href="https://api.whatsapp.com/send?phone=972527216320&amp;text=Hello, I want to train <Element> , in <Day> , at <Hower> , <place> ">Your trainer </a> through WhatsApp </p>
+</div></big> </h3>
+
+
+<br>      
+  
+           
+ <div class="LogInClass">  
+          
+    <center>
+       <div class="bottom">
+             <h4>Follow Us</h4>
+            
+         
+                      <a target="_blank" href="https://www.instagram.com/noamerzen/"><img src="https://thenx.com/thenx_front_resource/images/insta.png" alt="insta"></a>
+          
+          
+                      <a target="_blank" href="https://www.youtube.com/channel/UC1P2Xi4rTD-vncU_4ghRBAA/featured"><img src="https://thenx.com/thenx_front_resource/images/youtube.png" alt="youtube"></a>
+          
+        </div>
+    </center> 
+</div>
+             <!-- Add JQuery and Bootstrap JS to the page -->
+             <!-- JQuery MUST BE BEFORE BOOTSTRAP -->
+         <script src="{{ url_for('static', filename='jquery.js') }}"></script>
+         <script src="{{ url_for('static', filename='bootstrap.bundle.js') }}"></script>
+        
+              <script>
+                var myIndex = 0;
+                carousel();
+
+                function carousel() {
+                  var i;
+                  var x = document.getElementsByClassName("mySlides");
+                  for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";  
+                  }
+                  myIndex++;
+                  if (myIndex > x.length) {myIndex = 1}    
+                  x[myIndex-1].style.display = "block";  
+                  setTimeout(carousel, 9000);    
+                }
+              </script>
+
+
+
+
+
+              <script>
+        $('#email_verification').on('click', function () {
+            $.ajax({
+                type: 'POST',
+                url: "https://thenx.com/sendVerificationFromHeader",
+                beforeSend: function () {
+                    $('#loading_img').show();
+                    $('#tick_img').hide();
+                },
+                success: function () {
+                    $('#loading_img').hide();
+                    $('#tick_img').show();
+                    $('#tick_img').delay(3200).fadeOut(400);
+                },
+                error: function () {
+                    alert('Something Went Wrong , please Try Again');
+                }
+            });
+        });
+    </script>
+
+    </body>
+</html>
