@@ -1,5 +1,4 @@
 from model import *
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -115,7 +114,7 @@ def add_product(name, quantity, farm_id):
 	ans = session.query(Product).filter_by(name = name, farm_id = farm_id).all() 
 	if ans == None:
 		session.add(Product(name = name, quantity = quantity, farm_id = farm_id))
-	else
+	else:
 		ans.quantity += quantity
 	session.commit()
 
