@@ -8,16 +8,19 @@
 
 body {
   margin: 0;
-  background:linear-gradient(to right, #95ff00,#5a9101);
+  background:white;
 }
 
  
  .navbar {
-  background-color:#395e00;
+  background-color:#bcf28c;
   text-align: center;
   border-radius: 25px;
   margin-left: 100px;
   margin-right: 100px;
+}
+a {
+  color: black;
 }
 
    
@@ -25,7 +28,11 @@ body {
 </head>
 
 <body>
-
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-3" class="text-center"><img height= "200" width = '390' src="{{url_for('static', filename='llogo.png')}}" alt="logo"></div>
+    <div class="col-sm-5"></div>
+  </div>
   <div class="navbar" class="row">
 
       <div class="col-sm-3">
