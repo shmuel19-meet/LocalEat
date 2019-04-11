@@ -39,7 +39,7 @@ The function returns the user which has the given email.
 Inpput: String email - The user's email.
 Output: The user with that email.
 """
-def get_user_by_email(email = email):
+def get_user_by_email(email):
 	return session.query(User).filter_by(email = email).first()
 
 """
