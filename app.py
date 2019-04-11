@@ -31,14 +31,39 @@ def farm_signup():
 
 @app.route('/user_login', methods = ['GET', 'POST'])
 def user_login():
-    if request.method == 'GET':
+    if request.method == 'POST':
+        name = request.form['username']
+        password = request.form['password']
+
+        user = is_the_user(name, password)
+
+        if user is not None and user.password == password:
+            flask_session['username'] = user.name
+            return redirect(url_for('home'))
+        else :
+            error = 'Username & Password do not match , Please try again'
+            flash(error)
+            return render_template('user_login.html')
+    else:       
         return render_template('user_login.html')	
 
 
 @app.route('/farm_login', methods = ['GET', 'POST'])
 def farm_login():
-    if request.method == 'GET':
-        return render_template('farm_login.html')	
+    if request.method == 'POST':
+        name = request.form['username']
+        password = request.form['password']
 
+        user = is_the_farm(name, password)
+
+        if user is not None and user.password == password:
+            flask_session['username'] = user.name
+            return redirect(url_for('home'))
+        else :
+            error = 'Username & Password do not match , Please try again'
+            flash(error)
+            return render_template('farm_login.html')
+    else:       
+        return render_template('farm_login.html')   
 if __name__ == '__main__':
     app.run(debug=True)
