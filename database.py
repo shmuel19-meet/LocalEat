@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 
 engine = create_engine('sqlite:///users.db')
 Base.metadata.create_all(engine)
-DBSession = sessionmaker(bind=engine)
+DBSession = sessionmaker(bind = engine)
 session = DBSession()
 
 """
@@ -39,7 +39,7 @@ The function returns the user which has the given email.
 Inpput: String email - The user's email.
 Output: The user with that email.
 """
-def get_user_by_email(email = email):
+def get_user_by_email(email):
 	return session.query(User).filter_by(email = email).first()
 
 """
@@ -63,10 +63,10 @@ Input:  String farm_name - The farm's name.
 Output: Boolean, if the operation was successful or not.
 """
 
-def add_farm(farm_name, email, phone, password, city, address):
+def add_farm(farm_name, email, phone, password, city, longitude, latitude):
     
 	if phone.isdigit():
-		session.add(Farm(name = farm_name[0].upper()+farm_name[1:].lower(), password = password, phone = phone, city = city[0].upper() + city[1:].lower(), address = address.lower()))
+		session.add(Farm(name = farm_name[0].upper()+farm_name[1:].lower(), password = password, phone = phone, city = city[0].upper() + city[1:].lower(), longitude = longitude, latitude = latitude))
 		session.commit()
 		return True
 	return False
@@ -94,14 +94,6 @@ Output: The farm with this email address.
 """
 def get_farm_by_email(email):
 	return session.query(User).filter_by(email = email).first()
-
-"""
-The function returns the farm with the given address.
-Input: String address - the farm's address.
-Output: The farm with this address.
-"""
-def get_farm_by_address(address):
-	return session.query(Farm).filter_by(address = address).first()
 
 """
 The function returns all farms in the given city.
