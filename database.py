@@ -110,3 +110,25 @@ Output: Boolean, if the farm-name matches the password.
 """	
 def is_the_farm(name, password):
 	return get_farm_by_name(name).password == password
+
+
+def add_product(name, quantity, farm_id):
+	ans = session.query(Product).filter_by(name = name, farm_id = farm_id).all() 
+	if ans == None:
+		session.add(Product(name = name, quantity = quantity, farm_id = farm_id))
+	else
+		ans.quantity += quantity
+	session.commit()
+
+def buy_product(name, farm_id):
+	ans = session.query(Product).filter_by(name = name, farm_id = farm_id).first()
+	if ans == None:
+		return False
+
+	ans.quantity -= quantity
+	session.commit()
+	return True
+
+def get_product(name, farm_id):
+	ans = session.query(Product).filter_by(name = name, farm_id = farm_id).first()
+	return ans
