@@ -51,7 +51,6 @@ def is_the_user(name, password):
 
 	return get_user_by_name(name).password == password or get_user_by_email(name).password == password
 	
-#================================================================================================================
 
 """
 The function adds the farm to the database given the parameters.

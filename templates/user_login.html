@@ -1,22 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+
+    <title> User Log in</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+
+body {
+     background:linear-gradient(to right, #95ff00,#5a9101);
+}
+.text-mid {
+    text-align: center;
+}
+div.container {
+    border-style: solid;
+    border-radius: 15px;
+    border-width: medium;
+    background: white;
+    margin-top:25px;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    width: 50%;
+}
+
+    </style>
 </head>
 <body>
-<form action="/user_login" method="POST">
- 
 
-username :<br>
-	<input  type="text" name="username" placeholder="username" required ><br>
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-3" class="text-center"><img height= "200" width = '390' src="{{url_for('static', filename='llogo.png')}}" alt="logo"></div>
+    <div class="col-sm-5"></div>
+  </div>
 
+        <h2 class="text-mid"> Enter your information to Log in  </h2>
 
-Password :<br>
-    <input  type="password" name="password" placeholder="password" required ><br>
-	
-<br>
-<input type="submit" name="Login" value="Login"><br>
-
-</form>
+            <div class="container">
+                <h1 class="text-mid"> Log in : </h1>
+                <form action="{{ url_for('user_login') }}" method="post">
+                    <br>
+                    <label for="uname"><b>Username : </b></label>
+                    <input class="form-control" type="text" placeholder="Enter Username" name="username" required>
+                    <br>
+                    <br>
+                    <label for="psw"><b>Password : </b></label>
+                    <input class="form-control" type="password" placeholder="Enter Password" name="password" required>
+                    <br>
+                    <br>
+                    <button id= login type="submit" class="btn btn-lg btn-block text-uppercase round">LogIn</button>
+                </form>
+            </div>
+        <p class="text-mid"><a href="{{url_for('user_signup')}}"> Sign Up ? </a></p>
+        <p class="text-mid"><a href="{{url_for('home')}}"> HomePage </a></p>
 </body>
 </html>

@@ -1,31 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> farm signup page</title>
+
+<form action="/user_signup", method="POST">
+  <title> Farm signup </title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+
+body {
+    background:linear-gradient(to right, #95ff00,#5a9101);
+}
+.text-mid {
+    text-align: center;
+}
+div.container {
+    border-style: solid;
+    border-radius: 15px;
+    border-width: medium;
+    background: white;
+    margin-top:25px;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    width: 50%;
+}
+  </style>
 </head>
+
 <body>
 
-<form action="/farm_signup", method="POST">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-3" class="text-center"><img height= "200" width = '390' src="{{url_for('static', filename='llogo.png')}}" alt="logo"></div>
+    <div class="col-sm-5"></div>
+  </div>
 
-  Farm name:<br>
- 
-  <input type="text" name="farmname" required >
-  <br>
+        <h2 class="text-mid"> Enter your information and sign up  </h2>
 
- 
+            <div class="container">
+                <h1 class="text-mid"> Sign Up as Farm : </h1>
+                <form action="/sign-up" method="post">
 
-  FARM username :<br>
+                <label for="farmname"><b> <font color='black'>Farm name:</font></b></label>
+                <input class="form-control" type="text" placeholder="Enter First name" name="farmname" required>
+            <br>
+            <br>
+                <label for="username"><b> <font color='black'><font color="white"></font>Username:</font></b></label>
+                <input class="form-control" type="text" placeholder="Enter Username" name="username" required>
+            <br>
+            <br>
+                <label for="password"><b> <font color='black'><font color="white"></font>Password:</font></b></label>
+                <input class="form-control" type="password" placeholder="Enter Password" name="password" required>
+            <br>
+                    <button id=submit type="submit" class="btn btn-lg btn-block round">SignUp</button>
+                </form>
+            </div>
 
-  <input type="text" name="username" required >
-  <br>
-
-  password :<br>
-
-  <input type="password" name="password" required>
-  <br>
-
-
-
-  <input type="submit" value="Submit">
-</body>
+        <p class="text-mid"><a href="{{url_for('farm_login')}}"> Log in ? </a></p>
+        <p class="text-mid"><a href="{{url_for('home')}}"> HomePage </a></p>
+    </body>
 </html>
