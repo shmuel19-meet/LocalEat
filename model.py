@@ -15,7 +15,6 @@ class User(Base):
 	password - The user's password.
 	email - The email address of the user.
 	city - The city the user lives in.
-	address - The user's address.
 	"""
 	
 	__tablename__ = "Users"
@@ -24,7 +23,6 @@ class User(Base):
 	password = Column(String)
 	email = Column(String)
 	city = Column(String)
-	address = Column(String)
 	
 class Farm(Base):
 	
@@ -36,7 +34,8 @@ class Farm(Base):
 	password - The user's password.
 	email - The email address of the user.
 	phone - The farm's phone number.
-	location - The farm's location.
+	longitude - The farm's longitude.
+	latitude - The farm's latitude.
 	"""
 	
 	__tablename__ = "Farms"
@@ -46,5 +45,14 @@ class Farm(Base):
 	email = Column(String)
 	phone = Column(String)
 	city = Column(String)
-	address = Column(String)
+	longitude = Column(String)
+	latitude = Column(String)
+	products = relationship("Product", back_populates="Farms")
+
+class Product(Base);
 	
+	__tablename__ = "Products"
+	id = Column(Integer, primary_key = True)
+	name = Column(String)
+	quantity = Column(Integer)
+	farm_id = Column(Integer)
