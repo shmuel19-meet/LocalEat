@@ -8,30 +8,81 @@
 	
 
 <form action="/user_signup", method="POST">
+	<title> user signup page</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style>
 
-  First name:<br>
- 
-  <input type="text" name="firstname" required >
-  <br>
+body {
+    background:linear-gradient(to right, #95eddd,#7cead6);
+}
+.text-mid {
+    text-align: center;
+}
+div.container {
+    border-style: solid;
+    border-radius: 15px;
+    border-width: medium;
+    background: white;
+    margin-top:25px;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    width: 50%;
+}
+.round {
+    border-radius: 25px;
+    background-color: #AFAFAF;
+}
+ul {
+    list-style-type: none;
+    color: #ff5634;
+    text-align: center;
+}
+p {
+    font-size: large;
+}
 
-  Last name:<br>
+	</style>
+</head>
 
-  <input type="text" name="lastname" required >
-  <br>
+<body>
 
-  username :<br>
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-3" class="text-center"><img height= "200" width = '390' src="{{url_for('static', filename='llogo.png')}}" alt="logo"></div>
+    <div class="col-sm-5"></div>
+  </div>
 
-  <input type="text" name="username" required >
-  <br>
-
-  password :<br>
-
-  <input type="password" name="password" required>
-  <br>
-
+        <h2 class="text-mid"> Enter your information and sign up  </h2>
 
 
   <input type="submit" value="Submit">
   </center>
 </body>
+            <div class="container">
+                <h1 class="text-mid"> Sign Up : </h1>
+                <form action="/sign-up" method="post">
+
+                <label for="firstname"><b> <font color='black'>First name:</font></b></label>
+                <input class="form-control" type="text" placeholder="Enter First name" name="firstname" required>
+            <br>
+            <br>
+                <label for="lastname"><b> <font color='black'><font color="white"></font>Last name:</font></b></label>
+                <input class="form-control" type="text" placeholder="Enter Last name" name="lastname" required>
+            <br>
+            <br>
+                <label for="username"><b> <font color='black'><font color="white"></font>Username:</font></b></label>
+                <input class="form-control" type="text" placeholder="Enter Username" name="username" required>
+            <br>
+            <br>
+                <label for="psw"><b> <font color='black'><font color="white"></font>Password:</font></b></label>
+                <input class="form-control" type="password" placeholder="Enter Password" name="psw" required>
+            <br>
+                    <button id=submit type="submit" class="btn btn-lg btn-block round">SignUp</button>
+                </form>
+            </div>
+
+        <p class="text-mid"><a href="{{url_for('user_login')}}"> Log in ? </a></p>
+        <p class="text-mid"><a href="{{url_for('home')}}"> HomePage </a></p>
+    </body>
 </html>
