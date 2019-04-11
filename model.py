@@ -55,8 +55,9 @@ class Product(Base):
 	id = Column(Integer, primary_key = True)
 	name = Column(String)
 	quantity = Column(Integer)
+	weight = Column(Double		)
 	price = Column(Integer)
 	fresh = Column(Boolean)
 	fertilizer = Column(Boolean)
-	
+	modified = Column(Boolean)
 	farm_id = Column(Integer)
