@@ -49,7 +49,7 @@ class Farm(Base):
 	latitude = Column(String)
 	products = relationship("Product", back_populates="Farms")
 
-class Product(Base);
+class Product(Base):
 	
 	__tablename__ = "Products"
 	id = Column(Integer, primary_key = True)
