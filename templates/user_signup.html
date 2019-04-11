@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> user signup page</title>
-</head>
-<body>
-<center>
-	
 
 <form action="/user_signup", method="POST">
-	<title> user signup page</title>
+	<title> User signup </title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<style>
 
 body {
-    background:linear-gradient(to right, #95eddd,#7cead6);
+    background:linear-gradient(to right, #95ff00,#5a9101);
 }
 .text-mid {
     text-align: center;
@@ -22,26 +17,13 @@ div.container {
     border-style: solid;
     border-radius: 15px;
     border-width: medium;
-    background: white;
+    background: #bcf28c;
     margin-top:25px;
     margin-bottom: 10px;
     padding-top: 20px;
     padding-bottom: 25px;
     width: 50%;
 }
-.round {
-    border-radius: 25px;
-    background-color: #AFAFAF;
-}
-ul {
-    list-style-type: none;
-    color: #ff5634;
-    text-align: center;
-}
-p {
-    font-size: large;
-}
-
 	</style>
 </head>
 
@@ -55,12 +37,8 @@ p {
 
         <h2 class="text-mid"> Enter your information and sign up  </h2>
 
-
-  <input type="submit" value="Submit">
-  </center>
-</body>
             <div class="container">
-                <h1 class="text-mid"> Sign Up : </h1>
+                <h1 class="text-mid"> Sign Up as User : </h1>
                 <form action="/sign-up" method="post">
 
                 <label for="firstname"><b> <font color='black'>First name:</font></b></label>
@@ -75,8 +53,8 @@ p {
                 <input class="form-control" type="text" placeholder="Enter Username" name="username" required>
             <br>
             <br>
-                <label for="psw"><b> <font color='black'><font color="white"></font>Password:</font></b></label>
-                <input class="form-control" type="password" placeholder="Enter Password" name="psw" required>
+                <label for="password"><b> <font color='black'><font color="white"></font>Password:</font></b></label>
+                <input class="form-control" type="password" placeholder="Enter Password" name="password" required>
             <br>
                     <button id=submit type="submit" class="btn btn-lg btn-block round">SignUp</button>
                 </form>
