@@ -31,7 +31,7 @@ def add_farm(Farm_name, email,password):
     farm_object = Farm(Farm_name=Farm_name,
      password=password,
      email=email)
-    session.add(user_object)
+    session.add(farm_object)
     session.commit()	
 
 def query_by_Farm_name_and_password(Farm_name, password):
