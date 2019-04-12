@@ -1,10 +1,10 @@
-from flask import Flask, flash, render_template, url_for, redirect, request, session as flask_session
+from flask import Flask, flash, render_template, url_for, redirect, request, session
+# from flask.ext.session import Session
 from database import *
 import time
 
 app = Flask(__name__)
-connected_user = ''
-source = ''
+
 app.secret_key = 'LocalEat'
 
 @app.route('/')
@@ -22,7 +22,9 @@ def user_signup():
         password = request.form['Password']
         email = request.form['Email']
         phone = request.form['Phone']
+        session['ayy'] = 'lol'
         print(city, username, password, email, phone)
+        print(session['ayy'])
         add_user(city = city, name = username, password = password, email = email, phone = phone)
         return redirect(url_for('user_login'))
 
@@ -43,7 +45,7 @@ def user_login():
 
         user = is_the_user(name, password)
 
-        if user is not None and user.password == password:
+        if user:
             flask_session['username'] = user.name
             return redirect(url_for('home'))
         else :
