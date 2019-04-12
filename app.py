@@ -79,8 +79,12 @@ def farm_login():
         else :
             error = 'Username & Password do not match , Please try again'
             flash(error)
-            return render_template('farm_login.html')
+        return render_template('farmer_products.html')
     else:       
         return render_template('farm_login.html')   
+
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)

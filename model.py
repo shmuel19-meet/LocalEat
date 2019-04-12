@@ -33,4 +33,4 @@ class Product(Base):
 	fresh = Column(Boolean)
 	fertilizer = Column(Boolean)
 	modified = Column(Boolean)
-	farm_id = Column(Integer)
+	
