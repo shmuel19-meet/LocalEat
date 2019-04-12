@@ -40,6 +40,11 @@ def farm_login():
         return render_template('farm_login.html')
           
 
+@app.route('/add_product', methods = ['GET','POST'])
+def add_product():    
+    return render_template('add_product.html')
+
+
 
 
 
@@ -73,7 +78,7 @@ def farm_signup():
         return redirect(url_for('farm_login'))
 
 
-@app.route('/<string:')
+# @app.route('/<string:') ADD A ROUTE FOR ADDING A PRODUCT TO A FARM.
 
 @app.route('/user_login', methods = ['GET', 'POST'])
 def user_login():
