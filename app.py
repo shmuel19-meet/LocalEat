@@ -45,6 +45,9 @@ def farm_signup():
         add_farm(farm_name=farm_name,farm_username=farm_username,password=password,email=email,phone=phone,longitude=longitude,latitude=latitude,city=city)
         return redirect(url_for('farm_login'))
 
+
+
+
 @app.route('/user_login', methods = ['GET', 'POST'])
 def user_login():
     if request.method == 'POST':
@@ -60,6 +63,13 @@ def user_login():
             return render_template('user_login.html')
     else:       
         return render_template('user_login.html')
+
+@app.route('/<string:name>/proudcts')
+def products (name):
+    a = get_products(name)
+    return render_template("farmer_products.html", prod_list = a)
+
+
 
 @app.route('/userlog-out')
 def userlog_out():

@@ -101,9 +101,6 @@ def buy_product(name, farm_id):
 def get_product(name, farm_id):
 	ans = session.query(Product).filter_by(name = name, farm_id = farm_id).first()
 	return ans
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> fc0f9e4479c6b0e10cc66dadb6d24a253e1a4c35
+def get_products(name):
+	ans = session.query(Product).filter_by(name = name).all()
+	return ans
