@@ -7,82 +7,40 @@ Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind = engine)
 session = DBSession()
 
-"""
-The function adds the user to the database given the parameters.
-Input:  String username - The user's name.
-		String email - The user's email.
-		String phone - The user's phone.
-		String city - The user's city.
-		String address - The user's exact address.
-Output: Boolean, if the operation was successful or not.
-"""
 
-def add_user(name, email, password, city, phone):
-    
-	if phone.isdigit():
-		session.add(User(name = name, password = password, email = email, city = city[0].upper() + city[1:].lower(), phone  = phone))
-		session.commit()
-		return True
-	return False
+def add_user(username, password,email,phone):
+    user_object = User(username=username,
+     password=password,
+     email=email,
+     phone=phone)
+    session.add(user_object)
+    session.commit()
 
-"""
-The function returns the user which has the given user name.
-Inpput: String name - The name of the user.
-Output: The user with that name.
-"""
+
 def get_user_by_name(name):
 	return session.query(User).filter_by(name = name).first()
 
-"""
-The function returns the user which has the given email.
-Inpput: String email - The user's email.
-Output: The user with that email.
-"""
 def get_user_by_email(email):
 	return session.query(User).filter_by(email = email).first()
 
-"""
-The function checks if the password of the user with the given email or username matches the given password.
-Inpput: String name - The name of the user or the user's email, String password - The password to check.
-Output: Boolean, if the username matches the password.
-"""
-def is_the_user(name, password):
+def query_by_name_and_password(username, password):
+    return session.query(User).filter_by(username = username, password = password).first()
 
-	user = get_user_by_name(name)
-	return user != None and user.password == password
 	
+def add_farm(Farm_name, email,password):
+    farm_object = Farm(Farm_name=Farm_name,
+     password=password,
+     email=email)
+    session.add(user_object)
+    session.commit()	
 
-"""
-The function adds the farm to the database given the parameters.
-Input:  String farm_name - The farm's name.
-		String email - The farm's email.
-		String phone - The farm's phone.
-		String city - The farm's city.
-		String address - The farm's exact address.
-Output: Boolean, if the operation was successful or not.
-"""
+def query_by_Farm_name_and_password(Farm_name, password):
+    return session.query(User).filter_by(Farm_name = Farm_name, password = password).first()
 
-def add_farm(farm_name, email, phone, password, city, longitude, latitude):
-    
-	if phone.isdigit():
-		session.add(Farm(name = farm_name[0].upper()+farm_name[1:].lower(), password = password, phone = phone, city = city[0].upper() + city[1:].lower(), longitude = longitude, latitude = latitude))
-		session.commit()
-		return True
-	return False
 
-"""
-The function returns the farm with the given farm-name.
-Input: String name - the farm's name.
-Output: The farm with this farm-name.
-"""
 def get_farm_by_name(name):
 	return session.query(Farm).filter_by(name = name).first()
 
-"""
-The function returns the farm with the given phone number.
-Input: String phone - the farm's phone number.
-Output: The farm with this phone number.
-"""
 def get_farm_by_phone(phone):
 	return session.query(Farm).filter_by(phone = phone).first()
 
