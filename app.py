@@ -29,7 +29,7 @@ def farm_login():
 
         if user is not None and user.password == password:
             flask_session['username'] = user.Farm_name
-            return render_template('farmer_loggedin.html',name="Hello,  " + name)
+            return render_template('farmer_loggedin.html',name=name)
         
         else:
             error = 'Username & Password do not match, Please try again'
@@ -91,10 +91,11 @@ def user_login():
     else:       
         return render_template('user_login.html')
 
-@app.route('/<string:name>/proudcts')
-def products (name):
-    a = database.get_products(name)
-    return render_template("farmer_products.html", prod_list = a)
+@app.route('/<string:name>/prouducts')
+def products(name):
+    time.sleep(10)
+    prod_list = database.get_products(name)
+    return render_template("farm_profile.html", prod_list = prod_list)
 
 
 
