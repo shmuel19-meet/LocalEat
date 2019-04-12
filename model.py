@@ -23,6 +23,7 @@ class User(Base):
 	password = Column(String)
 	email = Column(String)
 	city = Column(String)
+	phone = Column(String)
 	
 class Farm(Base):
 	
@@ -47,7 +48,6 @@ class Farm(Base):
 	city = Column(String)
 	longitude = Column(String)
 	latitude = Column(String)
-	products = relationship("Product", back_populates="Farms")
 
 class Product(Base):
 	
