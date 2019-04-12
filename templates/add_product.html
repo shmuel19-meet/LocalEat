@@ -4,8 +4,9 @@
 	<title> farmer add product</title>
 </head>
 <body>
-<div>
 
+<div>
+<form action="farmer_products"  method="POST">
 Name :<br> 
 <input type="text" name="Name" required><br><br>
 
@@ -39,7 +40,7 @@ Price for a kilogram :<br>
 <input type="submit" name="Add"> <br><br>
 </div>
 <div>
-<a href="{{url_for('mainpage')}}" class="btn" role="button">back</a> 	
+<a href="{{url_for('farmer_products')}}" class="btn" role="button">back</a> 	
 </div>
 </body>
 </html>

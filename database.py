@@ -111,13 +111,25 @@ def is_the_farm(name, password):
 	return get_farm_by_name(name).password == password
 
 
-def add_product(name, quantity, farm_id):
-	ans = session.query(Product).filter_by(name = name, farm_id = farm_id).all() 
-	if ans == None:
-		session.add(Product(name = name, quantity = quantity, farm_id = farm_id))
-	else:
-		ans.quantity += quantity
+def add_product(name, quantity, weight, price, fresh, fertilizer, modified):
+	
+	add = ADD(
+		name = name,
+		quantity = quantity,
+		weight = weight,
+		price = price,
+		fresh = fresh,
+		fertilizer = fertilizer,
+		modified = modified)
+	session.add(add)
 	session.commit()
+
+# ans = session.query(Product).filter_by(name = name, farm_id = farm_id).all() 
+	# if ans == None:
+	# 	session.add(Product(name = name, quantity = quantity, farm_id = farm_id))
+	# else:
+	# 	ans.quantity += quantity
+	# session.commit()
 
 def buy_product(name, farm_id):
 	ans = session.query(Product).filter_by(name = name, farm_id = farm_id).first()
@@ -131,3 +143,6 @@ def buy_product(name, farm_id):
 def get_product(name, farm_id):
 	ans = session.query(Product).filter_by(name = name, farm_id = farm_id).first()
 	return ans
+
+
+
