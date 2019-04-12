@@ -17,10 +17,10 @@ Input:  String username - The user's name.
 Output: Boolean, if the operation was successful or not.
 """
 
-def add_user(user_name, email, password, city, address):
+def add_user(name, email, password, city, phone):
     
 	if phone.isdigit():
-		session.add(User(name = user_name, password = password, email = email, city = city[0].upper() + city[1:].lower(), address = address.lower()))
+		session.add(User(name = name, password = password, email = email, city = city[0].upper() + city[1:].lower(), phone  = phone))
 		session.commit()
 		return True
 	return False
@@ -48,7 +48,8 @@ Output: Boolean, if the username matches the password.
 """
 def is_the_user(name, password):
 
-	return get_user_by_name(name).password == password or get_user_by_email(name).password == password
+	user = get_user_by_name(name)
+	return user != None and user.password == password
 	
 
 """
