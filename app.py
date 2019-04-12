@@ -34,15 +34,11 @@ def farm_signup():
     if request.method == 'GET':
         return render_template('farm_signup.html')
     else:
-        farm_name = request.form['farmname']  
-        farm_username = request.form['username']
+        Farm_name = request.form['farmname']  
+        email = request.form['email']
         password = request.form['password']
-        city = request.form["city"]
-        phone = request.form["phone"]
-        email = request.form["email"]
-        longitude = request.form["longitude"]
-        latitude =  request.form["latitude"]
-        add_farm(farm_name=farm_name,farm_username=farm_username,password=password,email=email,phone=phone,longitude=longitude,latitude=latitude,city=city)
+        print(Farm_name, email, password)
+        add_farm(Farm_name,email,password)
         return redirect(url_for('farm_login'))
 
 @app.route('/user_login', methods = ['GET', 'POST'])
