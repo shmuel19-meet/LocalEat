@@ -1,10 +1,11 @@
 from flask import Flask, flash, render_template, url_for, redirect, request, session as flask_session
 from database import *
-
+import time
 
 app = Flask(__name__)
 connected_user = ''
 source = ''
+app.secret_key = 'LocalEat'
 
 @app.route('/')
 def home():	
@@ -14,11 +15,16 @@ def home():
 def user_signup():
     if request.method == 'GET':
         return render_template("user_signup.html")
+
     elif request.method == "POST":
-        first_name = request.form['firstname']
-        last_name = request.form['lastname']
-        username = request.form['username']
-        password = request.form['password']
+        city = request.form['City']
+        username = request.form['Username']
+        password = request.form['Password']
+        email = request.form['Email']
+        phone = request.form['Phone']
+        print(city, username, password, email, phone)
+        add_user(city = city, name = username, password = password, email = email, phone = phone)
+        return redirect(url_for('user_login'))
 
 @app.route('/farm_signup', methods = ['GET', 'POST'])
 def farm_signup():

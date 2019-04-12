@@ -39,28 +39,33 @@ div.container {
 
             <div class="container">
                 <h1 class="text-mid"> Sign Up as User : </h1>
-                <form action="/sign-up" method="post">
+                <form action="/user_signup" method="post">
 
-                <label for="firstname"><b> <font color='black'>First name:</font></b></label>
-                <input class="form-control" type="text" placeholder="Enter First name" name="firstname" required>
+                <label for="username"><b> <font color='black'>Name:</font></b></label>
+                <input class="form-control" type="text" placeholder="Enter username" name="Username" required>
             <br>
             <br>
-                <label for="lastname"><b> <font color='black'><font color="white"></font>Last name:</font></b></label>
-                <input class="form-control" type="text" placeholder="Enter Last name" name="lastname" required>
+                <label for="email"><b> <font color='black'><font color="white"></font>Email:</font></b></label>
+                <input class="form-control" type="text" placeholder="Enter email" name="Email" required>
             <br>
             <br>
-                <label for="username"><b> <font color='black'><font color="white"></font>Username:</font></b></label>
-                <input class="form-control" type="text" placeholder="Enter Username" name="username" required>
+                <label for="city"><b> <font color='black'><font color="white"></font>City:</font></b></label>
+                <input class="form-control" type="text" placeholder="Enter city name" name="City" required>
+            <br>
+            <br>
+                <label for="phone"><b> <font color='black'><font color="white"></font>Phone number</font></b></label>
+                <input class="form-control" type="text" placeholder="Enter Phone number" name="Phone" required>
             <br>
             <br>
                 <label for="password"><b> <font color='black'><font color="white"></font>Password:</font></b></label>
-                <input class="form-control" type="password" placeholder="Enter Password" name="password" required>
+                <input class="form-control" type="password" placeholder="Enter Password" name="Password" required>
             <br>
+            
                     <button id=submit type="submit" class="btn btn-lg btn-block round">SignUp</button>
                 </form>
             </div>
 
-        <p class="text-mid"><a href="{{url_for('user_login')}}"> Log in ? </a></p>
+        <p class="text-mid"><a href="{{url_for('user_login')}}"> Log in</a></p>
         <p class="text-mid"><a href="{{url_for('home')}}"> HomePage </a></p>
     </body>
 </html>
