@@ -39,7 +39,7 @@ def query_by_Farm_name_and_password(Farm_name, password):
 
 
 def get_farm_by_name(name):
-	return session.query(Farm).filter_by(name = name).first()
+	return session.query(Farm).filter_by(Farm_name = name).first()
 
 def get_farm_by_phone(phone):
 	return session.query(Farm).filter_by(phone = phone).first()
@@ -65,8 +65,8 @@ The function checks if the password of the farm with the given email or username
 Inpput: String name - The name of the farm or the farm's email, String password - The password to check.
 Output: Boolean, if the farm-name matches the password.
 """	
-def is_the_farm(name, password):
-	return get_farm_by_name(name).password == password
+def is_the_farm(Farm_name, password):
+	return session.query(Farm).filter_by(Farm_name=Farm_name,password=password).first()
 
 
 def add_product(name, quantity, weight, price, fresh, fertilizer, modified):
