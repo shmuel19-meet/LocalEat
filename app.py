@@ -13,8 +13,36 @@ def home():
     if 'username' in flask_session:
         user_name = flask_session['username']
         return render_template('home_loggedin.html',name="Hello,  " + user_name)
+
     else:
         return render_template('home.html')
+
+
+@app.route('/farm_login', methods = ['GET', 'POST'])
+def farm_login():
+   
+    if request.method == 'POST':
+        name = request.form['username']
+        password = request.form['password']
+
+        user = database.is_the_farm(name, password)
+
+        if user is not None and user.password == password:
+            flask_session['username'] = user.Farm_name
+            return render_template('farmer_loggedin.html',name=name)
+        
+        else:
+            error = 'Username & Password do not match, Please try again'
+            flash(error)
+        
+        return render_template('farm_login.html')
+    else:
+        return render_template('farm_login.html')
+          
+
+
+
+
 
 
 @app.route('/user_signup' , methods = ['GET', 'POST'])
@@ -63,10 +91,11 @@ def user_login():
     else:       
         return render_template('user_login.html')
 
-@app.route('/<string:name>/proudcts')
-def products (name):
-    a = database.get_products(name)
-    return render_template("farmer_products.html", prod_list = a)
+@app.route('/<string:name>/prouducts')
+def products(name):
+    time.sleep(10)
+    prod_list = database.get_products(name)
+    return render_template("farm_profile.html", prod_list = prod_list)
 
 
 
@@ -78,36 +107,6 @@ def userlog_out():
         return render_template('home.html')
     else:
         return redirect(url_for('home'))
-
-@app.route('/farm_login', methods = ['GET', 'POST'])
-def farm_login():
-   
-    if request.method == 'POST':
-        name = request.form['username']
-        password = request.form['password']
-
-        user = database.is_the_farm(name, password)
-
-        if user is not None and user.password == password:
-            flask_session['username'] = user.name
-            return redirect(url_for('home'))
-        
-        else:
-            error = 'Username & Password do not match, Please try again'
-            flash(error)
-        
-        print('kadkbaksdbkabkdalsbjasbajkbdkjasbdjkabskdbaskj')
-        print(flask_session['name'])
-        print(flask_session['name']+'/proudcts')
-        time.sleep(5)
-
-        return render_template('farmer_products.html')
-    
-    else:
-        
-        return render_template('farm_login.html')
-        
-        return redirect(flask_session['name']+'/proudcts')   
 
 
 
