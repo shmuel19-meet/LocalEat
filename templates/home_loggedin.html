@@ -99,14 +99,17 @@ a {
   </div>
 
   <div class="navbar" class="row">
-
-      <div class="col-sm-6">
-        <a  href="{{url_for('user_login')}}">log in</a>
-      </div>
-      <div class="col-sm-6" class="text-center">
-        <a  href="{{url_for('user_signup')}}">sign up</a>
+      <div class="col-sm-4" class="text-center">
+        <p> {{ name }}. 
       </div>
 
+      <div class="col-sm-4">
+        <a  href="{{url_for('home')}}">shop</a>
+      </div>
+
+      <div class="col-sm-4">
+        <a  href="{{url_for('userlog_out')}}">log out ?</a>
+      </div>
   </div>
 
  <div class="cont1">
