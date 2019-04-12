@@ -4,14 +4,10 @@
 	<title>Farm profile</title>
 </head>
 <body>
-	<p>{{product_list[i].farm_name\product_list[i].name}}</p>
-	<!-- {%for i in range(len(product_list))%}
+	{%for i in prod_list%}
 
-		<a href = "{{product_list[i].farm_name\product_list[i].name}}">{{product_list[i]}}</a>
-		{%if i % 15 == 0%}
-			<br>
-		{%endif%}
+		<a href = "{{i.farm_name}}\{{i.name}}">{{i}}</a>
 
-	{%endfor%} -->
+	{%endfor%}
 </body>
 </html>

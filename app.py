@@ -73,7 +73,7 @@ def farm_signup():
         return redirect(url_for('farm_login'))
 
 
-
+@app.route('/<string:')
 
 @app.route('/user_login', methods = ['GET', 'POST'])
 def user_login():
