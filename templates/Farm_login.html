@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='login-signin.css')}}">
+
+    <title> Farm Log-In</title>
+
+</head>
+<body>
+            <h1 class="text-mid"> Log in as Farm : </h1>
+            <div class="container">
+
+                <form action="{{url_for('farm_logIn')}}" method="post">
+                    <br>
+                    <label for="farmname"><b>Farm name : </b></label>
+                    <input class="form-control" type="text" placeholder="Enter Farm name" name="farmname" required>
+                    <br>
+                    <br>
+                    <label for="password"><b>Password : </b></label>
+                    <input class="form-control" type="password" placeholder="Enter Password" name="password" required>
+                    <br>
+                    <br>
+                    <button id= login type="submit" >Log-In</button>
+                </form>
+            </div>
+        <p class="text-mid"><a href="{{url_for('farm_signUp')}}"> Sign Up ? </a></p>
+        <p class="text-mid"><a href="{{url_for('home')}}"> HomePage </a></p>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='login-signin.css')}}">
+    <title> Farm Sign-Up </title>
+</head>
+<body>
+            
+                <h1 class="text-mid"> Sign Up as Farm: </h1>
+                <h3 class="text-mid">As a Farm you will be able to add products for Users to view and buy.</h3>
+            <div class="container">
+                <form action="/farm_sign-up" method="post">
+            <br>
+                <label for="farmname"><b><font color='black'>Farm name :</font></b></label>
+                <input class="form-control" type="text" placeholder="Enter Farm name" name="farmname" required>
+            <br>
+            <br>
+                <label for="password"><b> <font color='black'><font color="white"></font>Password :</font></b></label>
+                <input class="form-control" type="password" placeholder="Enter Password" name="password" required>
+            <br>
+            <br>
+                    <button id=submit type="submit">Sign-Up</button>
+                </form>
+            </div>
+        <p class="text-mid"><a href="/farm_log-in">already have a Farm account ?</a></p>
+        <p class="text-mid"><a href="{{url_for('home')}}"> HomePage </a></p>
+</body>
+</html>

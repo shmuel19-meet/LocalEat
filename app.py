@@ -1,7 +1,5 @@
 from flask import Flask, flash, render_template, url_for, redirect, request, session as flask_session
-# from database import *
-import database
-import time
+from database import *
 
 app = Flask(__name__)
 app.secret_key = 'super secret key'
@@ -11,109 +9,108 @@ app.config['SESSION_TYPE'] = 'filesystem'
 @app.route('/')
 def home():
     if 'username' in flask_session:
-        user_name = flask_session['username']
-        return render_template('home_loggedin.html',name="Hello,  " + user_name)
-
+        username = flask_session['username']
+        return render_template('User_HomePage.html',user=username)
+    elif 'farmname' in flask_session:
+        farmname = flask_session['farmname']
+        return render_template('Farm_HomePage.html',farm=farmname,my_products=get_owner_products(farmname))
     else:
-        return render_template('home.html')
+        return render_template('HomePage.html')
 
+@app.route('/shop')
+def shop():
+    if 'username' or 'farmname' in flask_session:
+        return render_template('Shop.html',products=get_all_products())
+    else:
+        return redirect(url_for('user_logIn'))
 
-@app.route('/farm_login', methods = ['GET', 'POST'])
-def farm_login():
-   
-    if request.method == 'POST':
-        name = request.form['username']
-        password = request.form['password']
-
-        user = database.is_the_farm(name, password)
-
-        if user is not None and user.password == password:
-            flask_session['username'] = user.Farm_name
-            return render_template('farmer_loggedin.html',name=name)
-        
+@app.route('/add-product', methods =["GET","POST"])
+def add_product():
+    if 'farmname' in flask_session:
+        if request.method =="GET":
+            return render_template('Add_Product.html')
         else:
-            error = 'Username & Password do not match, Please try again'
-            flash(error)
-        
-        return render_template('farm_login.html')
+            add_Product(request.form['productname'],flask_session['farmname'],
+                int(request.form['productcost']))
+            return redirect(url_for('shop'))
     else:
-        return render_template('farm_login.html')
-          
+        return redirect(url_for('shop'))
 
-@app.route('/add_product', methods = ['GET','POST'])
-def add_product():    
-    return render_template('add_product.html')
+@app.route('/product/<int:id>')
+def product_page(id):
+    return render_template('Product.html', name = query_product_by_id(id).name,
+        Owner=query_product_by_id(id).Owner,cost=query_product_by_id(id).cost)
 
-
-
-
-
-
-
-@app.route('/user_signup' , methods = ['GET', 'POST'])
-def user_signup():
-    if request.method == 'GET':
-        return render_template("user_signup.html")
-
-    else:
-        username = request.form['Username']
-        password = request.form['Password']
-        email = request.form['Email']
-        phone = request.form['Phone']
-        database.add_user(username,password,email,phone)
-        return redirect(url_for('user_login'))
-
-@app.route('/farm_signup', methods = ['GET', 'POST'])
-def farm_signup():
     
-    if request.method == 'GET':
-        return render_template('farm_signup.html')
-
+@app.route('/user_sign-up', methods=['GET', 'POST'])
+def user_signUp():
+    if request.method == "POST":
+        if query_user_by_username(request.form['username']) == None:
+            add_User(request.form['username'],request.form['password'],0)
+            return redirect(url_for('user_logIn'))
+        else:
+            flash('User name already taken, please choose another one.')
+            return render_template('User_signup.html')            
     else:
-        Farm_name = request.form['farmname']  
-        email = request.form['email']
-        password = request.form['password']
-        print(Farm_name, email, password)
-        database.add_farm(Farm_name,email,password)
-        return redirect(url_for('farm_login'))
+        return render_template('User_signup.html')
 
+@app.route('/farm_sign-up', methods=['GET', 'POST'])  
+def farm_signUp():
+    if request.method == "POST":
+        if query_by_farmname(request.form['farmname']) == None:
+            add_Farm(request.form['farmname'],request.form['password'])
+            return redirect(url_for('farm_logIn'))
+        else:
+            flash('Farm name already taken, please choose another one.')
+            return render_template('Farm_signup.html')
+    else:
+        return render_template('Farm_signup.html')
 
-# @app.route('/<string:') ADD A ROUTE FOR ADDING A PRODUCT TO A FARM.
+@app.route('/user_log-in', methods=['GET','POST'])
+def user_logIn():
+    if request.method == "POST":
+        user = query_by_username_and_password(request.form['username'], request.form['password'])
 
-@app.route('/user_login', methods = ['GET', 'POST'])
-def user_login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-
-        user = database.query_by_name_and_password(username, password)
-
-        if user is not None and user.password == password:
+        if user is not None and user.password == request.form['password']:
             flask_session['username'] = user.username
             return redirect(url_for('home'))
         else:
-            return render_template('user_login.html')
+            error = 'Username & Password do not match , Please try again'
+            flash(error)
+            return render_template('User_login.html')
     else:       
-        return render_template('user_login.html')
+        return render_template('User_login.html')
 
-@app.route('/<string:name>/products')
-def products(name):
-    prod_list = database.get_products(name)
-    return render_template("farm_profile.html", prod_list = prod_list)
+@app.route('/farm_log-in', methods=['GET','POST'])
+def farm_logIn():
+    if request.method == "POST":
+        farm = query_by_farmname_and_password(request.form['farmname'], request.form['password'])
 
+        if farm is not None and farm.password == request.form['password']:
+            flask_session['farmname'] = farm.Farm_name
+            return redirect(url_for('home'))
+        else:
+            return render_template('Farm_login.html')
+    else:       
+        return render_template('Farm_login.html')
 
-
-@app.route('/userlog-out')
-def userlog_out():
-
+@app.route('/user_log-out')
+def user_logOut():
     if 'username' in flask_session:
         del flask_session['username']
-        return render_template('home.html')
+        return redirect(url_for('home'))
+    else:
+        return redirect(url_for('home'))
+
+@app.route('/farm_log-out')
+def farm_logOut():
+    if 'farmname' in flask_session:
+        del flask_session['farmname']
+        return redirect(url_for('home'))
     else:
         return redirect(url_for('home'))
 
 
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HomePage</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">LocalEat</a>
+    </div>
+    <ul class="nav navbar-nav">
+    <li><a href="/farm_log-out">Log out</a></li>
+    <li><a href="/add-product">add product</a></li>
+     <li><a href="/shop">Shop</a></li>
+    </ul>
+  </div>
+</nav>
+  
+	<h1>eyo {{farm}} welcome</h1>
+
+  {% if my_products == []: %}
+    <h2>you don't have any products !</h2>
+    <a href="/add-product">add product</a>
+  {% else: %}
+    <h2>your products :</h2>
+    {% for product in my_products%}
+      <div class="col-sm-4">
+        <div class="card">
+            <div class="card">
+                <img class="card-img-top" src="{{url_for('static', filename='images/products.jpg')}}" width="670" height="440">
+                <div class="card-body">
+                  <h5 class="card-title">{{product.name}}</h5>
+                  <p class="card-text">cost: {{product.cost}}NIS</p>
+                  <a href="product/{{product.id_table}}" class="btn btn-primary">View details</a>
+                </div>
+              </div>
+        </div>
+      </div>
+{% endfor%}
+{% endif %}
+
+</body>
+</html>

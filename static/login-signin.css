@@ -1,0 +1,21 @@
+body {
+    background:white;
+}
+.text-mid {
+    text-align: center;
+}
+div.container {
+    margin-left: 30%;
+    text-align: center;
+    border-style: solid;
+    border-radius: 15px;
+    border-width: medium;
+    background: #bcf28c;
+    margin-top:25px;
+    margin-bottom: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    width: 40%;
+}
