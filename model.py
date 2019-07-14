@@ -8,16 +8,23 @@ Base = declarative_base()
 class User(Base):
     __tablename__ = "User"
     id_table = Column(Integer, primary_key = True)
-    username = Column(String)
+    email = Column(String)
+    phone = Column(Integer)
+    address = Column(String)
+    
     password = Column(String)
     cash = Column(Float)
 
     def __repr__(self):
-        return ("Username: {},\n"
+        return ("email: {},\n"
+            "phone: {},\n"
+            "address: {},\n"
             "password: {}, \n"
             "cash: {}.\n"
-        	).format(
-        		self.username,
+            ).format(
+                self.email,
+                self.phone,
+                self.address,
                 self.password,
                 self.cash)
 
