@@ -97,8 +97,6 @@ def get_all_products():
 def get_owner_products(Owner):
     return session.query(Product).filter_by(Owner=Owner).all()
 
-def get_type_products(Type):
-    return session.query(Product).filter_by(Type=Type).all()
 
 def get_all_users():
     return session.query(User).all()
@@ -128,9 +126,13 @@ def query_type_by_name(Name):
 
 def add_type(Name,img,min_price, max_price):
   try:
-    product_object = Product(Name=Name,img=img,min_price=min_price, max_price=max_price)
+    product_object = Type(Name=Name,Img=img,Min_price=min_price, Max_price=max_price)
     session.add(product_object)
     session.commit()
   except:
     session.rollback()
     raise
+
+
+def get_type_products(Type):
+    return session.query(Product).filter_by(Type=Type).all()
