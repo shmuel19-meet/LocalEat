@@ -8,6 +8,7 @@
 {% for food in foodlist %}
 	<h3>{{food.Owner}}</h3>
 	<h4> {{food.cost}}</h4>
+	<button type="button">buy</button>
 {% endfor %}
 <br>
 <a href="{{url_for('shop')}}">back to shop</a>
