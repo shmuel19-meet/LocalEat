@@ -29,7 +29,8 @@ def shop():
 def add_product():
     if 'farmname' in flask_session:
         if request.method =="GET":
-            return render_template('Add_Product.html')
+            types = get_all_Types()
+            return render_template('Add_Product.html', types = types)
         else:
             add_Product(request.form['category'],flask_session['farmname'],
                 int(request.form['productcost']))
@@ -40,6 +41,7 @@ def add_product():
 @app.route('/product/<string:Type>')
 def product_page(Type):
     foodlist = get_type_products(Type)
+    print(foodlist)
     Type_1 = query_type_by_name(Type)
     return render_template('foodType.html', foodlist = foodlist, Type_1=Type_1)
 
@@ -113,12 +115,14 @@ def farm_logOut():
         return redirect(url_for('home'))
 
 @app.route('/add_food_type', methods=['GET','POST'])
-def add_type():
+def add_Type():
     if request.method == "GET":
             return render_template('add_type.html')
     else:
-        add_type(request.form[name],request.form[img],request.form[min_price], request.form[max_price])       
-        return render_template('HomePage.html')
+        print(request.form)
+        
+        add_type(request.form['name'],request.form['img'],request.form['min_price'],request.form['max_price'])       
+        return redirect(url_for('home'))
 
 
 if __name__ == "__main__":

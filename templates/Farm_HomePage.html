@@ -30,15 +30,15 @@
     <a href="/add-product">add product</a>
   {% else: %}
     <h2>your products :</h2>
-    {% for product in my_products%}
+{% for product in my_products%}
       <div class="col-sm-4">
         <div class="card">
             <div class="card">
-                <img class="card-img-top" src="{{url_for('static', filename='images/products.jpg')}}" width="670" height="440">
+                <img class="card-img-top" src="https://static1.squarespace.com/static/5c14633bfcf7fdbf8335eec1/t/5c3e29bc4fa51a07ddab8401/1547594918284/IMG-3621.JPG" width="670" height="440">
                 <div class="card-body">
                   <h5 class="card-title">{{product.name}}</h5>
                   <p class="card-text">cost: {{product.cost}}NIS</p>
-                  <a href="product/{{product.id_table}}" class="btn btn-primary">View details</a>
+                  <a href="product/{{product.Type}}" class="btn btn-primary">View details</a>
                 </div>
               </div>
         </div>
