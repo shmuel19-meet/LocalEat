@@ -17,9 +17,9 @@ def add_User(email,phone,address, password,cash):
         session.rollback()
         raise
 
-def add_Farm(Farm_name,password):
+def add_Farm(Farm_name,phone,address,password):
     try:
-        Farm_object = Farm(Farm_name=Farm_name,password=password)
+        Farm_object = Farm(Farm_name=Farm_name,phone=phone,address=address,password=password)
         session.add(Farm_object)
         session.commit()
     except:

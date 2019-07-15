@@ -58,7 +58,7 @@ def user_signUp():
 def farm_signUp():
     if request.method == "POST":
         if query_by_farmname(request.form['farmname']) == None:
-            add_Farm(request.form['farmname'],request.form['password'])
+            add_Farm(request.form['farmname'],request.form['phone'],request.form['address'],request.form['password'])
             return redirect(url_for('farm_logIn'))
         else:
             flash('Farm name already taken, please choose another one.')
