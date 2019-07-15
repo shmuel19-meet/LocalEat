@@ -26,9 +26,9 @@ def add_Farm(Farm_name,password):
         session.rollback()
         raise    
 
-def add_Product(name,Owner,cost):
+def add_Product(Type,Owner,cost):
   try:
-    product_object = Product(name=name,Owner=Owner,cost=round(cost,2))
+    product_object = Product(Type=Type,Owner=Owner,cost=round(cost,2))
     session.add(product_object)
     session.commit()
   except:
@@ -93,8 +93,12 @@ def buy_product(email,product_id):
 def get_all_products():
     return session.query(Product).all()
 
+
 def get_owner_products(Owner):
     return session.query(Product).filter_by(Owner=Owner).all()
+
+def get_type_products(Type):
+    return session.query(Product).filter_by(Type=Type).all()
 
 def get_all_users():
     return session.query(User).all()
@@ -114,3 +118,19 @@ def delete_all_products():
     session.query(Product).delete()
     session.commit()
 
+##########################################################################
+
+def get_all_Types():
+    return session.query(Type).all()
+
+def query_type_by_name(Name):
+   return  session.query(Type).filter_by(Name=Name).first() 
+
+def add_type(Name,img,min_price, max_price):
+  try:
+    product_object = Product(Name=Name,img=img,min_price=min_price, max_price=max_price)
+    session.add(product_object)
+    session.commit()
+  except:
+    session.rollback()
+    raise

@@ -6,8 +6,12 @@
 <body>
 
 <form action="/add-product" method="POST">
-    name :<input type="text" name="productname" placeholder="Name">
-    <br>
+	<select name="category">
+	  <option value="tomato">tomato</option>
+	  <option value="apple">apple</option>
+	  <option value="orange">orange</option>
+	  <option value="olive">olive</option>
+	</select>
     cost :<input type="number" name="productcost">
     <input type="submit" value="Submit">
 </form>	

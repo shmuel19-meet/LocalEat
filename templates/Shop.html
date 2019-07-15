@@ -34,15 +34,15 @@
   </div>
 </nav>
   
-{% for product in products%}
+{% for type in types%}
       <div class="col-sm-4">
         <div class="card">
             <div class="card">
                 <img class="card-img-top" src="{{url_for('static', filename='images/products.jpg')}}" width="670" height="440">
                 <div class="card-body">
-                  <h5 class="card-title">{{product.name}}</h5>
-                  <p class="card-text">cost: {{product.cost}}NIS</p>
-                  <a href="product/{{product.id_table}}" class="btn btn-primary">View details</a>
+                  <h5 class="card-title">{{type.Name}}</h5>
+                  <p class="card-text">{{type.Min_price}} - {{type.Max_price}} </p>
+                  <a href="product/{{type.Name}}" class="btn btn-primary">comapre and buy</a>
                 </div>
               </div>
         </div>
