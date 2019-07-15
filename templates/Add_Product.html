@@ -8,7 +8,7 @@
 <form action="/add-product" method="POST">
 	<select name="category">
 	{% for type in types %}
-	  <option value="type">{{type.Name}}</option>
+	 <option value={{type.Name}}>{{type.Name}}</option>
 	{% endfor %}
 
 	</select>
