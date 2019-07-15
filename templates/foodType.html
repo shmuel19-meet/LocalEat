@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{Type_1.Name}}</title>
+	<img src="((Type_1.Img))" width="420" height="420">
+</head>
+<body>
+{% for food in foodlist %}
+	<h3>{{food.Owner}}</h3>
+	<h4> {{food.cost}}</h4>
+{% endfor %}
+<a href="{{url_for('shop')}}">back to shop</a>
+</body>
+</html>

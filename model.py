@@ -50,16 +50,35 @@ class Farm(Base):
 class Product(Base):
     __tablename__ = "products"
     id_table = Column(Integer, primary_key=True)
-    name = Column(String)
+    Type = Column(String)
     Owner = Column(String)
     cost = Column(Float)
 
     def __repr__(self):
         return ("id : {},\n"
-            "name: {},\n"
+            "Type: {},\n"
             "Owner: {},\n"
             "cost: {}.\n"
             ).format(self.id_table,
-                self.name,
+                self.Type,
                 self.Owner,
                 self.cost)
+
+class Type(Base):
+    __tablename__ = "Types"
+    id_table = Column(Integer, primary_key=True)
+    Name = Column(String)
+    Img = Column(String)
+    Min_price = Column(Integer)
+    Max_price = Column(Integer)
+    def __repr__(self):
+        return ("id : {},\n"
+            "Name: {},\n"
+            "img link: {},\n"
+            "min_price: {}.\n"
+            "max_price: {}.\n"
+            ).format(self.id_table,
+                self.Name,
+                self.Img,
+                self.Min_price,
+                self.Max_price)

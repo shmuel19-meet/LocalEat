@@ -20,7 +20,8 @@ def home():
 @app.route('/shop')
 def shop():
     if 'username' or 'farmname' in flask_session:
-        return render_template('Shop.html',products=get_all_products())
+        types = get_all_Types()
+        return render_template('Shop.html',products=get_all_products(), types = types)
     else:
         return redirect(url_for('user_logIn'))
 
@@ -30,16 +31,17 @@ def add_product():
         if request.method =="GET":
             return render_template('Add_Product.html')
         else:
-            add_Product(request.form['productname'],flask_session['farmname'],
+            add_Product(request.form['category'],flask_session['farmname'],
                 int(request.form['productcost']))
             return redirect(url_for('shop'))
     else:
         return redirect(url_for('shop'))
 
-@app.route('/product/<int:id>')
-def product_page(id):
-    return render_template('Product.html', name = query_product_by_id(id).name,
-        Owner=query_product_by_id(id).Owner,cost=query_product_by_id(id).cost)
+@app.route('/product/<string:Type>')
+def product_page(Type):
+    foodlist = get_type_products(Type)
+    Type_1 = query_type_by_name(Type)
+    return render_template('foodType.html', foodlist = foodlist, Type_1=Type_1)
 
     
 @app.route('/user_sign-up', methods=['GET', 'POST'])
@@ -109,6 +111,14 @@ def farm_logOut():
         return redirect(url_for('home'))
     else:
         return redirect(url_for('home'))
+
+@app.route('/add_food_type', methods=['GET','POST'])
+def add_type():
+    if request.method == "GET":
+            return render_template('add_type.html')
+    else:
+        add_type(request.form[name],request.form[img],request.form[min_price], request.form[max_price])       
+        return render_template('HomePage.html')
 
 
 if __name__ == "__main__":
