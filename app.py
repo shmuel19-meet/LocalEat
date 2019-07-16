@@ -18,7 +18,7 @@ def home():
         return render_template('HomePage.html')
 
 
-app.route('/contact')
+@app.route('/contact')
 def Contact():
     Farm_list = get_all_farms()
     return render_template('Contact.html', Farm_list = Farm_list)

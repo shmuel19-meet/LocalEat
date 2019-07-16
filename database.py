@@ -101,6 +101,8 @@ def get_owner_products(Owner):
 def get_all_users():
     return session.query(User).all()
 
+def get_all_farms():
+    return session.query(Farm).all()
 
 def query_by_username_and_password(email, password):
     return session.query(User).filter_by(email = email, password = password).first()

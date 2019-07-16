@@ -70,8 +70,9 @@
     </ul>
   </div>
 </nav>
-{{}}
-<a rel="nofollow" href="https://api.whatsapp.com/send?phone=972527216320&amp;text=Hello, I want to train <Element> , in <Day> , at <Hower> , <place> "   target="_blank">Your trainer </a> 
+{%for farm in Farm_list%}
+<a rel="nofollow" href="https://api.whatsapp.com/send?phone={{farm.phone}}&amp;text=Hello, I want to train <Element> , in <Day> , at <Hower> , <place> "   target="_blank">Your trainer </a> 
+{% endfor %}
   
 
 </body>
