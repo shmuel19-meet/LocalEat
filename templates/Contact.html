@@ -65,13 +65,17 @@
           <li><a href="/farm_log-in">Log In</a></li>
           <li><a href="/farm_sign-up">Sign Up</a></li>
         </ul>
-      </li>
+      </li>   
       <li><a href="/shop" id="custom_text">Shop</a></li>
     </ul>
   </div>
 </nav>
-{{}}
-<a rel="nofollow" href="https://api.whatsapp.com/send?phone=972527216320&amp;text=Hello, I want to train <Element> , in <Day> , at <Hower> , <place> "   target="_blank">Your trainer </a> 
+{%for farm in Farm_list%}
+{{farm.Farm_name}}
+<button>
+  <a rel="nofollow" href="https://api.whatsapp.com/send?phone={{farm.phone}}&amp;text=Hello {{farm.Farm_name}}, I'm {{email}} ,  "   target="_blank">CONTACT THE FARMER </a> 
+</button>
+{% endfor %}
   
 
 </body>

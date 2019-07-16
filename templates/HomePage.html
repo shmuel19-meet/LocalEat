@@ -74,7 +74,7 @@
     <h1 style="text-align: center;">eyo welcome home</h1>-->
 <nav>
     <ul>
-        <li><a href="#">Home</a></li>
+        
         <li class="parent"><a href="#">User</a>
             <ul class="child">
         {% if log%}
@@ -86,10 +86,10 @@
             </ul>
         </li>
 
-        <li><a href="/HomePage">Home</a></li>
-        <li><a href="/Shop">Shop</a></li>
+        <li><a href="{{url_for('home')}}">Home</a></li>
+        <li><a href="{{url_for('shop')}}">Shop</a></li>
         <li><a href="#">Shipping&Payment</a></li>
-        <li><a href="/Contact">Contact Us</a></li>
+        <li><a href="#">Contact Us</a></li>
         
     </ul>
 </nav>

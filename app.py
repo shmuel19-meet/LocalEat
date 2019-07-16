@@ -17,6 +17,13 @@ def home():
     else:
         return render_template('HomePage.html')
 
+
+@app.route('/contact')
+def Contact():
+    Farm_list = get_all_farms()
+    return render_template('Contact.html', Farm_list = Farm_list)
+
+
 @app.route('/shop')
 def shop():
     if 'username' or 'farmname' in flask_session:
@@ -123,6 +130,8 @@ def add_Type():
         
         add_type(request.form['name'],request.form['img'],request.form['min_price'],request.form['max_price'])       
         return redirect(url_for('home'))
+
+
 
 
 if __name__ == "__main__":
