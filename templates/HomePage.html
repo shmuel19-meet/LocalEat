@@ -75,16 +75,22 @@
 <nav>
     <ul>
         <li><a href="#">Home</a></li>
-        <li class="parent"><a href="#">Products</a>
+        <li class="parent"><a href="#">User</a>
             <ul class="child">
-                <li><a href="#">Stale Breads</a></li>
-                <li><a href="#">Peanuts</a></li>
-                <li><a href="#">Pepper</a></li>
+        {% if log%}
+        <li><a href="#">logout</a></li>
+        {% endif %}    
+        <li><a href="#">login</a></li> 
+        <li><a href="#">Sign-up</a></li> 
+        
             </ul>
         </li>
-        <li><a href="/shop">Shop</a></li>
+
+        <li><a href="/HomePage">Home</a></li>
+        <li><a href="/Shop">Shop</a></li>
         <li><a href="#">Shipping&Payment</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="/Contact">Contact Us</a></li>
+        
     </ul>
 </nav>
 
