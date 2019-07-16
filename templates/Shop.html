@@ -7,7 +7,56 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <style>
+.mySlides {display:none;}
+.button {
+  background-color: #ffff33; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button5 {border-radius: 50%;}
+
+}
+
+
+  ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+
 	#secret {
   margin-top: 3%;
   background-color:lightblue;
@@ -20,20 +69,41 @@
   #shh {
     color: black;
   }
+
 </style>
 </head>
 <body>
 
-<nav class="navbar navbar-inverse" id="secret">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a id='shh' class="navbar-brand" href="/">LocalEat</a>
-    </div>
-    <a id='shh' class="navbar-brand" href="/">Cart</a>
-    <a id='shh'class="navbar-brand" href="#">Cash : </a>
-  </div>
-</nav>
-  
+<ul>
+  <li><a class="active" href="localeat">localeat</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#aboutus">About us</a></li>
+    <li><a href="#Dailytips">Daily tips</a></li>
+
+
+</ul>
+<div class="w3-content w3-section" style="max-width:500px">
+  <img class="mySlides" src="/static/images/localeat2.png" style="width:100%">
+  <img class="mySlides" src="/static/images/s1.png" style="width:100%">
+  <img class="mySlides" src="/static/images/s2.png" style="width:100%">
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
 {% for type in types%}
       <div class="col-sm-4">
         <div class="card">
@@ -42,12 +112,11 @@
                 <div class="card-body">
                   <h5 class="card-title">{{type.Name}}</h5>
                   <p class="card-text">{{type.Min_price}} - {{type.Max_price}} </p>
-                  <a href="product/{{type.Name}}" class="btn btn-primary">comapre and buy</a>
+                  <a href="product/{{type.Name}}" class="button button5">Compare and buy</a>
                 </div>
               </div>
         </div>
       </div>
-
 {% endfor%}
 
 </body>
