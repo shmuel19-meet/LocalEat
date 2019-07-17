@@ -1,6 +1,8 @@
-from flask import Flask, flash, render_template, url_for, redirect, request, session jsonify as flask_session
+#from flask import Flask, flash, render_template, url_for, redirect, request, session jsonify as flask_session
+from flask import Flask, flash, render_template, url_for, redirect, request, session as flask_session
+
 from database import *
-import paypalrestsdk
+#import paypalrestsdk
 
 app = Flask(__name__)
 app.secret_key = 'super secret key'
@@ -18,12 +20,10 @@ def home():
     else:
         return render_template('HomePage.html')
 
-
 @app.route('/contact')
 def Contact():
     Farm_list = get_all_farms()
     return render_template('Contact.html', Farm_list = Farm_list)
-
 
 @app.route('/shop')
 def shop():
@@ -122,14 +122,9 @@ def farm_logOut():
     else:
         return redirect(url_for('home'))
 
-
-# ########################################3
-@app.route('/payment', method=['POST'])
-def payment():
-
-	return jsonify({'paymentID' : 'PAYMENTID'})
-# #######################################
-
+#@app.route('/payment', method=['POST'])
+#def payment():
+	#return jsonify({'paymentID' : 'PAYMENTID'})
 
 @app.route('/add_food_type', methods=['GET','POST'])
 def add_Type():
