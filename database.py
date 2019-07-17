@@ -17,9 +17,9 @@ def add_User(email,phone,address, password,cash):
         session.rollback()
         raise
 
-def add_Farm(Farm_name,phone,address,password):
+def add_Farm(Farm_name,bank_name,bank_account,phone,address,password):
     try:
-        Farm_object = Farm(Farm_name=Farm_name,phone=phone,address=address,password=password)
+        Farm_object = Farm(Farm_name=Farm_name,bank_name=bank_name,bank_account=bank_account,phone=phone,address=address,password=password)
         session.add(Farm_object)
         session.commit()
     except:
@@ -89,7 +89,6 @@ def buy_product(email,product_id):
     else:
         return "not enough cash"
 
-
 def get_all_products():
     return session.query(Product).all()
 
@@ -124,7 +123,27 @@ def get_all_Types():
     return session.query(Type).all()
 
 def query_type_by_name(Name):
-   return  session.query(Type).filter_by(Name=Name).first() 
+   return  session.query(Type).filter_by(Name=Name).first()
+
+def get_minPrice(Name):
+  return  session.query(Type).filter_by(Name=Name).first().Min_price
+
+def get_maxPrice(Name):
+  return  session.query(Type).filter_by(Name=Name).first().Max_price
+
+def set_minPrice(Name,newMinPrice):
+  type = session.query(
+       Type).filter_by(
+       Name=Name).first()
+  type.Min_price = newMinPrice
+  session.commit()
+
+def set_maxPrice(Name,newMaxPrice):
+  type = session.query(
+       Type).filter_by(
+       Name=Name).first()
+  type.Max_price = newMaxPrice
+  session.commit()
 
 def add_type(Name,img,min_price, max_price):
   try:
@@ -135,6 +154,36 @@ def add_type(Name,img,min_price, max_price):
     session.rollback()
     raise
 
+def get_type_products_lowestPrice(Type):
+    number = 0
+    all = session.query(Product).filter_by(Type=Type).all()
+    if all != []:
+      number = all[0].cost
+    for product in all:
+      if product.cost < number:
+        number = product.cost
+    return number
+
+def get_type_products_highestPrice(Type):
+    number = 0
+    all = session.query(Product).filter_by(Type=Type).all()
+    if all != []:
+      number = all[0].cost
+    for product in all:
+      if product.cost > number:
+        number = product.cost
+    return number
 
 def get_type_products(Type):
-    return session.query(Product).filter_by(Type=Type).all()
+  return session.query(Product).filter_by(Type=Type).all()
+
+def update_min_max_types():
+    types = session.query(Type).all()
+    for item in types:
+      item.Min_price = get_type_products_lowestPrice(item.Name)
+      item.Max_price = get_type_products_highestPrice(item.Name)
+
+
+
+
+

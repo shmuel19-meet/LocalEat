@@ -1,5 +1,6 @@
 from flask import Flask, flash, render_template, url_for, redirect, request, session as flask_session
 from database import *
+##import paypalrestsdk##
 
 app = Flask(__name__)
 app.secret_key = 'super secret key'
@@ -27,8 +28,8 @@ def Contact():
 @app.route('/shop')
 def shop():
     if 'username' or 'farmname' in flask_session:
-        types = get_all_Types()
-        return render_template('Shop.html',products=get_all_products(), types = types)
+        update_min_max_types()
+        return render_template('Shop.html',products=get_all_products(), types = get_all_Types())
     else:
         return redirect(url_for('user_logIn'))
 
@@ -69,7 +70,7 @@ def user_signUp():
 def farm_signUp():
     if request.method == "POST":
         if query_by_farmname(request.form['farmname']) == None:
-            add_Farm(request.form['farmname'],request.form['phone'],request.form['address'],request.form['password'])
+            add_Farm(request.form['farmname'],request.form['bank_name'],request.form['bank_account'],request.form['phone'],request.form['address'],request.form['password'])
             return redirect(url_for('farm_logIn'))
         else:
             flash('Farm name already taken, please choose another one.')
@@ -120,6 +121,15 @@ def farm_logOut():
         return redirect(url_for('home'))
     else:
         return redirect(url_for('home'))
+
+
+# ########################################3
+#@app.route('/payment', method=['POST'])
+#def payment():
+
+#	return jsonify({'paymentID' : 'PAYMENTID'})
+# #######################################
+
 
 @app.route('/add_food_type', methods=['GET','POST'])
 def add_Type():
