@@ -7,9 +7,9 @@ Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind=engine)
 session = scoped_session(sessionmaker(bind=engine))
 
-def add_User(email,phone,address, password,cash):
+def add_User(username,phone,address, password,cash):
     try:
-        user_object = User(email=email,phone=phone,address=address,
+        user_object = User(username=username,phone=phone,address=address,
         password=password,cash=round(cash,2))
         session.add(user_object)
         session.commit()
@@ -48,17 +48,17 @@ def update_cost_product_by_id(id):
     product.cost = 0
     session.commit()
 
-def update_cash_user_by_username(email,cost):
+def update_cash_user_by_username(username,cost):
     user = session.query(
        User).filter_by(
-       email=email).first()
+       username=username).first()
     user.cash -= cost
     session.commit()
 
-def query_user_by_username(email):
+def query_user_by_username(username):
     a=session.query(User)
     print a
-    b= a.filter_by(email=email)
+    b= a.filter_by(username=username)
     print b
     c=b.first()
     
@@ -78,12 +78,12 @@ def delete_product_by_id(id):
     product = session.query(Product).filter_by(id_table=id).delete()
     session.commit()
 
-def buy_product(email,product_id):
-    user_cash = query_user_by_username(email).cash
+def buy_product(username,product_id):
+    user_cash = query_user_by_username(username).cash
     product_cost = query_product_by_id(product_id).cost
 
     if user_cash == product_cost or user_cash > product_cost:
-        update_cash_user_by_username(email,product_cost)
+        update_cash_user_by_username(username,product_cost)
         delete_product_by_id(product_id)
         return "bought"
     else:
@@ -103,8 +103,8 @@ def get_all_users():
 def get_all_farms():
     return session.query(Farm).all()
 
-def query_by_username_and_password(email, password):
-    return session.query(User).filter_by(email = email, password = password).first()
+def query_by_username_and_password(username, password):
+    return session.query(User).filter_by(username = username, password = password).first()
 
 def query_by_farmname_and_password(farmname, password):
     return session.query(Farm).filter_by(Farm_name = farmname, password = password).first()

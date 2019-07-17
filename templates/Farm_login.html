@@ -1,32 +1,101 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='login-signin.css')}}">
-
+<style>
+body{
+    margin: 0%;
+    font-family: sans-serif;
+}
+.box {
+    border-radius: 25px;
+    box-shadow: 5px 10px 18px #888888;
+    width: 600px;
+    padding: 40px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #bcf28c;
+    text-align: center;
+}
+.box h1 {
+    color: black;
+    font-weight: 500;
+}
+.box input[type="text"],.box input[type="password"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+.box input[type="text"]:focus,.box input[type="password"]:focus{
+    width: 280px;
+    border-color: #2ecc71;  
+}
+.box input[type="submit"] {
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.box input[type="submit"]:hover {
+    background: #2ecc71
+}
+.box p,.box a {
+    display: inline;
+    margin: 2%;
+    text-decoration: none;
+    color:lightblue;
+}
+.box a:visited {
+  color: black;
+  text-decoration: none;
+}
+ul {
+list-style-type: none;
+text-align: center;
+margin-top: 3%;
+}
+</style>
     <title> Farm Log-In</title>
-
 </head>
 <body>
-            <h1 class="text-mid"> Log in as Farm : </h1>
-            <div class="container">
+    <div>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul>
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
 
-                <form action="{{url_for('farm_logIn')}}" method="post">
-                    <br>
-                    <label for="farmname"><b>Farm name : </b></label>
+                <form action="{{url_for('farm_logIn')}}" method="post" class="box">
+                    <h1> Log In as Farm </h1>
+
                     <input class="form-control" type="text" placeholder="Enter Farm name" name="farmname" required>
-                    <br>
-                    <br>
-                    <label for="password"><b>Password : </b></label>
                     <input class="form-control" type="password" placeholder="Enter Password" name="password" required>
-                    <br>
-                    <br>
-                    <button id= login type="submit" >Log-In</button>
+
+                    <input type="submit" value="Login">
+                    <p><a href="{{url_for('farm_signUp')}}"> Sign Up ? </a></p>
+                    <p><a href="{{url_for('home')}}"> HomePage </a></p>
                 </form>
-            </div>
-        <p class="text-mid"><a href="{{url_for('farm_signUp')}}"> Sign Up ? </a></p>
-        <p class="text-mid"><a href="{{url_for('home')}}"> HomePage </a></p>
+    </div>
 </body>
 </html>

@@ -1,46 +1,101 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='login-signin.css')}}">
+<style>
+body{
+    margin: 0%;
+    font-family: sans-serif;
+}
+.box {
+    border-radius: 25px;
+    box-shadow: 5px 10px 18px #888888;
+    width: 600px;
+    padding: 40px;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #bcf28c;
+    text-align: center;
+}
+.box h1 {
+    color: black;
+    font-weight: 500;
+}
+.box input[type="text"],.box input[type="password"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+.box input[type="text"]:focus,.box input[type="password"]:focus{
+    width: 280px;
+    border-color: #2ecc71;  
+}
+.box input[type="submit"] {
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.box input[type="submit"]:hover {
+    background: #2ecc71
+}
+.box p,.box a {
+    display: inline;
+    margin: 2%;
+    text-decoration: none;
+    color:lightblue;
+}
+.box a:visited {
+  color: black;
+  text-decoration: none;
+}
+ul {
+list-style-type: none;
+text-align: center;
+margin-top: 3%;
+}
+</style>
     <title> Farm Sign-Up </title>
 </head>
 <body>
-            
-                <h1 class="text-mid"> Sign Up as Farm: </h1>
-                <h3 class="text-mid">As a Farm you will be able to add products for Users to view and buy.</h3>
-            <div class="container">
-                <form action="/farm_sign-up" method="post">
-            <br>
-                <label for="farmname"><b><font color='black'>Farm name :</font></b></label>
+                        <h1 style="text-align: center;"> Sign Up as Farm: </h1>
+        <h3 style="text-align: center;">As a Farm you will be able to add products for Users to view and buy.</h3>
+
+                <form action="/farm_sign-up" method="post" class="box">
+    
                 <input class="form-control" type="text" placeholder="Enter Farm name" name="farmname" required>
-            <br>
-            <br>
-                <label for="bank_name"><b><font color='black'>Bank name :</font></b></label>
+    
                 <input class="form-control" type="text" placeholder="bank name" name="bank_name" required>
-            <br><br>
-                <label for="bank_account"><b><font color='black'>your bank account :</font></b></label>
+            
                 <input class="form-control" type="text" placeholder="bank account" name="bank_account" required>
-            <br>
-            <br>
-                <label for="phone"><b><font color='black'>phone :</font></b></label>
+                
                 <input class="form-control" type="text" placeholder="phone" name="phone" required>
-            <br>
-            <br>
-                <label for="address"><b><font color='black'>address :</font></b></label>
+
                 <input class="form-control" type="text" placeholder="address" name="address" required>
-            <br>
-            <br>
-                <label for="password"><b> <font color='black'><font color="white"></font>Password :</font></b></label>
+
                 <input class="form-control" type="password" placeholder="Enter Password" name="password" required>
-            <br>
-            <br>
-                    <button id=submit type="submit">Sign-Up</button>
+
+                    <input type="submit" value="Signup">
+
+                <p><a href="/farm_log-in">already have a Farm account ?</a></p>
+                <p><a href="{{url_for('home')}}"> HomePage </a></p>
                 </form>
-            </div>
-        <p class="text-mid"><a href="/farm_log-in">already have a Farm account ?</a></p>
-        <p class="text-mid"><a href="{{url_for('home')}}"> HomePage </a></p>
 </body>
 </html>

@@ -12,8 +12,8 @@ app.config['SESSION_TYPE'] = 'filesystem'
 @app.route('/')
 def home():
     if 'username' in flask_session:
-        email = flask_session['email']
-        return render_template('HomePage.html',user=email, log = True)
+        username = flask_session['username']
+        return render_template('User_HomePage.html',user=username, log = True)
     elif 'farmname' in flask_session:
         farmname = flask_session['farmname']
         return render_template('Farm_HomePage.html',farm=farmname,my_products=get_owner_products(farmname), log = False)
@@ -57,8 +57,8 @@ def product_page(Type):
 @app.route('/user_sign-up', methods=['GET', 'POST'])
 def user_signUp():
     if request.method == "POST":
-        if query_user_by_username(request.form['email']) == None:
-            add_User(request.form['email'],request.form['password'],request.form['phone'],request.form['address'],0)
+        if query_user_by_username(request.form['username']) == None:
+            add_User(request.form['username'],request.form['password'],request.form['phone'],request.form['address'],0)
             return redirect(url_for('user_logIn'))
         else:
             flash('User name already taken, please choose another one.')
@@ -81,10 +81,10 @@ def farm_signUp():
 @app.route('/user_log-in', methods=['GET','POST'])
 def user_logIn():
     if request.method == "POST":
-        user = query_by_username_and_password(request.form['email'], request.form['password'])
+        user = query_by_username_and_password(request.form['username'], request.form['password'])
 
         if user is not None and user.password == request.form['password']:
-            flask_session['email'] = user.username
+            flask_session['username'] = user.username
             return redirect(url_for('home'))
         else:
             error = 'Username & Password do not match , Please try again'
@@ -102,14 +102,16 @@ def farm_logIn():
             flask_session['farmname'] = farm.Farm_name
             return redirect(url_for('home'))
         else:
+            error = 'Farm name & Password do not match , Please try again'
+            flash(error)
             return render_template('Farm_login.html')
     else:       
         return render_template('Farm_login.html')
 
 @app.route('/user_log-out')
 def user_logOut():
-    if 'email' in flask_session:
-        del flask_session['email']
+    if 'username' in flask_session:
+        del flask_session['username']
         return redirect(url_for('home'))
     else:
         return redirect(url_for('home'))
