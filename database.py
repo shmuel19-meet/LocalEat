@@ -89,7 +89,6 @@ def buy_product(email,product_id):
     else:
         return "not enough cash"
 
-
 def get_all_products():
     return session.query(Product).all()
 
@@ -101,6 +100,8 @@ def get_owner_products(Owner):
 def get_all_users():
     return session.query(User).all()
 
+def get_all_farms():
+    return session.query(Farm).all()
 
 def query_by_username_and_password(email, password):
     return session.query(User).filter_by(email = email, password = password).first()
@@ -122,7 +123,27 @@ def get_all_Types():
     return session.query(Type).all()
 
 def query_type_by_name(Name):
-   return  session.query(Type).filter_by(Name=Name).first() 
+   return  session.query(Type).filter_by(Name=Name).first()
+
+def get_minPrice(Name):
+  return  session.query(Type).filter_by(Name=Name).first().Min_price
+
+def get_maxPrice(Name):
+  return  session.query(Type).filter_by(Name=Name).first().Max_price
+
+def set_minPrice(Name,newMinPrice):
+  type = session.query(
+       Type).filter_by(
+       Name=Name).first()
+  type.Min_price = newMinPrice
+  session.commit()
+
+def set_maxPrice(Name,newMaxPrice):
+  type = session.query(
+       Type).filter_by(
+       Name=Name).first()
+  type.Max_price = newMaxPrice
+  session.commit()
 
 def add_type(Name,img,min_price, max_price):
   try:
@@ -133,6 +154,35 @@ def add_type(Name,img,min_price, max_price):
     session.rollback()
     raise
 
+def get_type_products_lowestPrice(Type):
+    all = session.query(Product).filter_by(Type=Type).all()
+    number = all[0].cost
+    for product in all:
+      if product.cost < number:
+        number = product.cost
+    return number
+
+def get_type_products_highestPrice(Type):
+    all = session.query(Product).filter_by(Type=Type).all()
+    number = all[0].cost
+    for product in all:
+      if product.cost > number:
+        number = product.cost
+    return number
 
 def get_type_products(Type):
-    return session.query(Product).filter_by(Type=Type).all()
+  return session.query(Product).filter_by(Type=Type).all()
+
+def update_min_max_types():
+    types = session.query(Type).all()
+    #for i in get_all_Types():
+      #types[i].Name
+      #types[i].Min_price = get_type_products_lowestPrice(types[i].Name)
+      #types[i].Max_price = get_type_products_highestPrice(types[i].Name)
+    return types[0].Name
+
+
+for i in get_all_Types():
+  print(i.Name)
+  print(get_type_products_highestPrice("apple"))
+  #print(get_type_products_highestPrice(i.Name))
