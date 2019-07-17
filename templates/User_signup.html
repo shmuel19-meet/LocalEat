@@ -78,6 +78,17 @@ margin-top: 3%;
         
                 <h1 style="text-align: center;"> Sign Up as User: </h1>
     <h3 style="text-align: center;">As a User you will be able to view Farm's products and buy them. </h3>
+
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul>
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+
                 <form action="/user_sign-up" method="post" class="box">
 
                 <input class="form-control" type="text" placeholder="username" name="username" required>

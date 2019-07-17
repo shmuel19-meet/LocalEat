@@ -78,6 +78,16 @@ margin-top: 3%;
                         <h1 style="text-align: center;"> Sign Up as Farm: </h1>
         <h3 style="text-align: center;">As a Farm you will be able to add products for Users to view and buy.</h3>
 
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul>
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+
                 <form action="/farm_sign-up" method="post" class="box">
     
                 <input class="form-control" type="text" placeholder="Enter Farm name" name="farmname" required>
