@@ -177,9 +177,6 @@ def execute():
 	return""
 
 
-
-
-
 # #####################################
 @app.route('/add_food_type', methods=['GET','POST'])
 def add_Type():
@@ -188,7 +185,7 @@ def add_Type():
     else:
         print(request.form)
         
-        add_type(request.form['name'],request.form['img'],request.form['min_price'],request.form['max_price'])       
+        add_type(request.form['name'],request.form['img'],0,0)       
         return redirect(url_for('home'))
 
 

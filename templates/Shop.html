@@ -15,7 +15,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
  -->
 <style>
-
+.card{
+  width:200px;
+  height:200px;
+}
 ul {
   list-style-type: none;
   margin: 0;
@@ -32,7 +35,7 @@ li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 16px;s
   text-decoration: none;
 }
 
@@ -49,6 +52,22 @@ padding-left: 0px;
 padding-right: 0px;
 width:100%;
 max-width: 100% !important;
+text-align: center;
+text-decoration-color: white;
+
+
+}
+.button{
+  font-size: 15px;
+  border-radius:25px;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  display: block;
+
+
+
+
 }
 </style>
 </head>
@@ -61,7 +80,7 @@ max-width: 100% !important;
 </ul>
 <div class="container">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
+
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -71,6 +90,8 @@ max-width: 100% !important;
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
+<!--         <p align="center">  style="z-index:5;"><b>Order now and get the best quality produce, directly to you.</b></p>
+ -->
         <img src="/static/images/s5.png" style="width:100%;">
       </div>
 
@@ -94,6 +115,7 @@ max-width: 100% !important;
     </a>
   </div>
 </div>
+<br>
 
 {% for type in types%}
       <div class="col-sm-4">

@@ -5,7 +5,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1">-->
+
 <style>
+
+
   body {
     background-color: #ffff;
     margin:0%;
@@ -44,24 +48,40 @@
   <img src="/static/images/localeat2.png"> 
 </div>
 
-<nav class="custom_nav navbar navbar-inverse">
+
+
+
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
+    <div class="navbar-header">
+      
+    </div>
     <ul class="nav navbar-nav">
-      <li class="dropdown"><a class="dropdown-toggle" id="custom_text" data-toggle="dropdown"> User <span class="caret"></span></a>
+      <li class="active"><a href="/HomePage">Home</a></li>
+       <li class="dropdown">
+       <a class="dropdown-toggle" data-toggle="dropdown" href="#">User
+        <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="/user_log-in">Log In</a></li>
           <li><a href="/user_sign-up">Sign Up</a></li>
+     </ul>
+         
+      </li>
+      <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Farm
+        <ul class="dropdown-menu">
+          <li><a href="/Farm_login">Log In</a></li>
+          <li><a href="/user_sign-up">Sign Up</a></li>
         </ul>
       </li>
-      <li class="dropdown"><a class="dropdown-toggle" id="custom_text" data-toggle="dropdown"> Farm <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/farm_log-in">Log In</a></li>
-          <li><a href="/farm_sign-up">Sign Up</a></li>
-        </ul>
-      </li>   
-      <li><a href="/shop" id="custom_text">Shop</a></li>
+    </ul>
+         
+     <li><a href="Shipping&Payment">Shipping&Payment</a></li>
+     <li><a href="/contact">Contact Us</a></li>
     </ul>
   </div>
+   </div>
 </nav>
 
 <div class="container">
@@ -70,7 +90,7 @@
       <h2>About Me</h2>
       <h5>Photo of me:</h5>
       <div class="fakeimg">Fake Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+      <p>Some text about me </p>
       <h3>Some Links</h3>
       <p>Lorem ipsum dolor sit ame.</p>
       <ul class="nav nav-pills nav-stacked">
@@ -85,16 +105,57 @@
       <h5>Title description, Dec 7, 2017</h5>
       <div class="fakeimg">Fake Image</div>
       <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-      <br>
+     
       <h2>TITLE HEADING</h2>
       <h5>Title description, Sep 2, 2017</h5>
       <div class="fakeimg">Fake Image</div>
       <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      
     </div>
   </div>
 </div>
+
+<footer class="footer bg-dark py-5">
+  <div class="container position-relative">
+    <div class="row">
+      <div class="col-6 col-md-4">
+        <h3 class="text-white">Company</h3>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a href="mailto:noamm19meet@gmail.com" target="_blank" class="nav-link pl-1">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="/shop"  target="_blank" class="nav-link pl-0">Shop</a>
+          </li>
+         
+        </ul>
+      </div>
+      <div class="col-6 col-md-4">
+        <h3 class="text-white">Social</h3>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link pl-0" href="https://www.youtube.com/channel/UCg_pj7u5TToHnBVXnaWSoUQ" target="_blank">Youtube</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pl-0" href="https://www.instagram.com/localeateam/" target="_blank">Instagram</a>
+          </li>
+  <!--       <li class="nav-item">
+            <a class="nav-link pl-0" href="" target="_blank">Facebook</a>
+          </li>
+          <li class="nav-item">      
+            <a class="nav-link pl-0" href="https://twitter.com/officialthenx" target="_blank">Twitter</a>
+          </li>   -->
+        </ul>
+      </div>
+  
+    </div>
+    <hr style="border-top-color: rgba(255, 255, 255, 0.2)">
+    <div class="d-flex justify-content-between pt-3">
+      <p class="text-white mb-0">Copyright © Localeat 2019</p>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
 
