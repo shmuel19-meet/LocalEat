@@ -18,6 +18,18 @@
   .fakeimg {
     height: 200px;
     background: #aaa;
+    text-align: center; 
+    background-image:url("/static/images/1.png");
+    background-color: white;
+  }
+.fakeimg2 {
+    height:178px;
+    /*width:716px;*/
+    background: #aaa;
+    padding-left:0px;
+    /*background-image:url("/static/images/localeat2.png");*/
+    background-color: white;
+    /*position:center;*/
   }
 
  .jum{
@@ -51,28 +63,23 @@
   max-width: 1000%;
   max-height: 100%;
 }
-img{
-  width: 300px;
-  height:400px;
-}
 </style>
-<div class=top>
 
-<img src="/static/images/llogo2.png" > 
-<video id="bgvid" playsinline autoplay muted loop video  align = left>
+<!--
+<img src="/static/images/localeat2.png"  > 
+video id="bgvid" playsinline autoplay muted loop video  align = left>
 
-  <!-- 
 - Video needs to be muted, since Chrome 66+ will not autoplay video with sound.
-WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button 
 <source type="video/webm" src=https://www.videvo.net/videvo_files/converted/2017_09/preview/170804_C_Lombok_006.mp483182.webm>
 <source type="video/mp4" src="/videvo_files/converted/2017_09/videos/170804_C_Lombok_006.mp483182.mp4">
 
 
-</video>
+</video> -->
 
 <!-- Optional: some overlay text to describe the video -->
-<!--
-<div class="content">-->
+
+<div class="content">
 
   <!-- Use a button to pause/play the video with JavaScript -->
 
@@ -146,37 +153,34 @@ WCAG general accessibility recommendation is that media such as background video
 
 
 
-<div class="container">
+<!--<div class="container">
   <div class="row">
     <div class="col-sm-4">
-      <h2>About Me</h2>
-      <h5>Photo of me:</h5>
-      <div class="fakeimg">Fake Image</div>
-      <p>Some text about me </p>
-      <h3>Some Links</h3>
-      <p>Lorem ipsum dolor sit ame.</p>
+      <h2>Daily Tip !</h2>
+    
+      <div class="fakeimg">Never eat a Watermelon before entering a swwiming pool !</div>
+      
+      <h3>Our Farmers</h3>
+      <p>Get to know US !</p>
       <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#">Link 1</a></li>
-        <li><a href="#">Link 2</a></li>
-        <li><a href="#">Link 3</a></li>
+        <li><a href="#">Peace farm=Netanya</a></li>
+        <li><a href="#">J-farm = Nazareth</a></li>
       </ul>
       <hr class="hidden-sm hidden-md hidden-lg">
-    </div>
-    <div class="col-sm-8">
+    </div>-->
+    <div class="col-sm-8"style="width:100%">
+    
+    <!--
       <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2017</h5>
-      <div class="fakeimg">Fake Image</div>
-      <p>Some text..</p>
+      <h5>Title description, Dec 7, 2017</h5>-->
+      <div class="fakeimg2">
+        <img src="/static/images/localeat2.png" style="margin-left: 20%"></img>
+      </div>
      
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2017</h5>
-      <div class="fakeimg">Fake Image</div>
-      <p>Some text..</p>
-      
     </div>
   </div>
 </div>
- <hr style="border-top-color: rgba(000, 000, 000, 0.9)">
+ <!--<hr style="border-top-color: rgba(000, 000, 000, 0.9)">
 <footer class="footer bg-dark py-5">
   <div class="container position-relative">
     <div class="row">
@@ -201,12 +205,12 @@ WCAG general accessibility recommendation is that media such as background video
           <li class="nav-item">
             <a class="nav-link pl-0" href="https://www.instagram.com/localeateam/" target="_blank">Instagram</a>
           </li>
-  <!--       <li class="nav-item">
+       <li class="nav-item">
             <a class="nav-link pl-0" href="" target="_blank">Facebook</a>
           </li>
           <li class="nav-item">      
             <a class="nav-link pl-0" href="https://twitter.com/officialthenx" target="_blank">Twitter</a>
-          </li>   -->
+          </li> 
         </ul>
       </div>
   
@@ -217,7 +221,7 @@ WCAG general accessibility recommendation is that media such as background video
     </div>
   </div>
 </footer>
-
+-->
 </body>
 </html>
 
