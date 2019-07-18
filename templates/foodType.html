@@ -5,136 +5,32 @@
 	<img src="{{Type_1.Img}}" width="420" height="420">
 </head>
 <body>
-{% for food in foodlist %}
-	<h3>{{food.Owner}}</h3>
-	<h4> {{food.cost}}</h4>
-	
-{% endfor %}
+
+{% for food in foodlist%}
+      <div class="col-sm-4">
+        <div class="card">
+            <div class="card">
+                <img class="card-img-top"  width="670" height="440">
+                <div class="card-body">
+                  <h5 class="card-title">{{food.Owner}}<</h5>
+                  <p class="card-text">{{food.cost}} </p>
+                  <a href="/buy_product/{{food.id}}" class="button button5"> buy</a>
+                </div>
+              </div>
+        </div>
+      </div>
+{% endfor%}
 <br>
-<!-- <div class="et_pb_column et_pb_column_1_3 et_pb_column_5  et_pb_css_mix_blend_mode_passthrough">
-				
-				
-				<div class="et_pb_module et_pb_code et_pb_code_3">
-				
-				
-				<div class="et_pb_code_inner">
-					<style>.btn--buy,.btn--pay,.btn--donate{background-color:#424e54;border:0;border-radius:8px;color:#fff;cursor:pointer;display:inline-block;font-family:Fira Sans,Arial,Helvetica,sans-serif;font-size:28px;line-height:1;margin-bottom:1em;padding:.75em 1em;vertical-align:middle;transition:background-color .4s ease;}
-.btn--buy{background-color:#3ea56b;color:#ffffff;font-family:"Fira Sans",Arial,Helvetica,sans-serif;font-size:38px;}
-.btn--buy:hover{background-color:#1e854b;color:#ffffff;text-decoration:none;}
-.btn--pay{background-color:#494949;color:#ffffff;font-family:Fira Sans, Arial, Helvetica, sans-serif;font-size:28px;}
-.btn--pay:hover{background-color:#333;color:#fff;text-decoration:none;}
-.btn--donate{background-color:#4e75b9;color:#ffffff;font-family:Fira Sans, Arial, Helvetica, sans-serif;font-size:28px;}
-.btn--donate:hover{background-color:#3e65a9;color:#fff;text-decoration:none;}
-.cards{margin-top:1em;}
-.cards img{border:1px solid #c5c6ce;border-radius:5px;}
-.cards--s img{height:30px;}</style><p>
-</p> <form action="https://bancardsalescom.securepayments.cardpointe.com/pay" method="post" id="btnBuyFrm"><input name="total" value="25" type="hidden"><link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,600,700,800|Material+Icons" rel="stylesheet" type="text/css" id="customFont"><button type="submit" class="btn btn--buy">Buy Now</button> <p></p> <div class="cards cards--s"><img src="https://bancardsalescom.securepayments.cardpointe.com/admin/hpp/img/cc--amex.png" alt=""></div></form>
-				</div> <!-- .et_pb_code_inner
-			</div> <!-- .et_pb_code
-			</div>
-			<div class="et_pb_module et_pb_code et_pb_code_3">
-				
-				
-				<div class="et_pb_code_inner">
-					<style>.btn--buy,.btn--pay,.btn--donate{background-color:#424e54;border:0;border-radius:8px;color:#fff;cursor:pointer;display:inline-block;font-family:Fira Sans,Arial,Helvetica,sans-serif;font-size:28px;line-height:1;margin-bottom:1em;padding:.75em 1em;vertical-align:middle;transition:background-color .4s ease;}
-.btn--buy{background-color:#3ea56b;color:#ffffff;font-family:"Fira Sans",Arial,Helvetica,sans-serif;font-size:38px;}
-.btn--buy:hover{background-color:#1e854b;color:#ffffff;text-decoration:none;}
-.btn--pay{background-color:#494949;color:#ffffff;font-family:Fira Sans, Arial, Helvetica, sans-serif;font-size:28px;}
-.btn--pay:hover{background-color:#333;color:#fff;text-decoration:none;}
-.btn--donate{background-color:#4e75b9;color:#ffffff;font-family:Fira Sans, Arial, Helvetica, sans-serif;font-size:28px;}
-.btn--donate:hover{background-color:#3e65a9;color:#fff;text-decoration:none;}
-.cards{margin-top:1em;}
-.cards img{border:1px solid #c5c6ce;border-radius:5px;}
-.cards--s img{height:30px;}</style><p>
-</p> <form action="https://bancardsalescom.securepayments.cardpointe.com/pay" method="post" id="btnBuyFrm"><input name="total" value="25" type="hidden"><link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,600,700,800|Material+Icons" rel="stylesheet" type="text/css" id="customFont"><button type="submit" class="btn btn--buy">Buy Now</button> <p></p> <div class="cards cards--s"><img src="https://bancardsalescom.securepayments.cardpointe.com/admin/hpp/img/cc--amex.png" alt=""></div></form>
-				</div>  .et_pb_code_inner -->
-			<!-- </div> --> 
-<<!-- div class="et_pb_column et_pb_column_1_3 et_pb_column_5  et_pb_css_mix_blend_mode_passthrough">
-				
-				
-				<div class="et_pb_module et_pb_code et_pb_code_3">
-				
-				
-				<div class="et_pb_code_inner">
-					<style>.btn--buy,.btn--pay,.btn--donate{background-color:#424e54;border:0;border-radius:8px;color:#fff;cursor:pointer;display:inline-block;font-family:Fira Sans,Arial,Helvetica,sans-serif;font-size:28px;line-height:1;margin-bottom:1em;padding:.75em 1em;vertical-align:middle;transition:background-color .4s ease;}
-.btn--buy{background-color:#3ea56b;color:#ffffff;font-family:"Fira Sans",Arial,Helvetica,sans-serif;font-size:38px;}
-.btn--buy:hover{background-color:#1e854b;color:#ffffff;text-decoration:none;}
-.btn--pay{background-color:#494949;color:#ffffff;font-family:Fira Sans, Arial, Helvetica, sans-serif;font-size:28px;}
-.btn--pay:hover{background-color:#333;color:#fff;text-decoration:none;}
-.btn--donate{background-color:#4e75b9;color:#ffffff;font-family:Fira Sans, Arial, Helvetica, sans-serif;font-size:28px;}
-.btn--donate:hover{background-color:#3e65a9;color:#fff;text-decoration:none;}
-.cards{margin-top:1em;}
-.cards img{border:1px solid #c5c6ce;border-radius:5px;}
-.cards--s img{height:30px;}</style><p>
-</p> <form action="https://bancardsalescom.securepayments.cardpointe.com/pay" method="post" id="btnBuyFrm"><input name="total" value="25" type="hidden"><link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,600,700,800|Material+Icons" rel="stylesheet" type="text/css" id="customFont"><button type="submit" class="btn btn--buy">Buy Now</button> </p> <div class="cards cards--s"><img src="https://bancardsalescom.securepayments.cardpointe.com/admin/hpp/img/cc--amex.png" alt=""></div></form>
-<a href="{{url_for('shop')}}">back to shop</a>
-</body>
-</html>
- -->
 
 <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
 <script>paypal.Buttons().render('body');</script>
-
-<!--
- <div id="paypal-button"></div>
-
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
-
-<script>
-  paypal.Button.render({
-    braintree: braintree,
-    // Add your credentials:
-    // 1. Call your server to generate Braintree client tokens for each env
-    client: {
-      sandbox:    paypal.request.get('/my-api/client-token?env=sandbox'),
-      production: paypal.request.get('/my-api/client-token?env=production')
-    },
-    // Set up the payment:
-    // 1. Add a payment callback
-    payment: function (data, actions) {
-      // 2. Call actions.payment.create
-      return actions.payment.create({
-        payment: {
-          transactions: [{
-            amount: {
-              total: '1.00',
-              currency: 'USD'
-            }
-          }]
-        }
-      });
-    },
-    // Execute the payment:
-    // 1. Add an onAuthorize callback
-    onAuthorize: function (data, actions) {
-      // 2. Call Braintree to tokenize the payment
-      return actions.payment.tokenize()
-        .then(function (data) {
-          // 3. Call your server to execute the payment
-          return paypal.request.post('/my-api/execute', {
-            nonce: data.nonce
-          });
-        });
-    }
-  }, '#paypal-button');
-</script> -->
-
-<!-- __________________________________________________________________________________________________ -->
-
-
-
-
-
-
-
-
 	<div id="paypal-button"></div>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
 <script>
-
-	var CREAT_PAYMENT_URL = 'http://127.0.0.1:5000/payment';
-	var EXECUTE_PAYMENT_URL = 'http://127.0.0.1:5000/execute';
+	
+	var CREAT_PAYMENT_URL = 'http://127.0.0.1:5000/buy_product/payment';
+	var EXECUTE_PAYMENT_URL = 'http://127.0.0.1:5000/buy_product/execute';
 
 	paypal.Button.render({
 		env: 'sandbox', // Or 'sandbox',
@@ -179,7 +75,3 @@
 	}, '#paypal-button');
 	</script>
 	</body>
-
-
-
-

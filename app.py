@@ -59,6 +59,11 @@ def product_page(Type):
     Type_1 = query_type_by_name(Type)
     return render_template('foodType.html', foodlist = foodlist, Type_1=Type_1)
 
+@app.route('/buy_product/<int:id_table>')
+def buy_prduct(id_table):
+    product = query_product_by_id(id_table)
+    return render_template('Product.html',owner= product.Owner, categorie=product.Type , cost=product.cost)
+
     
 @app.route('/user_sign-up', methods=['GET', 'POST'])
 def user_signUp():
@@ -132,33 +137,33 @@ def farm_logOut():
 
 
 # ########################################3
-@app.route('/payment', methods=['POST'],)
+#@app.route('/payment/<str:', methods=['POST'],)
+@app.route('/payment:', methods=['POST'],)
 def payment():
-	payment = paypalrestsdk.Payment({
-    "intent": "sale",
-    "payer": {
+    typeNeeded = get_type_products("")
+    payment = paypalrestsdk.Payment({
+        "intent": "sale",
+        "payer": {
         "payment_method": "paypal"},
-    "redirect_urls": {
+        "redirect_urls": {
         "return_url": "http://localhost:3000/payment/execute",
         "cancel_url": "http://localhost:3000/"},
-    "transactions": [{
+        "transactions": [{
         "item_list": {
             "items": [{
-                "name": request.form['type'],
+                "name": typeNeeded.name,
                 # "sku": "1",
-                "price": "",
+                "price": typeNeeded.cost ,
                 "currency": "ISL",
                 "quantity": 1}]},
         "amount": {
             "total": "",
             "currency": "ISL"},
         "description": "This is the payment transaction description."}]})
-	payment[name] = "something"
-
-	if payment.create():
-		print('payment success')
-	else:
-		print(payment.error)
+    if payment.create():
+        print('payment success')
+    else:
+        print(payment.error)
 
 	return jsonify({'paymentID' : 'PAYMENTID'})
 #######################################

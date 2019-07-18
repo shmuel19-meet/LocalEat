@@ -177,6 +177,11 @@ def get_type_products_highestPrice(Type):
 def get_type_products(Type):
   return session.query(Product).filter_by(Type=Type).all()
 
+def query_product_by_id(id):
+   return  session.query(
+       Product).filter_by(
+       id_table=id).first()  
+
 def update_min_max_types():
     types = session.query(Type).all()
     for item in types:
@@ -186,4 +191,4 @@ def update_min_max_types():
 
 
 
-
+print(get_type_products("5ara"))
