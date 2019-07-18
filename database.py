@@ -61,10 +61,6 @@ def query_user_by_username(username):
     b= a.filter_by(username=username)
     print b
     c=b.first()
-    
-    
-    print c 
-
     return c
   # a = session.query
   # print a
