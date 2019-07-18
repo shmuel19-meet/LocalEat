@@ -4,8 +4,71 @@
 	<title>product</title>
 </head>
 <body>
-<h1> Welcome  to {{ Owner }}'s {{ name }}! </h1>
+<h1> Welcome  to {{ Owner }}'s {{ categorie }}! </h1>
 <h4> {{ cost }}</h4>
 <a href="{{url_for('shop')}}">back to shop</a>
+
+
+<br>
+
+<script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+<script>paypal.Buttons().render('body');</script>
+	<div id="paypal-button"></div>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+<script>
+	
+	var CREAT_PAYMENT_URL = 'http://127.0.0.1:5000/payment';
+	var EXECUTE_PAYMENT_URL = 'http://127.0.0.1:5000/execute';
+
+	paypal.Button.render({
+		env: 'sandbox', // Or 'sandbox',
+
+		commit: true, // Show a 'Pay Now' button
+
+	style: {
+	color: 'gold',
+	size: 'small'
+	},
+
+	payment: function() {
+		return paypal.request.post(CREAT_PAYMENT_URL).then(function(data){
+			return data.id;
+		})
+	},
+
+	onAuthorize: function(data) {
+		print(data)
+		return paypal.request.post(EXECUTE_PAYMENT_URL,{
+			paymentID : data.paymentID,
+			payerID: data.payerID,
+			type : data.type
+
+		}).then(function(res)) {
+			print(res.success)
+		}
+	
+	},
+
+	  				// onCancel: function(data, actions) {
+					//   /*
+					//    * Buyer cancelled the payment
+				//    */
+			// },
+
+			// onError: function(err) {
+			//   /*
+			//    * An error occurred during the transaction
+			//    */
+			// }
+	}, '#paypal-button');
+	</script>
+	</body>
+
+
+
+
+
 </body>
+
 </html>
