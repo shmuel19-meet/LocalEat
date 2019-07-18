@@ -72,27 +72,30 @@
     </ul>
   </div>
 </nav>
+
+
+<center><font size="6"><b>CONTACT FARMERS</font></center>
+  <br>
+  <br>
+  <br>
 {%for farm in Farm_list%}
-{{farm.Farm_name}}
+
 <button>
-  <a rel="nofollow" href="https://api.whatsapp.com/send?phone={{farm.phone}}&amp;text=Hello {{farm.Farm_name}}, I'm {{email}} ,  "   target="_blank">CONTACT THE FARMER </a> 
+  <a rel="nofollow" href="https://api.whatsapp.com/send?phone={{farm.phone}}&amp;text=Hello {{farm.Farm_name}}, I'm {{email}} ,  "   target="_blank">CONTACT {{farm.Farm_name}} </a> 
 </button>
 {% endfor %}
 
   
-<center><font size="6"><b>CONTACT US</b></center>
-  <br>
-  <br>
-  <br>
 
 
 
-     <div class="column">
+
+ <!--    <div class="column">
          <img src="/static/images/t1.png"align="center">
 
    <a href="mailto:">LocalEatteam@gmail.com><img src="/static/images/t2.png"style="width:30%"><h1 align="center"></a>
   </div>
-
+-->
 <!-- <p><strong>Contact information: </strong><a href="mailto:someone@example.com">rawandmukarker.4@gmail.com</a>.</p>
 </footer> -->
 
