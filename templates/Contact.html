@@ -9,10 +9,8 @@
 <style>
 	body {
 		background-color: #ffff;
-    background-image: url("/static/images/thisone.png");
+    background-image: url("/static/images/ffff.png");
 		margin:0%;
-    background-repeat: no-repeat;
-  background-size: 1300px 700px;
 	}
 	.custom_nav {
 		background-color: #180000 ;
@@ -37,37 +35,10 @@
     color: #05bb7b;
   }
   #two {
-    margin-left: 10%;
+    margin-left: 15%;
   }
 
-.column>img {
-  float: left;
-  height:30%;
-  width:30%;
-  padding-left: 250px;
 
-
-/*  object-position: right;
-
-*/}
-
-.localeat>img {
-  float: left;
-  height:40%;
-  width:40%;
-  padding-left: 250px;
-
-  padding-bottom: 550px;
-
-/*  object-position: right;
-
-*/}
-
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
 </style>
 </head>
 <body>
@@ -101,28 +72,32 @@
     </ul>
   </div>
 </nav>
-  
-{{farm.Farm_name}}
+
+
+<center><font size="6"><b>CONTACT FARMERS</font></center>
+  <br>
+  <br>
+  <br>
+{%for farm in Farm_list%}
+
 <button>
-  <a rel="nofollow" href="https://api.whatsapp.com/send?phone={{farm.phone}}&amp;text=Hello {{farm.Farm_name}}, I'm {{email}} ,  "   target="_blank">CONTACT THE FARMER </a> 
+  <a rel="nofollow" href="https://api.whatsapp.com/send?phone={{farm.phone}}&amp;text=Hello {{farm.Farm_name}}, I'm {{email}} ,  "   target="_blank">CONTACT {{farm.Farm_name}} </a> 
 </button>
 {% endfor %}
 
   
-<center><font size="6"><b>CONTACT US</b></center>
-  <br>
-  <br>
-  <br>
 
 
- <div class="column">
-    <img src="/static/images/8.png"  >
+
+
+ <!--    <div class="column">
+         <img src="/static/images/t1.png"align="center">
+
+   <a href="mailto:">LocalEatteam@gmail.com><img src="/static/images/t2.png"style="width:30%"><h1 align="center"></a>
   </div>
-
-  <div class="localeat">
-    <img src="/static/images/contact1.png" >
-  </div>
-
+-->
+<!-- <p><strong>Contact information: </strong><a href="mailto:someone@example.com">rawandmukarker.4@gmail.com</a>.</p>
+</footer> -->
 
 </body>
 </html>
