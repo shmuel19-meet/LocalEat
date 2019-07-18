@@ -17,16 +17,15 @@
     margin:0%;
   }
   .fakeimg {
-    height: 200px;
-    background: #aaa;
+   
+   
     text-align: center; 
-    background-image:url("/static/images/1.png");
-    background-color: white;
+    
   }
 .fakeimg2 {
     height:178px;
     /*width:716px;*/
-    background: #aaa;
+ 
     padding-left:0px;
     /*background-image:url("/static/images/localeat2.png");*/
     background-color: white;
@@ -179,7 +178,14 @@ WCAG general accessibility recommendation is that media such as background video
       </div>
      
     </div>
+
+    <div class=fakeimg>
+  <img src="{{ url_for('static', filename='images/ff.png') }}" ></img>
+</div>
+
   </div>
+</div>
+<div class=fakeimg>
 </div>
  <!--<hr style="border-top-color: rgba(000, 000, 000, 0.9)">
 <footer class="footer bg-dark py-5">
@@ -188,9 +194,9 @@ WCAG general accessibility recommendation is that media such as background video
       <div class="col-6 col-md-4">
         <h3 class="text-white">Company</h3>
         <ul class="nav flex-column">
-<!--          <li class="nav-item">
+          <li class="nav-item">
             <a href="mailto:noamm19meet@gmail.com" target="_blank" class="nav-link pl-1">Contact Us</a>
-          </li>  -->
+          </li>  
           <li class="nav-item">
             Contat Us : LocalEatteam@gmail.com
           </li>
@@ -224,8 +230,9 @@ WCAG general accessibility recommendation is that media such as background video
       <p class="text-white mb-0">Copyright © Localeat 2019</p>
     </div>
   </div>
-</footer>
--->
+</footer>-->
+
+
 </body>
 </html>
 
