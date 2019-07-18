@@ -2,12 +2,10 @@
 <html>
 <head>
 <title>LocalEat</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1">-->
-<script>
-</script>
 <style>
 
 
@@ -47,6 +45,14 @@
     margin-top: 2%;
     border-width: 2px;
     border-radius: 25px ;
+    /*background-image: url("/static/images/hhh.png");*/
+
+
+  }
+  .newpic{
+    position:relative;
+    left:800px;
+    top:-150px;
   }
   #custom_text {
     color: #f5f5f5;
@@ -62,6 +68,11 @@
   left:0;
   max-width: 1000%;
   max-height: 100%;
+}
+.navbar-nav{
+  position:relative;
+  bottom: 0px;
+
 }
 </style>
 
@@ -90,11 +101,11 @@ WCAG general accessibility recommendation is that media such as background video
 
 
 
-
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="navbar-header">video
-      
+    <div class="navbar-header" >
+      <div class="newpic">
+  </div>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="/HomePage">Home</a></li>
@@ -120,6 +131,8 @@ WCAG general accessibility recommendation is that media such as background video
      <li><a href="Shipping&Payment">Shipping&Payment</a></li>
      <li><a href="/contact">Contact Us</a></li>
     </ul>
+
+     <img style="width: 300px;height: 200px; margin-left:35%;"src="/static/images/llogo.png"></img>
   </div>
    </div>
 </nav>
@@ -172,7 +185,7 @@ WCAG general accessibility recommendation is that media such as background video
     
     <!--
       <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2017</h5>-->
+      <h5>Title description, Dec 7, 2017</h5>
       <div class="fakeimg2">
         <img src="/static/images/localeat2.png" style="margin-left: 20%"></img>
       </div>
@@ -187,7 +200,7 @@ WCAG general accessibility recommendation is that media such as background video
 </div>
 <div class=fakeimg>
 </div>
- <!--<hr style="border-top-color: rgba(000, 000, 000, 0.9)">
+<hr style="border-top-color: rgba(000, 000, 000, 0.9)">
 <footer class="footer bg-dark py-5">
   <div class="container position-relative">
     <div class="row">
@@ -231,6 +244,69 @@ WCAG general accessibility recommendation is that media such as background video
     </div>
   </div>
 </footer>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Bootstrap Theme Simply Me</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+  .bg-1 { 
+    
+    color: black;
+   /*--background-image:url("/static/images/5.png");*/
+   font-family:    	Courier New;
+    font-size:20px;
+    background-color: #98FB98;
+
+
+  }
+  .bg-2 { 
+    background-color: #474e5d;
+    color: #ffffff;
+    /*background-image:url("/static/images/h.png");*/
+    font-family:    	Courier New;
+    font-size:20px;
+  }
+  .bg-3 { 
+    background-color: #ffffff;
+    color: black;
+    /*background-image:url("/static/images/hh.png");*/
+    font-family:    	Courier New;
+    font-size:20px;
+  }
+  .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid bg-1 text-center">
+  <h3>Who Are We?</h3>
+  <!--<img src="/static/images/21.png" class="img-circle" width="300" height="300">-->
+  <h3>We are a revolutionary platform that 
+allows consumers to buy fresh and high quality produce from local farmers, which reduces the environmental damage.  
+</h3>
+</div>
+
+<div class="container-fluid bg-2 text-center">
+  <h3>What Is Our Daily Tip?</h3>
+  <p>Eat at least 7 dozes of vegetables and fruits per day ! </p>
+</div>
+
+<div class="container-fluid bg-3 text-center">
+  <h3>Who are our farmers ?</h3>
+  <p>Pioneers,who are devoded to hard work,excellence,and doing what's best for you ! </p>
+</div>
+
+</body>
+</html>
 
 
 </body>
