@@ -1,12 +1,19 @@
-#from flask import Flask, flash, render_template, url_for, redirect, request, session jsonify as flask_session
-from flask import Flask, flash, render_template, url_for, redirect, request, session as flask_session
+from flask import Flask, flash, render_template, url_for, redirect, request ,jsonify, session  as flask_session
+# from flask import Flask, flash, render_template, url_for, redirect, request, session as flask_session
 
 from database import *
-#import paypalrestsdk
+import paypalrestsdk
 
 app = Flask(__name__)
 app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'
+
+
+
+paypalrestsdk.configure({
+  "mode": "sandbox", # sandbox or live
+  "client_id": "AVNImnkNjDO_5NOS_qnWtEnAhDiVW-Wxcy88qJJ8SXBMQSD4G-wWx_ES8vDZLLgA6t4miS1J44My-GVg",
+  "client_secret": "ENWdyCjvEEHUS9ycDdKaUpmnS4DmM7wT_qVc3aYQAZuFEv6OnnvAPfrZVZ2k5sgNEjgvbSzWfIJkoJ4R" })
 
 
 @app.route('/')
@@ -49,7 +56,6 @@ def add_product():
 @app.route('/product/<string:Type>')
 def product_page(Type):
     foodlist = get_type_products(Type)
-    print(foodlist)
     Type_1 = query_type_by_name(Type)
     return render_template('foodType.html', foodlist = foodlist, Type_1=Type_1)
 
@@ -126,13 +132,55 @@ def farm_logOut():
 
 
 # ########################################3
-#@app.route('/payment', method=['POST'])
-#def payment():
+@app.route('/payment', methods=['POST'],)
+def payment():
+	payment = paypalrestsdk.Payment({
+    "intent": "sale",
+    "payer": {
+        "payment_method": "paypal"},
+    "redirect_urls": {
+        "return_url": "http://localhost:3000/payment/execute",
+        "cancel_url": "http://localhost:3000/"},
+    "transactions": [{
+        "item_list": {
+            "items": [{
+                "name": request.form['type'],
+                # "sku": "1",
+                "price": "",
+                "currency": "ISL",
+                "quantity": 1}]},
+        "amount": {
+            "total": "",
+            "currency": "ISL"},
+        "description": "This is the payment transaction description."}]})
+	payment[name] = "something"
 
-#	return jsonify({'paymentID' : 'PAYMENTID'})
-# #######################################
+	if payment.create():
+		print('payment success')
+	else:
+		print(payment.error)
+
+	return jsonify({'paymentID' : 'PAYMENTID'})
+#######################################
+
+@app.route('/execute', methods=['POST'])
+def execute():
+
+	payment = paypalrestsdk.payment.find(request.form['paymentID'])
+	
+	if payment.execute({'payer_id'  : request.form['payerID']}):
+		print('Execute success')
+		success = True
+	else:
+		print(payment.error)
+
+	return""
 
 
+
+
+
+# #####################################
 @app.route('/add_food_type', methods=['GET','POST'])
 def add_Type():
     if request.method == "GET":

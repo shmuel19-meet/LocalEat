@@ -72,10 +72,10 @@
 </html>
  -->
 
-<!-- <script src="https://www.paypal.com/sdk/js?client-id=sb"></script> -->
-<!-- <script>paypal.Buttons().render('body');</script>
+<script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+<script>paypal.Buttons().render('body');</script>
 
-
+<!--
  <div id="paypal-button"></div>
 
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
@@ -134,7 +134,7 @@
 <script>
 
 	var CREAT_PAYMENT_URL = 'http://127.0.0.1:5000/payment';
-	var EXECUTE_PAYMENT_URL = 'https://my-store.com/paypal/execute-payment';
+	var EXECUTE_PAYMENT_URL = 'http://127.0.0.1:5000/execute';
 
 	paypal.Button.render({
 		env: 'sandbox', // Or 'sandbox',
@@ -153,11 +153,15 @@
 	},
 
 	onAuthorize: function(data) {
+		print(data)
 		return paypal.request.post(EXECUTE_PAYMENT_URL,{
 			paymentID : data.paymentID,
-			payerID: data.payerID
+			payerID: data.payerID,
+			type : data.type
 
-		}).then(function()) 
+		}).then(function(res)) {
+			print(res.success)
+		}
 	
 	},
 
