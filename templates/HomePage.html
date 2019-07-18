@@ -2,15 +2,11 @@
 <html>
 <head>
 <title>LocalEat</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1">-->
-<script>
-</script>
 <style>
-
-
   body {
     background-color: #ffff;
     
@@ -31,7 +27,6 @@
     background-color: white;
     /*position:center;*/
   }
-
  .jum{
     padding-top: 5px;
     padding-bottom: 5px;
@@ -47,6 +42,12 @@
     margin-top: 2%;
     border-width: 2px;
     border-radius: 25px ;
+    /*background-image: url("/static/images/hhh.png");*/
+  }
+  .newpic{
+    position:relative;
+    left:800px;
+    top:-150px;
   }
   #custom_text {
     color: #f5f5f5;
@@ -63,18 +64,19 @@
   max-width: 1000%;
   max-height: 100%;
 }
+.navbar-nav{
+  position:relative;
+  bottom: 0px;
+}
 </style>
 
 <!--
 <img src="/static/images/localeat2.png"  > 
 video id="bgvid" playsinline autoplay muted loop video  align = left>
-
 - Video needs to be muted, since Chrome 66+ will not autoplay video with sound.
 WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button 
 <source type="video/webm" src=https://www.videvo.net/videvo_files/converted/2017_09/preview/170804_C_Lombok_006.mp483182.webm>
 <source type="video/mp4" src="/videvo_files/converted/2017_09/videos/170804_C_Lombok_006.mp483182.mp4">
-
-
 </video> -->
 
 <!-- Optional: some overlay text to describe the video -->
@@ -90,11 +92,11 @@ WCAG general accessibility recommendation is that media such as background video
 
 
 
-
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="navbar-header">video
-      
+    <div class="navbar-header" >
+      <div class="newpic">
+  </div>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="/HomePage">Home</a></li>
@@ -111,8 +113,8 @@ WCAG general accessibility recommendation is that media such as background video
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Farm
         <ul class="dropdown-menu">
-          <li><a href="/farm_log-in">Log In</a></li>
-          <li><a href="/farm_sign-up">Sign Up</a></li>
+          <li><a href="/Farm_login">Log In</a></li>
+          <li><a href="/user_sign-up">Sign Up</a></li>
         </ul>
       </li>
     </ul>
@@ -120,6 +122,8 @@ WCAG general accessibility recommendation is that media such as background video
      <li><a href="Shipping&Payment">Shipping&Payment</a></li>
      <li><a href="/contact">Contact Us</a></li>
     </ul>
+
+     <img style="width: 300px;height: 200px; margin-left:35%;"src="/static/images/llogo.png"></img>
   </div>
    </div>
 </nav>
@@ -172,22 +176,20 @@ WCAG general accessibility recommendation is that media such as background video
     
     <!--
       <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2017</h5>-->
+      <h5>Title description, Dec 7, 2017</h5>
       <div class="fakeimg2">
         <img src="/static/images/localeat2.png" style="margin-left: 20%"></img>
       </div>
      
     </div>
-
     <div class=fakeimg>
   <img src="{{ url_for('static', filename='images/ff.png') }}" ></img>
 </div>
-
   </div>
 </div>
 <div class=fakeimg>
 </div>
- <!--<hr style="border-top-color: rgba(000, 000, 000, 0.9)">
+<hr style="border-top-color: rgba(000, 000, 000, 0.9)">
 <footer class="footer bg-dark py-5">
   <div class="container position-relative">
     <div class="row">
@@ -231,6 +233,67 @@ WCAG general accessibility recommendation is that media such as background video
     </div>
   </div>
 </footer>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Bootstrap Theme Simply Me</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+  .bg-1 { 
+    
+    color: black;
+   /*--background-image:url("/static/images/5.png");*/
+   font-family:     Courier New;
+    font-size:20px;
+    background-color: #98FB98;
+  }
+  .bg-2 { 
+    background-color: #474e5d;
+    color: #ffffff;
+    /*background-image:url("/static/images/h.png");*/
+    font-family:      Courier New;
+    font-size:20px;
+  }
+  .bg-3 { 
+    background-color: #ffffff;
+    color: black;
+    /*background-image:url("/static/images/hh.png");*/
+    font-family:      Courier New;
+    font-size:20px;
+  }
+  .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid bg-1 text-center">
+  <h3>Who Are We?</h3>
+  <!--<img src="/static/images/21.png" class="img-circle" width="300" height="300">-->
+  <h3>We are a revolutionary platform that 
+allows consumers to buy fresh and high quality produce from local farmers, which reduces the environmental damage.  
+</h3>
+</div>
+
+<div class="container-fluid bg-2 text-center">
+  <h3>What Is Our Daily Tip?</h3>
+  <p>Eat at least 7 dozes of vegetables and fruits per day ! </p>
+</div>
+
+<div class="container-fluid bg-3 text-center">
+  <h3>Who are our farmers ?</h3>
+  <p>Pioneers,who are devoded to hard work,excellence,and doing what's best for you ! </p>
+</div>
+
+</body>
+</html>
 
 
 </body>
@@ -266,7 +329,6 @@ WCAG general accessibility recommendation is that media such as background video
         
             </ul>
         </li>
-
         <li><a href="{{url_for('home')}}">Home</a></li>
         <li><a href="{{url_for('shop')}}">Shop</a></li>
         <li><a href="#">Shipping&Payment</a></li>
@@ -274,7 +336,5 @@ WCAG general accessibility recommendation is that media such as background video
         
     </ul>
 </nav>
-
-
 </body>
 </html>
