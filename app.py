@@ -136,7 +136,7 @@ def farm_logOut():
         return redirect(url_for('home'))
 
 
-# ########################################3
+"""
 #@app.route('/payment/<str:', methods=['POST'],)
 @app.route('/payment:', methods=['POST'],)
 def payment():
@@ -166,7 +166,7 @@ def payment():
         print(payment.error)
 
 	return jsonify({'paymentID' : 'PAYMENTID'})
-#######################################
+"""
 
 @app.route('/execute', methods=['POST'])
 def execute():
