@@ -6,7 +6,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1">-->
-
+<script>
+</script>
 <style>
 
 
@@ -20,8 +21,8 @@
   }
 
  .jum{
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     margin-bottom: 30px;
     color: inherit;
     background-color: white;
@@ -39,21 +40,53 @@
     color: #f5f5f5;
     cursor: pointer;
   }
-
+#bgvid>.top {
+  position: relative;
+  width:1200px;
+  height:400px;
+  top:0;
+  bottom: 0;
+  right:0;
+  left:0;
+  max-width: 1000%;
+  max-height: 100%;
+}
+img{
+  width: 300px;
+  height:400px;
+}
 </style>
+<div class=top>
+
+<img src="/static/images/llogo2.png" > 
+<video id="bgvid" playsinline autoplay muted loop video  align = left>
+
+  <!-- 
+- Video needs to be muted, since Chrome 66+ will not autoplay video with sound.
+WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+<source type="video/webm" src=https://www.videvo.net/videvo_files/converted/2017_09/preview/170804_C_Lombok_006.mp483182.webm>
+<source type="video/mp4" src="/videvo_files/converted/2017_09/videos/170804_C_Lombok_006.mp483182.mp4">
+
+
+</video>
+
+<!-- Optional: some overlay text to describe the video -->
+<!--
+<div class="content">-->
+
+  <!-- Use a button to pause/play the video with JavaScript -->
+
+</div>
+
 </head>
 <body>
-
-<div class="jum" style="margin-bottom:0">
-  <img src="/static/images/localeat2.png"> 
-</div>
 
 
 
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="navbar-header">
+    <div class="navbar-header">video
       
     </div>
     <ul class="nav navbar-nav">
@@ -83,6 +116,35 @@
   </div>
    </div>
 </nav>
+
+
+
+<!-- Optional: some overlay text to describe the video -->
+<div class="content">
+  <!-- Use a button to pause/play the video with JavaScript -->
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="container">
   <div class="row">
