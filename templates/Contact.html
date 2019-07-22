@@ -81,7 +81,7 @@
 {%for farm in Farm_list%}
 
 <button>
-  <a rel="nofollow" href="https://api.whatsapp.com/send?phone=972{{farm.phone}}&amp;text=Hello {{farm.Farm_name}}, I'm {{email}} ,  "   target="_blank">CONTACT {{farm.Farm_name}} </a> 
+  <a rel="nofollow" href="https://api.whatsapp.com/send?phone=972{{farm.phone}}&amp;text=Hello {{farm.Farm_name}}, . I am  {{Current_user}} contacting you via LocalEat to ask questions about your product."   target="_blank">CONTACT {{farm.Farm_name}} </a> 
 </button>
 {% endfor %}
 

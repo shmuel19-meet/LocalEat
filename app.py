@@ -29,8 +29,13 @@ def home():
 
 @app.route('/contact')
 def Contact():
+
     Farm_list = get_all_farms()
-    return render_template('Contact.html', Farm_list = Farm_list)
+    if 'username' in flask_session:
+        Current_user =  flask_session['username']
+        return render_template('Contact.html', Farm_list = Farm_list)
+    else:
+        return render_template('Contact.html', Farm_list = Farm_list)
 
 @app.route('/shop')
 def shop():
