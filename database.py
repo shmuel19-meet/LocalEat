@@ -2,10 +2,10 @@ from model import *
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 
-engine = create_engine('sqlite:///Data.db')
+engine = create_engine('sqlite:///Data.db', echo=True)
 Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind=engine)
-session = scoped_session(sessionmaker(bind=engine))
+session = scoped_session(sessionmaker(bind=engine, autoflush=False))
 
 def add_User(username,phone,address, password,cash):
     try:
@@ -18,6 +18,17 @@ def add_User(username,phone,address, password,cash):
         session.rollback()
         session.close()
         raise
+
+def add_type(Name,img,min_price, max_price):
+  try:
+    product_object = Type(Name=Name,Img=img,Min_price=min_price, Max_price=max_price)
+    session.add(product_object)
+    session.commit()
+    session.close()
+  except:
+    session.rollback()
+    session.close()
+    raise
 
 def add_Farm(Farm_name,bank_name,bank_account,phone,address,password):
     try:
@@ -53,6 +64,7 @@ def update_cost_product_by_id(id):
        id_table=id).first()
     product.cost = 0
     session.commit()
+    session.close()
 
 def update_cash_user_by_username(username,cost):
     user = session.query(
@@ -60,6 +72,7 @@ def update_cash_user_by_username(username,cost):
        username=username).first()
     user.cash -= cost
     session.commit()
+    session.close()
 
 def query_user_by_username(username):
     a=session.query(User)
@@ -73,6 +86,7 @@ def query_by_farmname(farmname):
 def delete_product_by_id(id):
     product = session.query(Product).filter_by(id_table=id).delete()
     session.commit()
+    session.close()
 
 def buy_product(username,product_id):
     user_cash = query_user_by_username(username).cash
@@ -108,10 +122,12 @@ def query_by_farmname_and_password(farmname, password):
 def delete_all_users():
     session.query(User).delete()
     session.commit()
+    session.close()
 
 def delete_all_products():
     session.query(Product).delete()
     session.commit()
+    session.close()
 
 def get_all_Types():
     return session.query(Type).all()
@@ -131,6 +147,7 @@ def set_minPrice(Name,newMinPrice):
        Name=Name).first()
   type.Min_price = newMinPrice
   session.commit()
+  session.close()
 
 def set_maxPrice(Name,newMaxPrice):
   type = session.query(
@@ -138,15 +155,7 @@ def set_maxPrice(Name,newMaxPrice):
        Name=Name).first()
   type.Max_price = newMaxPrice
   session.commit()
-
-def add_type(Name,img,min_price, max_price):
-  try:
-    product_object = Type(Name=Name,Img=img,Min_price=min_price, Max_price=max_price)
-    session.add(product_object)
-    session.commit()
-  except:
-    session.rollback()
-    raise
+  session.close()
 
 def get_type_products_lowestPrice(Type):
     number = 0
