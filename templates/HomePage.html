@@ -7,8 +7,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1">-->
 <style>
-
-
   body {
     background-color: #ffff;
     
@@ -29,7 +27,6 @@
     background-color: white;
     /*position:center;*/
   }
-
  .jum{
     padding-top: 5px;
     padding-bottom: 5px;
@@ -46,8 +43,6 @@
     border-width: 2px;
     border-radius: 25px ;
     /*background-image: url("/static/images/hhh.png");*/
-
-
   }
   .newpic{
     position:relative;
@@ -72,20 +67,16 @@
 .navbar-nav{
   position:relative;
   bottom: 0px;
-
 }
 </style>
 
 <!--
 <img src="/static/images/localeat2.png"  > 
 video id="bgvid" playsinline autoplay muted loop video  align = left>
-
 - Video needs to be muted, since Chrome 66+ will not autoplay video with sound.
 WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button 
 <source type="video/webm" src=https://www.videvo.net/videvo_files/converted/2017_09/preview/170804_C_Lombok_006.mp483182.webm>
 <source type="video/mp4" src="/videvo_files/converted/2017_09/videos/170804_C_Lombok_006.mp483182.mp4">
-
-
 </video> -->
 
 <!-- Optional: some overlay text to describe the video -->
@@ -128,7 +119,7 @@ WCAG general accessibility recommendation is that media such as background video
       </li>
     </ul>
          
-     <li><a href="Shipping&Payment">Shipping&Payment</a></li>
+     <li><a href="/Shipping&Payment">Shipping&Payment</a></li>
      <li><a href="/contact">Contact Us</a></li>
     </ul>
 
@@ -191,11 +182,9 @@ WCAG general accessibility recommendation is that media such as background video
       </div>
      
     </div>
-
     <div class=fakeimg>
   <img src="{{ url_for('static', filename='images/ff.png') }}" ></img>
 </div>
-
   </div>
 </div>
 <div class=fakeimg>
@@ -259,24 +248,23 @@ WCAG general accessibility recommendation is that media such as background video
     
     color: black;
    /*--background-image:url("/static/images/5.png");*/
-   font-family:    	Courier New;
+   font-family:     Courier New;
     font-size:20px;
     background-color: #98FB98;
-
-
   }
   .bg-2 { 
     background-color: #474e5d;
     color: #ffffff;
     /*background-image:url("/static/images/h.png");*/
-    font-family:    	Courier New;
+
+    font-family:      Courier New;
     font-size:20px;
   }
   .bg-3 { 
     background-color: #ffffff;
     color: black;
     /*background-image:url("/static/images/hh.png");*/
-    font-family:    	Courier New;
+    font-family:      Courier New;
     font-size:20px;
   }
   .container-fluid {
@@ -342,7 +330,6 @@ allows consumers to buy fresh and high quality produce from local farmers, which
         
             </ul>
         </li>
-
         <li><a href="{{url_for('home')}}">Home</a></li>
         <li><a href="{{url_for('shop')}}">Shop</a></li>
         <li><a href="#">Shipping&Payment</a></li>
@@ -350,7 +337,5 @@ allows consumers to buy fresh and high quality produce from local farmers, which
         
     </ul>
 </nav>
-
-
 </body>
 </html>

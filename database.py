@@ -57,19 +57,9 @@ def update_cash_user_by_username(username,cost):
 
 def query_user_by_username(username):
     a=session.query(User)
-    print a
     b= a.filter_by(username=username)
-    print b
     c=b.first()
-    
-    
-    print c 
-
     return c
-  # a = session.query
-  # print a
-  # b = a.filter_by
-  # c = b.first
 
 def query_by_farmname(farmname):
     return session.query(Farm).filter_by(Farm_name = farmname).first()
