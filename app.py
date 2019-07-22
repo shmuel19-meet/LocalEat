@@ -77,6 +77,13 @@ def user_signUp():
     else:
         return render_template('User_signup.html')
 
+#@app.route('/add-cash',method=['GET','POST'])
+#def add_cash():
+  #  if request.method == 'GET' :
+   #     return render_template('add_cash.html')
+    #else:
+     #   return redirect(url_for('home'))
+
 @app.route('/farm_sign-up', methods=['GET', 'POST'])  
 def farm_signUp():
     if request.method == "POST":
@@ -155,7 +162,7 @@ def payment():
                 # "sku": "1",
                 "price": typeNeeded.cost ,
                 "currency": "ISL",
-                "quantity": 1}]},
+                "quantity":100}]},
         "amount": {
             "total": "",
             "currency": "ISL"},

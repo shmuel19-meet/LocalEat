@@ -1,8 +1,15 @@
 from model import *
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
+import logging
 
-engine = create_engine('sqlite:///Data.db')
+logging.basicConfig()
+logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
+
+logger = logging.getLogger('demo')
+logger.setLevel(logging.INFO)
+
+engine = create_engine('sqlite:///Data.db', echo=True)
 Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind=engine)
 session = scoped_session(sessionmaker(bind=engine))
@@ -28,8 +35,11 @@ def add_Farm(Farm_name,bank_name,bank_account,phone,address,password):
 
 def add_Product(Type,Owner,cost):
   try:
+    session = scoped_session(sessionmaker(bind=engine))
+    logger.info('------add product------')
     product_object = Product(Type=Type,Owner=Owner,cost=round(cost,2))
     session.add(product_object)
+    print("going to commit")
     session.commit()
   except:
     session.rollback()
@@ -75,9 +85,9 @@ def buy_product(username,product_id):
     if user_cash == product_cost or user_cash > product_cost:
         update_cash_user_by_username(username,product_cost)
         delete_product_by_id(product_id)
-        return "bought"
+        return True
     else:
-        return "not enough cash"
+        return False
 
 def get_all_products():
     return session.query(Product).all()

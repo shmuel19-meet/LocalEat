@@ -11,7 +11,6 @@ class User(Base):
     username = Column(String)
     phone = Column(Integer)
     address = Column(String)
-    
     password = Column(String)
     cash = Column(Float)
 
