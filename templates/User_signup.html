@@ -96,11 +96,12 @@ margin-top: 3%;
 
                 <input class="form-control" type="text" placeholder="username" name="username" required>
 
-                <input class="form-control" type="text" placeholder="Enter phonenumber" name="phone" required>
+                <input class="form-control" type="text" placeholder="Enter phonenumber" pattern="^\d{10}$"  name="phone" required>
 
                 <input class="form-control" type="text" placeholder="Enter address" name="address" required>
  
-                <input class="form-control" type="password" placeholder="Enter Password" name="password" required>
+                <input class="form-control" type="password" placeholder="Enter Password at least 6 digits"   name="password" required>
+                 <input class="form-control" type="password" placeholder="Reenter Password"  name="Reenter_password" required>
 
                     <input type="submit" value="Signup">
 
