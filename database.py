@@ -13,8 +13,10 @@ def add_User(username,phone,address, password,cash):
         password=password,cash=round(cash,2))
         session.add(user_object)
         session.commit()
+        session.close()
     except:
         session.rollback()
+        session.close()
         raise
 
 def add_Farm(Farm_name,bank_name,bank_account,phone,address,password):
@@ -22,8 +24,10 @@ def add_Farm(Farm_name,bank_name,bank_account,phone,address,password):
         Farm_object = Farm(Farm_name=Farm_name,bank_name=bank_name,bank_account=bank_account,phone=phone,address=address,password=password)
         session.add(Farm_object)
         session.commit()
+        session.close()
     except:
         session.rollback()
+        session.close()
         raise    
 
 def add_Product(Type,Owner,cost):
@@ -31,8 +35,10 @@ def add_Product(Type,Owner,cost):
     product_object = Product(Type=Type,Owner=Owner,cost=round(cost,2))
     session.add(product_object)
     session.commit()
+    session.close()
   except:
     session.rollback()
+    session.close()
     raise
 
 def query_product_by_id(id):
@@ -57,19 +63,9 @@ def update_cash_user_by_username(username,cost):
 
 def query_user_by_username(username):
     a=session.query(User)
-    print a
     b= a.filter_by(username=username)
-    print b
     c=b.first()
-    
-    
-    print c 
-
     return c
-  # a = session.query
-  # print a
-  # b = a.filter_by
-  # c = b.first
 
 def query_by_farmname(farmname):
     return session.query(Farm).filter_by(Farm_name = farmname).first()
@@ -116,8 +112,6 @@ def delete_all_users():
 def delete_all_products():
     session.query(Product).delete()
     session.commit()
-
-##########################################################################
 
 def get_all_Types():
     return session.query(Type).all()
