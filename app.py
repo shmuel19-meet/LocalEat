@@ -29,8 +29,13 @@ def home():
 
 @app.route('/contact')
 def Contact():
+
     Farm_list = get_all_farms()
-    return render_template('Contact.html', Farm_list = Farm_list)
+    if 'username' in flask_session:
+        Current_user =  flask_session['username']
+        return render_template('Contact.html', Farm_list = Farm_list)
+    else:
+        return render_template('Contact.html', Farm_list = Farm_list)
 
 @app.route('/shop')
 def shop():
@@ -68,12 +73,16 @@ def buy_prduct(id_table):
 @app.route('/user_sign-up', methods=['GET', 'POST'])
 def user_signUp():
     if request.method == "POST":
-        if query_user_by_username(request.form['username']) == None:
-            add_User(request.form['username'],request.form['password'],request.form['phone'],request.form['address'],0)
-            return redirect(url_for('user_logIn'))
+        if query_user_by_username(request.form['username']) != None:
+            if (request.form['password'] != request.form['Reenter_password']):
+                flash('passwords dont match')
+                return render_template('User_signup.html')
+            else :
+                add_User(request.form['username'],request.form['password'],request.form['phone'],request.form['address'],0)
+                return redirect(url_for('user_logIn'))            
         else:
-            flash('User name already taken, please choose another one.')
-            return render_template('User_signup.html')            
+            flash('username already taken, please choose another one.')
+            return render_template('User_signup.html')
     else:
         return render_template('User_signup.html')
 
@@ -81,8 +90,12 @@ def user_signUp():
 def farm_signUp():
     if request.method == "POST":
         if query_by_farmname(request.form['farmname']) == None:
-            add_Farm(request.form['farmname'],request.form['bank_name'],request.form['bank_account'],request.form['phone'],request.form['address'],request.form['password'])
-            return redirect(url_for('farm_logIn'))
+            if (request.form['password']!=request.form['Reenter_password']):
+                 flash('The password dont match')
+                 return render_template('Farm_signup.html')
+            else :
+                add_Farm(request.form['farmname'],request.form['bank_name'],request.form['bank_account'],request.form['phone'],request.form['address'],request.form['password'])
+                return redirect(url_for('farm_logIn'))
         else:
             flash('Farm name already taken, please choose another one.')
             return render_template('Farm_signup.html')
