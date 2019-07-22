@@ -145,7 +145,7 @@ def farm_logOut():
 
 
 #@app.route('/payment/<str:', methods=['POST'],)
-@app.route('/payment:', methods=['POST'],)
+@app.route('/payment', methods=['POST'])
 def payment():
     typeNeeded = get_type_products("")
     payment = paypalrestsdk.Payment({

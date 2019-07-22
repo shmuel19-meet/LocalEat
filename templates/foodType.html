@@ -6,15 +6,94 @@
 </head>
 <body>
 
-{% for food in foodlist%}
+{% for food in foodlist %}
+		<!-- <script>console.log(food)</script> -->
       <div class="col-sm-4">
         <div class="card">
             <div class="card">
-                <img class="card-img-top"  width="670" height="440">
                 <div class="card-body">
                   <h5 class="card-title">{{food.Owner}}</h5>
                   <p class="card-text">{{food.cost}} </p>
-                  <a href="/buy_product/{{food.id}}" class="button button5"> buy</a>
+                  
+	<script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+			<script>console.log('paypal')</script>
+
+	<script>paypal.Buttons().render('body');</script>
+	<div id="paypal-button"></div>
+	<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+<script>
+	
+	var CREAT_PAYMENT_URL = 'http://127.0.0.1:5000/payment';
+	var EXECUTE_PAYMENT_URL = 'http://127.0.0.1:5000/execute';
+
+	// for food in foodlist:
+	// 	id = food.name + food.id // "Tomato2"
+	// 	paypal.Button.render();
+
+
+	var all_btn = document.getElementsByClassName('paypal-button');
+	var i;
+		for (i = 0; i < all_btn.length; i++) {
+ 	 all_btn[number].id += i
+	} 
+
+	//$('.paypal-button').each(function(){
+	  //  i++;
+	   // var newID='menu'+i;
+	    //something =  document.getElementById("paypal-button");
+	  //  something.id += i
+	//});
+
+
+	// [/* list of IDs */].forEach(function() {
+	// 	paypal.Button.render({
+	// 		// options
+	// 	}, 'body');
+	// });
+
+	paypal.Button.render({
+		env: 'sandbox', // Or 'sandbox',
+
+		commit: true, // Show a 'Pay Now' button
+
+	style: {
+	color: 'gold',
+	size: 'small'
+	},
+
+	payment: function() {
+		return paypal.request.post(CREAT_PAYMENT_URL).then(function(data){
+			return data.id;
+		})
+	},
+
+	onAuthorize: function(data) {
+		print(data)
+		return paypal.request.post(EXECUTE_PAYMENT_URL,{
+			paymentID : data.paymentID,
+			payerID: data.payerID,
+			type : data.type
+
+		}).then(function(res) {
+			print(res.success)
+		})
+	
+	},
+
+	  				// onCancel: function(data, actions) {
+					//   /*
+					//    * Buyer cancelled the payment
+				//    */
+			// },
+
+			// onError: function(err) {
+			//   /*
+			//    * An error occurred during the transaction
+			//    */
+			// }
+	}, '#paypal-button');
+	</script>
                 </div>
               </div>
         </div>
