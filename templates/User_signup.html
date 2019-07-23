@@ -1,45 +1,93 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet"> 
 <style>
 body{
     margin: 0%;
     font-family: sans-serif;
+<<<<<<< HEAD
    background-image: url("/static/q2.gif");
+=======
+    background-image: url("/static/l.gif");
+>>>>>>> 5c5ee031b10f3ecff7899ca1c72171839d0f25bd
     background-repeat: no-repeat;
     background-size: cover;
 .box {
-    border-radius: 25px;
-    box-shadow: 5px 10px 18px #888888;
+    border-radius: 10px;
+    /*box-shadow: 5px 10px 18px #888888;*/
     width: 600px;
     padding: 40px;
     position: absolute;
-    top: 60%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%,-50%);
+<<<<<<< HEAD
 /*    background: #ffff;
 */    text-align: center;
+=======
+    /*background: #ffff;*/
+    text-align: center;
+>>>>>>> 5c5ee031b10f3ecff7899ca1c72171839d0f25bd
 }
 .box h1 {
     color: black;
     font-weight: 500;
 }
+div.c {
+  position: absolute;
+  left: 550px;
+  top: 400px;
+  
+  width: 400px;
+  height: 70px;
+  border: 3px solid white;
+  background-color: white;
+    opacity: 0.8;
+    border-radius: 24px;
+} 
+div.b {
+  position: absolute;
+  /*left: 550px;
+  top: 500px;
+  
+  width: 400px;
+  height: 70px;*/
+  border: 3px solid white;
+  background-color: white;
+    opacity: 0.8;
+    border-radius: 24px;
+    left:310px;
+    text-align: center;
+} 
 .box input[type="text"],.box input[type="password"] {
     border: 0;
-    background: none;
+    font-weight: 1000;
     display: block;
     margin: 20px auto;
     text-align: center;
+<<<<<<< HEAD
 /*    border: 2px solid #8B4513;
 */    padding: 14px 10px;
+=======
+    border: 2px solid white;
+    padding: 14px 10px;
+>>>>>>> 5c5ee031b10f3ecff7899ca1c72171839d0f25bd
     outline: none;
     color: black;
     border-radius: 24px;
     transition: 0.25s;
+    background-color: white;
+    opacity: 0.8;
 }
 .box input[type="text"]:focus,.box input[type="password"]:focus{
     width: 280px;
-    border-color: #2ecc71;  
+    /*border-color: #2ecc71; */
+    background-color: white;
+    opacity: 0.8;
+    font-weight: 1000; 
 }
 .box input[type="submit"] {
     border:0;
@@ -47,13 +95,16 @@ body{
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #2ecc71;
+    /*border: 2px solid #2ecc71;*/
     padding: 14px 40px;
     outline: none;
     color: black;
     border-radius: 24px;
     transition: 0.25s;
     cursor: pointer;
+    background-color: white;
+    opacity: 0.8;
+    font-weight: 1000;
 }
 .box input[type="submit"]:hover {
     background: #2ecc71
@@ -74,12 +125,15 @@ text-align: center;
 margin-top: 3%;
 }
 </style>
-    <title> User Sign-Up </title>
+    <title> Farm Sign-Up </title>
 </head>
 <body>
-        
+    <div class="b" style="font-family: 'IBM Plex Sans', sans-serif";>
+                       
                 <h1 style="text-align: center;"> Sign Up as User: </h1>
     <h3 style="text-align: center;">As a User you will be able to view Farm's products and buy them. </h3>
+
+    </div>
 
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
@@ -91,7 +145,7 @@ margin-top: 3%;
                     {% endif %}
                 {% endwith %}
 
-                <form action="/user_sign-up" method="post" class="box">
+                 <form action="/user_sign-up" method="post" class="box">
 
                 <input class="form-control" type="text" placeholder="username" name="username" required>
 
@@ -103,9 +157,35 @@ margin-top: 3%;
                  <input class="form-control" type="password" placeholder="Reenter Password"  name="Reenter_password" required>
 
                     <input type="submit" value="Signup">
-
-                    <p><a href="/user_log-in">Log in ?</a></p>
-                    <p><a href="{{url_for('home')}}" style="font-size:50px" > &#127968;</a></p>
+                <div class="c">
+                <p><a href="/user_log-in">Already have a User account?</a></p>
+                <p><a href="{{url_for('home')}}" style="font-size:50px" > &#127968;</a></p>
+            </div>
                 </form>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

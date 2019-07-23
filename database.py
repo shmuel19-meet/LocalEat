@@ -122,7 +122,14 @@ def get_owner_products(Owner):
 def query_products_by_buyer(buyer):
   return session.query(Product).filter_by(buyer=buyer).all()
 
+def query_productsCost_by_user(buyer):
+    total = 0
+    somethngs = session.query(Product).filter_by(buyer=buyer).all()
+    for i in range (len(somethngs)):
+      total += somethngs[i].cost
+    return total
 
+print(query_productsCost_by_user('carmi'))
 def get_all_users():
     return session.query(User).all()
 

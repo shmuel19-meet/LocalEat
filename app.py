@@ -28,6 +28,9 @@ def home():
     else:
         return render_template('HomePage.html')
 
+@app.route('/farm_profile')
+def Farm_profile():
+    return render_template('Farm_profile_page.html')
 @app.route('/contact')
 def Contact():
     Farm_list = get_all_farms()
@@ -101,7 +104,8 @@ def cart():
     if 'username' in flask_session:
         username = flask_session['username']
         cartList = query_products_by_buyer(username)
-        return render_template('Cart.html',cartList=cartList)
+        total = query_productsCost_by_user(username)
+        return render_template('Cart.html',cartList=cartList,total=total)
     else:
         return redirect(url_for('shop'))
 
@@ -111,7 +115,8 @@ def buy_prduct(id_table):
         username = flask_session['username']
         update_product_to_user(username,id_table)
         cartList = query_products_by_buyer(username)
-        return render_template('Cart.html',cartList=cartList)
+        total = query_productsCost_by_user(username)
+        return render_template('Cart.html',cartList=cartList,total=total)
     else:
         return redirect(url_for('shop'))
 
@@ -178,13 +183,13 @@ def payment():
         "transactions": [{
         "item_list": {
             "items": [{
-                "name": typeNeeded.name,
+                "name": "LocalEat items",
                 # "sku": "1",
-                "price": typeNeeded.cost ,
+                "price": "50" ,
                 "currency": "ISL",
                 "quantity": 1}]},
         "amount": {
-            "total": "",
+            "total": 500,
             "currency": "ISL"},
         "description": "This is the payment transaction description."}]})
     if payment.create():
