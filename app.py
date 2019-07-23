@@ -72,7 +72,7 @@ def user_signUp():
                 flash('passwords dont match')
                 return render_template('User_signup.html')
             else :
-                add_User(request.form['username'],request.form['password'],request.form['phone'],request.form['address'],0)
+                add_User(request.form['username'],request.form['phone'],request.form['address'],request.form['password'],0)
                 return redirect(url_for('user_logIn'))            
         else:
             flash('username already taken, please choose another one.')
