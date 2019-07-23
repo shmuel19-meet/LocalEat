@@ -73,7 +73,7 @@ def buy_prduct(id_table):
 @app.route('/user_sign-up', methods=['GET', 'POST'])
 def user_signUp():
     if request.method == "POST":
-        if query_user_by_username(request.form['username']) != None:
+        if query_user_by_username(request.form['username']) == None:
             if (request.form['password'] != request.form['Reenter_password']):
                 flash('passwords dont match')
                 return render_template('User_signup.html')
