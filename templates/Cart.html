@@ -5,19 +5,29 @@
 </head>
 <body>
 
-	<p>cart</p>
-
+	<p>cart</p>  
 {% for item in cartList%}
       <div class="col-sm-4">
         <div class="card">
             <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">hello<</h5>
-                  <p class="card-text">{{item}} </p>
+                  <p class="card-text">food type :{{item.Type}} </p>
+                  <p> farm's name : {{item.Owner}}</p>
+                  <p>costs {{item.cost}}</p>
                 </div>
               </div>
         </div>
       </div>
 {% endfor%}
+
+<p>total cost = {{total}}</p>
+<script src="https://checkout.stripe.com/checkout.js"
+    class="stripe-button"
+    data-key="pk_test_ZZrzfxhEbKLG0UcURfipQYJ700o7uKh6DN"
+    data-amount="{{2000}}"
+    data-name="Demo Site"
+    data-description="2 widgets ($20.00)"
+    data-image="/128x128.png">
+</script>
 </body>
 </html>

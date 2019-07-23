@@ -66,6 +66,22 @@ def product_page(Type):
     foodlist = get_type_products(Type)
     Type_1 = query_type_by_name(Type)
     return render_template('foodType.html', foodlist = foodlist, Type_1=Type_1)
+
+@app.route('/farm_sign-up', methods=['GET', 'POST'])  
+def farm_signUp():
+    if request.method == "POST":
+        if query_by_farmname(request.form['farmname']) == None:
+            if (request.form['password']!=request.form['Reenter_password']):
+                 flash('The password dont match')
+                 return render_template('Farm_signup.html')
+            else :
+                add_Farm(request.form['farmname'],request.form['bank_name'],request.form['bank_account'],request.form['phone'],request.form['address'],request.form['password'])
+                return redirect(url_for('farm_logIn'))
+        else:
+            flash('Farm name already taken, please choose another one.')
+            return render_template('Farm_signup.html')
+    else:
+        return render_template('Farm_signup.html')
     
 @app.route('/user_sign-up', methods=['GET', 'POST'])
 def user_signUp():
@@ -83,38 +99,26 @@ def user_signUp():
     else:
         return render_template('User_signup.html')
 
-@app.route('/farm_sign-up', methods=['GET', 'POST'])  
-def farm_signUp():
-    if request.method == "POST":
-        if query_by_farmname(request.form['farmname']) == None:
-            if (request.form['password']!=request.form['Reenter_password']):
-                 flash('The password dont match')
-                 return render_template('Farm_signup.html')
-            else :
-                add_Farm(request.form['farmname'],request.form['bank_name'],request.form['bank_account'],request.form['phone'],request.form['address'],request.form['password'])
-                return redirect(url_for('farm_logIn'))
-        else:
-            flash('Farm name already taken, please choose another one.')
-            return render_template('Farm_signup.html')
-    else:
-        return render_template('Farm_signup.html')
-
-@app.route('/cart/<int:id_table>',methods=['GET','POST'])
+@app.route('/cart',methods=['GET','POST'])
 def cart():
     if 'username' in flask_session:
-        cartList = []
-        return render_template('Cart.html',cartList=cartList)
+        username = flask_session['username']
+        cartList = query_products_by_buyer(username)
+        total = query_productsCost_by_user(username)
+        return render_template('Cart.html',cartList=cartList,total=total)
     else:
         return redirect(url_for('shop'))
 
 @app.route('/buy_product/<int:id_table>')
 def buy_prduct(id_table):
     if 'username' in flask_session:
-        product = query_product_by_id(id_table)
         username = flask_session['username']
-        users_cash = get_users_cash(username)
-        cartList = query_products_of_user(username)
-        return render_template('User_HomePage.html',user=username,cash=users_cash,cartList=cartList)
+        update_product_to_user(username,id_table)
+        cartList = query_products_by_buyer(username)
+        total = query_productsCost_by_user(username)
+        return render_template('Cart.html',cartList=cartList,total=total)
+    else:
+        return redirect(url_for('shop'))
 
 
 @app.route('/user_log-in', methods=['GET','POST'])
@@ -179,13 +183,13 @@ def payment():
         "transactions": [{
         "item_list": {
             "items": [{
-                "name": typeNeeded.name,
+                "name": "LocalEat items",
                 # "sku": "1",
-                "price": typeNeeded.cost ,
+                "price": "50" ,
                 "currency": "ISL",
                 "quantity": 1}]},
         "amount": {
-            "total": "",
+            "total": 500,
             "currency": "ISL"},
         "description": "This is the payment transaction description."}]})
     if payment.create():

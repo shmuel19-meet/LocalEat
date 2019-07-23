@@ -90,13 +90,11 @@ def query_by_farmname(farmname):
 def query_products_of_user(username):
     return session.query(User).filter_by(username=username).first().cartList
 
-def add_product_to_user(product_id,username):
-    user = query_user_by_username(username)
+def update_product_to_user(username,product_id):
     product = query_product_by_id(product_id)
-    user.cartList += product
-
-    return user
-
+    product.buyer = username
+    session.commit()
+    session.close()
 
 def delete_product_by_id(id):
     product = session.query(Product).filter_by(id_table=id).delete()
@@ -121,7 +119,17 @@ def get_all_products():
 def get_owner_products(Owner):
     return session.query(Product).filter_by(Owner=Owner).all()
 
+def query_products_by_buyer(buyer):
+  return session.query(Product).filter_by(buyer=buyer).all()
 
+def query_productsCost_by_user(buyer):
+    total = 0
+    somethngs = session.query(Product).filter_by(buyer=buyer).all()
+    for i in range (len(somethngs)):
+      total += somethngs[i].cost
+    return total
+
+print(query_productsCost_by_user('carmi'))
 def get_all_users():
     return session.query(User).all()
 
@@ -208,3 +216,4 @@ def update_min_max_types():
     for item in types:
       item.Min_price = get_type_products_lowestPrice(item.Name)
       item.Max_price = get_type_products_highestPrice(item.Name)
+
