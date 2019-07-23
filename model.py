@@ -11,7 +11,6 @@ class User(Base):
     username = Column(String)
     phone = Column(Integer)
     address = Column(String)
-    
     password = Column(String)
     cash = Column(Float)
 
@@ -20,7 +19,7 @@ class User(Base):
             "phone: {},\n"
             "address: {},\n"
             "password: {}, \n"
-            "cash: {}.\n"
+            "cash: {}. \n"
             ).format(
                 self.username,
                 self.phone,
@@ -59,16 +58,19 @@ class Product(Base):
     Type = Column(String)
     Owner = Column(String)
     cost = Column(Float)
+    buyer = Column(String)
 
     def __repr__(self):
         return ("id : {},\n"
             "Type: {},\n"
             "Owner: {},\n"
-            "cost: {}.\n"
+            "cost: {},\n"
+            "buyer: {}.\n"
             ).format(self.id_table,
                 self.Type,
                 self.Owner,
-                self.cost)
+                self.cost,
+                self.buyer)
 
 class Type(Base):
     __tablename__ = "Types"
