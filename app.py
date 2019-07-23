@@ -20,7 +20,8 @@ paypalrestsdk.configure({
 def home():
     if 'username' in flask_session:
         username = flask_session['username']
-        return render_template('User_HomePage.html',user=username, log = True)
+        users_cash = get_users_cash(username)
+        return render_template('User_HomePage.html',user=username,cash=users_cash)
     elif 'farmname' in flask_session:
         farmname = flask_session['farmname']
         return render_template('Farm_HomePage.html',farm=farmname,my_products=get_owner_products(farmname), log = False)
@@ -29,7 +30,6 @@ def home():
 
 @app.route('/contact')
 def Contact():
-
     Farm_list = get_all_farms()
     if 'username' in flask_session:
         Current_user =  flask_session['username']
@@ -53,7 +53,7 @@ def add_product():
             return render_template('Add_Product.html', types = types)
         else:
             add_Product(request.form['category'],flask_session['farmname'],
-                int(request.form['productcost']))
+                int(request.form['productcost']),"")
             return redirect(url_for('shop'))
     else:
         return redirect(url_for('shop'))
@@ -63,22 +63,16 @@ def product_page(Type):
     foodlist = get_type_products(Type)
     Type_1 = query_type_by_name(Type)
     return render_template('foodType.html', foodlist = foodlist, Type_1=Type_1)
-
-@app.route('/buy_product/<int:id_table>')
-def buy_prduct(id_table):
-    product = query_product_by_id(id_table)
-    return render_template('Product.html',owner= product.Owner, categorie=product.Type , cost=product.cost)
-
     
 @app.route('/user_sign-up', methods=['GET', 'POST'])
 def user_signUp():
     if request.method == "POST":
-        if query_user_by_username(request.form['username']) != None:
+        if query_user_by_username(request.form['username']) == None:
             if (request.form['password'] != request.form['Reenter_password']):
                 flash('passwords dont match')
                 return render_template('User_signup.html')
             else :
-                add_User(request.form['username'],request.form['password'],request.form['phone'],request.form['address'],0)
+                add_User(request.form['username'],request.form['phone'],request.form['address'],request.form['password'],0)
                 return redirect(url_for('user_logIn'))            
         else:
             flash('username already taken, please choose another one.')
@@ -101,6 +95,24 @@ def farm_signUp():
             return render_template('Farm_signup.html')
     else:
         return render_template('Farm_signup.html')
+
+@app.route('/cart/<int:id_table>',methods=['GET','POST'])
+def cart():
+    if 'username' in flask_session:
+        cartList = []
+        return render_template('Cart.html',cartList=cartList)
+    else:
+        return redirect(url_for('shop'))
+
+@app.route('/buy_product/<int:id_table>')
+def buy_prduct(id_table):
+    if 'username' in flask_session:
+        product = query_product_by_id(id_table)
+        username = flask_session['username']
+        users_cash = get_users_cash(username)
+        cartList = query_products_of_user(username)
+        return render_template('User_HomePage.html',user=username,cash=users_cash,cartList=cartList)
+
 
 @app.route('/user_log-in', methods=['GET','POST'])
 def user_logIn():
@@ -183,7 +195,6 @@ def payment():
 
 @app.route('/execute', methods=['POST'])
 def execute():
-
 	payment = paypalrestsdk.payment.find(request.form['paymentID'])
 	
 	if payment.execute({'payer_id'  : request.form['payerID']}):
@@ -194,19 +205,13 @@ def execute():
 
 	return""
 
-
-# #####################################
 @app.route('/add_food_type', methods=['GET','POST'])
 def add_Type():
     if request.method == "GET":
             return render_template('add_type.html')
     else:
-        print(request.form)
-        
         add_type(request.form['name'],request.form['img'],0,0)       
         return redirect(url_for('home'))
-
-
 
 
 if __name__ == "__main__":

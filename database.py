@@ -41,9 +41,9 @@ def add_Farm(Farm_name,bank_name,bank_account,phone,address,password):
         session.close()
         raise    
 
-def add_Product(Type,Owner,cost):
+def add_Product(Type,Owner,cost,buyer):
   try:
-    product_object = Product(Type=Type,Owner=Owner,cost=round(cost,2))
+    product_object = Product(Type=Type,Owner=Owner,cost=round(cost,2),buyer=buyer)
     session.add(product_object)
     session.commit()
     session.close()
@@ -66,6 +66,13 @@ def update_cost_product_by_id(id):
     session.commit()
     session.close()
 
+def cash_for_username(username,cost):
+    user = session.query(
+       User).filter_by(
+       username=username).first()
+    user.cash += cost
+    session.commit()
+    session.close()
 def update_cash_user_by_username(username,cost):
     user = session.query(
        User).filter_by(
@@ -75,13 +82,21 @@ def update_cash_user_by_username(username,cost):
     session.close()
 
 def query_user_by_username(username):
-    a=session.query(User)
-    b= a.filter_by(username=username)
-    c=b.first()
-    return c
+    return session.query(User).filter_by(username=username).first()
 
 def query_by_farmname(farmname):
     return session.query(Farm).filter_by(Farm_name = farmname).first()
+
+def query_products_of_user(username):
+    return session.query(User).filter_by(username=username).first().cartList
+
+def add_product_to_user(product_id,username):
+    user = query_user_by_username(username)
+    product = query_product_by_id(product_id)
+    user.cartList += product
+
+    return user
+
 
 def delete_product_by_id(id):
     product = session.query(Product).filter_by(id_table=id).delete()
@@ -140,6 +155,9 @@ def get_minPrice(Name):
 
 def get_maxPrice(Name):
   return  session.query(Type).filter_by(Name=Name).first().Max_price
+
+def get_users_cash(username):
+  return session.query(User).filter_by(username=username).first().cash
 
 def set_minPrice(Name,newMinPrice):
   type = session.query(

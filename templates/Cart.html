@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> my cart </title>
+</head>
+<body>
+
+	<p>cart</p>
+
+{% for item in cartList%}
+      <div class="col-sm-4">
+        <div class="card">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">hello<</h5>
+                  <p class="card-text">{{item}} </p>
+                </div>
+              </div>
+        </div>
+      </div>
+{% endfor%}
+</body>
+</html>
