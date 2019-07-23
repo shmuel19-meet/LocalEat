@@ -28,6 +28,9 @@ def home():
     else:
         return render_template('HomePage.html')
 
+@app.route('/farm_profile')
+def Farm_profile():
+    return render_template('Farm_profile_page.html')
 @app.route('/contact')
 def Contact():
     Farm_list = get_all_farms()
