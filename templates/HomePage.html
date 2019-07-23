@@ -1,356 +1,560 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>LocalEat</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<!-- <meta name="viewport" content="width=device-width, initial-scale=1">-->
-<style>
-
-
-  body {
-    background-color: #ffff;
-    
-    margin:0%;
-  }
-  .fakeimg {
-   
-   
-    text-align: center; 
-    
-  }
-.fakeimg2 {
-    height:178px;
-    /*width:716px;*/
- 
-    padding-left:0px;
-    /*background-image:url("/static/images/localeat2.png");*/
-    background-color: white;
-    /*position:center;*/
-  }
-
- .jum{
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-bottom: 30px;
-    color: inherit;
-    background-color: white;
-    text-align: center; 
-  }
-  .custom_nav {
-    background-color: #3496c7;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-top: 2%;
-    border-width: 2px;
-    border-radius: 25px ;
-    /*background-image: url("/static/images/hhh.png");*/
-
-
-  }
-  .newpic{
-    position:relative;
-    left:800px;
-    top:-150px;
-  }
-  #custom_text {
-    color: #f5f5f5;
-    cursor: pointer;
-  }
-#bgvid>.top {
-  position: relative;
-  width:1200px;
-  height:400px;
-  top:0;
-  bottom: 0;
-  right:0;
-  left:0;
-  max-width: 1000%;
-  max-height: 100%;
-}
-.navbar-nav{
-  position:relative;
-  bottom: 0px;
-
-}
-</style>
-
-<!--
-<img src="/static/images/localeat2.png"  > 
-video id="bgvid" playsinline autoplay muted loop video  align = left>
-
-- Video needs to be muted, since Chrome 66+ will not autoplay video with sound.
-WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button 
-<source type="video/webm" src=https://www.videvo.net/videvo_files/converted/2017_09/preview/170804_C_Lombok_006.mp483182.webm>
-<source type="video/mp4" src="/videvo_files/converted/2017_09/videos/170804_C_Lombok_006.mp483182.mp4">
-
-
-</video> -->
-
-<!-- Optional: some overlay text to describe the video -->
-
-<div class="content">
-
-  <!-- Use a button to pause/play the video with JavaScript -->
-
-</div>
-
-</head>
-<body>
-
-
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header" >
-      <div class="newpic">
-  </div>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="/HomePage">Home</a></li>
-       <li class="dropdown">
-       <a class="dropdown-toggle" data-toggle="dropdown" href="#">User
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/user_log-in">Log In as user</a></li>
-          <li><a href="/user_sign-up">Sign Up as user</a></li>
-     </ul>
-         
-      </li>
-      <ul class="nav navbar-nav">
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Farm
-        <ul class="dropdown-menu">
-          <li><a href="/farm_log-in">Log In</a></li>
-          <li><a href="/farm_sign-up">Sign Up</a></li>
-        </ul>
-      </li>
-    </ul>
-         
-     <li><a href="Shipping&Payment">Shipping&Payment</a></li>
-     <li><a href="/contact">Contact Us</a></li>
-    </ul>
-
-     <img style="width: 300px;height: 200px; margin-left:35%;"src="/static/images/llogo.png"></img>
-  </div>
-   </div>
-</nav>
-
-
-
-<!-- Optional: some overlay text to describe the video -->
-<div class="content">
-  <!-- Use a button to pause/play the video with JavaScript -->
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <h2>Daily Tip !</h2>
-    
-      <div class="fakeimg">Never eat a Watermelon before entering a swwiming pool !</div>
-      
-      <h3>Our Farmers</h3>
-      <p>Get to know US !</p>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#">Peace farm=Netanya</a></li>
-        <li><a href="#">J-farm = Nazareth</a></li>
-      </ul>
-      <hr class="hidden-sm hidden-md hidden-lg">
-    </div>-->
-    <div class="col-sm-8"style="width:100%">
-    
-    <!--
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2017</h5>
-      <div class="fakeimg2">
-        <img src="/static/images/localeat2.png" style="margin-left: 20%"></img>
-      </div>
-     
-    </div>
-
-    <div class=fakeimg>
-  <img src="{{ url_for('static', filename='images/ff.png') }}" ></img>
-</div>
-
-  </div>
-</div>
-<div class=fakeimg>
-</div>
-<hr style="border-top-color: rgba(000, 000, 000, 0.9)">
-<footer class="footer bg-dark py-5">
-  <div class="container position-relative">
-    <div class="row">
-      <div class="col-6 col-md-4">
-        <h3 class="text-white">Company</h3>
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a href="mailto:noamm19meet@gmail.com" target="_blank" class="nav-link pl-1">Contact Us</a>
-          </li>  
-          <li class="nav-item">
-            Contat Us : LocalEatteam@gmail.com
-          </li>
-          <li class="nav-item">
-            <a href="/shop"  target="_blank" class="nav-link pl-0">Shop</a>
-          </li>
-         
-        </ul>
-      </div>
-      <div class="col-6 col-md-4">
-        <h3 class="text-white">Social</h3>
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link pl-0" href="https://www.youtube.com/channel/UCg_pj7u5TToHnBVXnaWSoUQ" target="_blank">Youtube</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link pl-0" href="https://www.instagram.com/localeateam/" target="_blank">Instagram</a>
-          </li>
-       <li class="nav-item">
-            <a class="nav-link pl-0" href="" target="_blank">Facebook</a>
-          </li>
-          <li class="nav-item">      
-            <a class="nav-link pl-0" href="https://twitter.com/officialthenx" target="_blank">Twitter</a>
-          </li> 
-        </ul>
-      </div>
-  
-    </div>
-    <hr style="border-top-color: rgba(000, 000, 000, 0.2)">
-    <div class="d-flex justify-content-between pt-3">
-      <p class="text-white mb-0">Copyright © Localeat 2019</p>
-    </div>
-  </div>
-</footer>-->
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <!-- Theme Made By www.w3schools.com - No Copyright -->
-  <title>Bootstrap Theme Simply Me</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <style>
-  .bg-1 { 
-    
-    color: black;
-   /*--background-image:url("/static/images/5.png");*/
-   font-family:    	Courier New;
-    font-size:20px;
-    background-color: #98FB98;
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
+  <title>LocalEat</title>
 
-  }
-  .bg-2 { 
-    background-color: #474e5d;
-    color: #ffffff;
-    /*background-image:url("/static/images/h.png");*/
-    font-family:    	Courier New;
-    font-size:20px;
-  }
-  .bg-3 { 
-    background-color: #ffffff;
-    color: black;
-    /*background-image:url("/static/images/hh.png");*/
-    font-family:    	Courier New;
-    font-size:20px;
-  }
-  .container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
-  }
-  </style>
+  <!-- Bootstrap core CSS -->
+  <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="/static/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+   <link href="https://fonts.googleapis.com/css?family=Sintony&display=swap" rel="stylesheet"> 
+
+  <!-- Custom styles for this template -->
+  <link href="/static/css/agency.min.css" rel="stylesheet">
+
 </head>
-<body>
+<body id="page-top">
+<header>
+  <!-- <div class="overlay"></div> -->
+  <!--<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">-->
+    <!-- <img src="static/v2.gif"> -->
+  
+  <div class="container h-100" style="background-image: url('static/v2.gif');" >
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+        <h1 class="display-3">Start Eating Locally.</h1>
+       
+      </div>
+    </div>
+  </div>
+</header>
+<!--<section class="my-5">
+  <div class="container">
+   <div class="row">
+      <div class="col-md-8 mx-auto">
+        <p>The HTML5 video element uses an mp4 video as a source. Change the source video to add in your own background! The header text is vertically centered using flex utilities that are build into Bootstrap 4.</p>
+        <p>The overlay color can be changed by changing the <code>background-color</code> of the <code>.overlay</code> class in the CSS.</p>
+        <p>Set the mobile fallback image in the CSS by changing the background image of the header element within the media query at the bottom of the CSS snippet.</p>
+        <p class="mb-0">
+          Created by <a href="https://startbootstrap.com">Start Bootstrap</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>-->
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #212529">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <img src="static/white.png" width="50%" height="50%">
+      <!--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>-->
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+           <a class="nav-link js-scroll-trigger" href="#"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+           <a class="nav-link js-scroll-trigger" href="/user_log-in">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/user_sign-up">Sign Up</a>
+          </li>
 
-<div class="container-fluid bg-1 text-center">
-  <h3>Who Are We?</h3>
-  <!--<img src="/static/images/21.png" class="img-circle" width="300" height="300">-->
-  <h3>We are a revolutionary platform that 
-allows consumers to buy fresh and high quality produce from local farmers, which reduces the environmental damage.  
+          
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/contact">Contact Farmers</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  
+  <!-- Services -->
+  <section class="page-section" id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">who are we ?</h2>
+          <h3 class="section-subheading text-muted" style="font-family: 'Sintony', sans-serif;font-size: 20px;"> We are a unique online platform that provides crops from local farmers to fast-paced environmentally aware consumers in an eco friendly cheaper way, to reduce food waste and environmental damage. 
 </h3>
-</div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+            
+          </span>
+          <h4 class="service-heading">Fresh</h4>
+          <p class="text-muted" style="font-family: 'Sintony', sans-serif;">Normally, produce goes through freezing processes, to insure that it doesn’t spoil on the way. We only provide our customers with produce that is brought straight from the farm to them, which insures that it’s fresher. 
 
-<div class="container-fluid bg-2 text-center">
-  <h3>What Is Our Daily Tip?</h3>
-  <p>Eat at least 7 dozes of vegetables and fruits per day ! </p>
-</div>
+</p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Eco-Friendly</h4>
+          <p class="text-muted" style="font-family: 'Sintony', sans-serif;">When comparing one KG of our produce to one KG of imported produce, the importing way is 5,513 times more polluting than ours. More than that, we make sure to only have compostable packaging, and minimize our ecological footprint. </p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Cheap</h4>
+          <p class="text-muted" style="font-family: 'Sintony', sans-serif;">The produce in other places goes through a lot of middle men, making the end price in the supermarkets about 250% of the original price. At LocalEat, we only take what’s crucial, making the prices cheaper.  </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="container-fluid bg-3 text-center">
-  <h3>Who are our farmers ?</h3>
-  <p>Pioneers,who are devoded to hard work,excellence,and doing what's best for you ! </p>
-</div>
-
-</body>
-</html>
-
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-<nav>
-    <ul>
-        
-        <li class="parent"><a href="#">User</a>
-            <ul class="child">
-        {% if log%}
-        <li><a href="#">logout</a></li>
-        {% endif %}    
-        <li><a href="#">login</a></li> 
-        <li><a href="#">Sign-up</a></li> 
-        
+  
+  <!-- Team -->
+  <section class="bg-light page-section" id="team">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Meet Our Farmers</h2>
+          <!--<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>-->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="/static/img/a.jpg" alt="">
+            <h4>Aran Shtaif</h4>
+            <p class="text-muted">"S-Farm"</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
             </ul>
-        </li>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="/static/img/b.jpg" alt="">
+            <h4>Sue James</h4>
+            <p class="text-muted">"Peace Farm"</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="/static/img/c.jpg" alt="">
+            <h4>Mousa Bakri</h4>
+            <p class="text-muted">"Farmilia"</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <!--<p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>-->
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <li><a href="{{url_for('home')}}">Home</a></li>
-        <li><a href="{{url_for('shop')}}">Shop</a></li>
-        <li><a href="#">Shipping&Payment</a></li>
-        <li><a href="#">Contact Us</a></li>
-        
-    </ul>
-</nav>
+  <!-- Clients 
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6">
+          <a href="#">
+            <img class="img-fluid d-block mx-auto" src="img/logos/envato.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <a href="#">
+            <img class="img-fluid d-block mx-auto" src="img/logos/designmodo.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <a href="#">
+            <img class="img-fluid d-block mx-auto" src="img/logos/themeforest.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <a href="#">
+            <img class="img-fluid d-block mx-auto" src="img/logos/creative-market.jpg" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>-->
 
+  <!-- Contact -->
+  <section class="page-section" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Contact Us</h2>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <form id="contactForm" name="sentMessage" novalidate="novalidate">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name.">
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number.">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <div class="col-lg-12 text-center">
+                <div id="success"></div>
+                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" style="background-color:#3CB371" type="submit">Send Message</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4">
+          <span class="copyright">Copyright &copy; Your Website 2019</span>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline social-buttons">
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline quicklinks">
+            <li class="list-inline-item">
+              <a href="#">Privacy Policy</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">Terms of Use</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Portfolio Modals -->
+
+  <!-- Modal 1 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Threads</li>
+                  <li>Category: Illustration</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Explore</li>
+                  <li>Category: Graphic Design</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Finish</li>
+                  <li>Category: Identity</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Lines</li>
+                  <li>Category: Branding</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/05-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Southwest</li>
+                  <li>Category: Website Design</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 6 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Window</li>
+                  <li>Category: Photography</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/agency.min.js"></script>
 
 </body>
+
 </html>
