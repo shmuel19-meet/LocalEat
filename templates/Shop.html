@@ -2,19 +2,27 @@
 <html>
 <head>
 	<title>Shop</title>
+<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <!-- Custom fonts for this template -->
+  <link href="/static/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+   <link href="https://fonts.googleapis.com/css?family=Sintony&display=swap" rel="stylesheet"> 
+
+  <!-- Custom styles for this template -->
+  <link href="/static/css/agency.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<meta charset="utf-8">
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
- -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>  
+</head>
 <style>
+  body{
+    font-family: sans-serif;
+    background-size: cover;
+}
 .card{
   width:200px;
   height:200px;
@@ -24,7 +32,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: ##212529;
 }
 
 li {
@@ -72,30 +80,34 @@ text-decoration-color: white;
 </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #212529">
+<!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #212529">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <img src="static/white.png" width="50%" height="50%">
+        <img src="/static/white.png" width="100%" height="100%">
       <!--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>-->
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
-             <li class="nav-item">
+          <li class="nav-item">
+           <a class="nav-link js-scroll-trigger" href="#"></a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="/">Home</a>
           </li>
           <li class="nav-item">
-           <a class="nav-link js-scroll-trigger" href="/user_log-out">Log out</a></li>
-       
-          <li class="nav-item">
-           <a class="nav-link js-scroll-trigger" href="/shop">Shop</a>
+           <a class="nav-link js-scroll-trigger" href="/user_log-in">Log In</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/user_sign-up">Sign Up</a>
+          </li>
+
+          
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="/contact">Contact Farmers</a>
           </li>
-
-         
         </ul>
       </div>
     </div>

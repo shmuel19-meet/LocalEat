@@ -1,18 +1,87 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>add products</title>
-</head>
-<body>
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet"> 
+<style>
+body{
+    font-family: sans-serif;
+    background-image: url("/static/l.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.box {
+    border-radius: 10px;
+    /*box-shadow: 5px 10px 18px #888888;*/
+    width: 600px;
+    padding: 40px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /*background: #ffff;*/
+    text-align: center;
+}
+.TITLE {
+  border: 1px solid white;
+  padding: 8px;
+  color: white;
+  text-align: center;
 
-<form action="/add-product" method="POST">
+
+}
+div {
+	padding: 8px;
+  color: white;
+  text-align: center;
+  padding-top:150px;
+
+
+}
+p {
+  text-indent: 50px;
+  text-align: justify;
+  letter-spacing: 3px;
+  color: white;
+
+}
+
+.box input[type="submit"] {
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    /*border: 2px solid #2ecc71;*/
+    padding: 14px 40px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+    background-color: white;
+    opacity: 0.8;
+    font-weight: 1000;
+}
+
+</style>
+<body>
+	<div class="TITLE">
+		  <h1>YOU AND YOUR CUSTOMER SHOULD BE HAPPY</h1></div>
+
+ <div>
+	  <h2>LIST YOUR PRICE</h2></div>
+
+
+
+<form action="/add-product" method="POST" class="box">
 	<select name="category">
 	{% for type in types %}
 	 <option value={{type.Name}}>{{type.Name}}</option>
 	{% endfor %}
 
 	</select>
-    cost :<input type="number" name="productcost">
+   COST :<input type="number" name="productcost">
     <input type="submit" value="Submit">
 </form>	
 </body>
