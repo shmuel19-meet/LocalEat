@@ -54,7 +54,6 @@ pycparser==2.19
 pycrypto==2.6.1
 pygame==1.9.3
 Pygments==2.2.0
-pygobject==3.26.1
 pyOpenSSL==19.0.0
 pyparsing==2.2.0
 python-dateutil==2.7.3
