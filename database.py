@@ -164,8 +164,6 @@ def get_minPrice(Name):
 def get_maxPrice(Name):
   return  session.query(Type).filter_by(Name=Name).first().Max_price
 
-def get_users_cash(username):
-  return session.query(User).filter_by(username=username).first().cash
 
 def set_minPrice(Name,newMinPrice):
   type = session.query(
