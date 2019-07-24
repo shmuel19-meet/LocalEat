@@ -20,8 +20,7 @@ paypalrestsdk.configure({
 def home():
     if 'username' in flask_session:
         username = flask_session['username']
-        users_cash = get_users_cash(username)
-        return render_template('User_HomePage.html',user=username,cash=users_cash)
+        return render_template('User_HomePage.html',user=username)
     elif 'farmname' in flask_session:
         farmname = flask_session['farmname']
         return render_template('Farm_HomePage.html',farm=farmname,my_products=get_owner_products(farmname), log = False)
