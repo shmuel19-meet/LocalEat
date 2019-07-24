@@ -66,40 +66,28 @@ text-decoration-color: white;
  border: 2px solid #555555;
 }
 
-
+.navbar-inverse .navbar-nav > li > a {
+  color:white;
+}
 
 }
 </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #212529">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <img src="static/white.png" width="50%" height="50%">
-      <!--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>-->
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav text-uppercase ml-auto">
-             <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-           <a class="nav-link js-scroll-trigger" href="/user_log-out">Log out</a></li>
-       
-          <li class="nav-item">
-           <a class="nav-link js-scroll-trigger" href="/shop">Shop</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="/contact">Contact Farmers</a>
-          </li>
-
-         
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <nav class="navbar navbar-inverse" style="margin-bottom: -1%;">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav" style="display: inline-block;margin-left: 60%;">
+       {% if 'username' in session%}
+      <li><a href="/user_log-out">Log out</a></li>
+        {% endif %}
+        {% if 'farmname' in session%}
+      <li><a href="/farm_log-out">Log out</a></li>
+        {% endif %}
+    <li><a href="/cart">cart</a></li>
+    <li><a href="/">Home</a></li>
+    </ul>
+  </div>
+</nav>
 <div class="container">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
