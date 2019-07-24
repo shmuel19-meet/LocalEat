@@ -40,8 +40,21 @@ div.c {
     opacity: 0.8;
     border-radius: 24px;
 } 
+div.d {
+  position: absolute;
+  left: 70px;
+    top: 590px;
+  width: 400px;
+  height: 70px;
+  border: 3px solid white;
+  background-color: white;
+    opacity: 0.8;
+    border-radius: 24px;
+text-align: center;
+} 
 div.b {
   position: absolute;
+  text-align: center;
   /*left: 550px;
   top: 500px;
   
@@ -53,6 +66,8 @@ div.b {
     border-radius: 24px;
     left:310px;
     text-align: center;
+    margin: 0 auto;
+    vertical-align: middle;
 } 
 .box input[type="text"],.box input[type="password"] {
     border: 0;
@@ -131,6 +146,9 @@ margin-top: 3%;
                         </ul>
                     {% endif %}
                 {% endwith %}
+                 <div class="d">
+                <p><a href='/farm_sign-up' style="text-align: center;">Want to Sign Up as a Farmer?</a></p>
+            </div>
 
                  <form action="/user_sign-up" method="post" class="box">
 
@@ -148,6 +166,7 @@ margin-top: 3%;
                 <p><a href="/user_log-in">Already have a User account?</a></p>
                 <p><a href="{{url_for('home')}}" style="font-size:50px" > &#127968;</a></p>
             </div>
+            
                 </form>
 </body>
 </html>
