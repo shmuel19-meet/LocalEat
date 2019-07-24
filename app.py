@@ -9,11 +9,11 @@ app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'
 
 
-
-paypalrestsdk.configure({
-  "mode": "sandbox", # sandbox or live
-  "client_id": "AVNImnkNjDO_5NOS_qnWtEnAhDiVW-Wxcy88qJJ8SXBMQSD4G-wWx_ES8vDZLLgA6t4miS1J44My-GVg",
-  "client_secret": "ENWdyCjvEEHUS9ycDdKaUpmnS4DmM7wT_qVc3aYQAZuFEv6OnnvAPfrZVZ2k5sgNEjgvbSzWfIJkoJ4R" })
+#
+#paypalrestsdk.configure({
+ # "mode": "sandbox", # sandbox or live
+  #"client_id": "AVNImnkNjDO_5NOS_qnWtEnAhDiVW-Wxcy88qJJ8SXBMQSD4G-wWx_ES8vDZLLgA6t4miS1J44My-GVg",
+  #"client_secret": "ENWdyCjvEEHUS9ycDdKaUpmnS4DmM7wT_qVc3aYQAZuFEv6OnnvAPfrZVZ2k5sgNEjgvbSzWfIJkoJ4R" })
 
 
 @app.route('/')

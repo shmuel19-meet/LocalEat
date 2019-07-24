@@ -43,7 +43,7 @@ def add_Farm(Farm_name,bank_name,bank_account,phone,address,password):
 
 def add_Product(Type,Owner,cost,buyer):
   try:
-    product_object = Product(Type=Type,Owner=Owner,cost=round(cost,2),buyer=buyer)
+    product_object = Product(Type=Type,Owner=Owner,cost=round(cost,2)*1.25,buyer=buyer)
     session.add(product_object)
     session.commit()
     session.close()
