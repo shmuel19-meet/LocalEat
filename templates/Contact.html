@@ -7,10 +7,36 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <style>
+
+  /*.element {
+    position: relative;
+}
+ 
+.element:before {
+    content: "\f003";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color: black;
+    font-size: 18px;
+    padding-right: 0.5em;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+*/
+
+img {
+  border-radius: 50%;
+  padding-top: 
+  margin: 20px auto;
+}
 	body {
 		background-color: #ffff;
-    background-image: url("/static/images/ffff.png");
-		margin:0%;
+    background-image: url("/static/images/ssssss.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 	}
 	.custom_nav {
 		background-color: #180000 ;
@@ -42,36 +68,46 @@
 </style>
 </head>
 <body>
-<div class="quote">
+<!-- <div class="quote">
   <p>
     Think Global,
     </p> <p id="two">
             Eat Local.
           </p>
-</div>
+</div> -->
+<!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #212529">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <img src="/static/images/white.png" width="50%" height="50%">
+      <!--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>-->
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+           <a class="nav-link js-scroll-trigger" href="#"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+           <a class="nav-link js-scroll-trigger" href="/user_log-in">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/user_sign-up">Sign Up</a>
+          </li>
 
-<nav class="custom_nav navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" id="custom_text" href="/">LocalEat</a>
+          
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/contact">Contact Farmers</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="dropdown"><a class="dropdown-toggle" id="custom_text" data-toggle="dropdown"> User <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/user_log-in">Log In</a></li>
-          <li><a href="/user_sign-up">Sign Up</a></li>
-        </ul>
-      </li>
-      <li class="dropdown"><a class="dropdown-toggle" id="custom_text" data-toggle="dropdown"> Farm <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/farm_log-in">Log In</a></li>
-          <li><a href="/farm_sign-up">Sign Up</a></li>
-        </ul>
-      </li>   
-      <li><a href="/shop" id="custom_text">Shop</a></li>
-    </ul>
-  </div>
-</nav>
+  </nav>
+
 
 
 <center><font size="6"><b>CONTACT FARMERS</font></center>
@@ -87,17 +123,23 @@
 
   
 
+<div class="row">
+  <div class="column">
+    <a href="tel:1-562-867-5309"><img src="/static/images/8.png" style="width:30%"><h1 align="center"></h1>0568586473</a>
+  </div>
+  <div class="column">
+   <a href="mailto:">LocalEatteam@gmail.com>"><img src="/static/images/mm.png" style="width:30%"><h1 align="center"></h1></a>
+
+  </div>
+ 
+</div>
 
 
-
- <!--    <div class="column">
-         <img src="/static/images/t1.png"align="center">
+     <!-- <div class="column">
+         <img src="/static/images/.png"align="center">
 
    <a href="mailto:">LocalEatteam@gmail.com><img src="/static/images/t2.png"style="width:30%"><h1 align="center"></a>
-  </div>
--->
-<!-- <p><strong>Contact information: </strong><a href="mailto:someone@example.com">rawandmukarker.4@gmail.com</a>.</p>
-</footer> -->
+  </div> -->
 
 </body>
 </html>
