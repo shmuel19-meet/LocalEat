@@ -1,37 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet"> 
 <style>
 body{
     margin: 0%;
     font-family: sans-serif;
-    background-image: url("/static/images/b1.png");
+    background-image: url("/static/666.gif");
     background-repeat: no-repeat;
     background-size: cover;
 }
 .box {
     border-radius: 25px;
-    box-shadow: 5px 10px 18px #888888;
+    
     width: 600px;
     padding: 40px;
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background: #ffff;
+    
     text-align: center;
+    
 }
+div.c {
+  position: absolute;
+  left: 550px;
+  top: 240px;
+  
+  width: 400px;
+  height: 70px;
+  border: 3px solid white;
+  background-color: white;
+    opacity: 0.8;
+    border-radius: 24px;
+} 
 .box h1 {
     color: black;
     font-weight: 500;
 }
 .box input[type="text"],.box input[type="password"] {
     border: 0;
-    background: none;
+    background-color: white;
+    opacity: 0.8;
+    text-align: center;
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #3498db;
+    border: 2px solid white;
     padding: 14px 10px;
     outline: none;
     color: black;
@@ -40,11 +56,10 @@ body{
 }
 .box input[type="text"]:focus,.box input[type="password"]:focus{
     width: 280px;
-    border-color: #2ecc71;  
+    border-color: white;  
 }
 .box input[type="submit"] {
-    border:0;
-    background: none;
+   
     display: block;
     margin: 20px auto;
     text-align: center;
@@ -52,9 +67,12 @@ body{
     padding: 14px 40px;
     outline: none;
     color: black;
-    border-radius: 24px;
+ 
     transition: 0.25s;
     cursor: pointer;
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 24px;
 }
 .box input[type="submit"]:hover {
     background: #2ecc71
@@ -74,6 +92,17 @@ list-style-type: none;
 text-align: center;
 margin-top: 3%;
 }
+div.b {
+position: absolute;
+  width: 400px;
+  height: 70px;
+  border: 3px solid white;
+  background-color: white;
+    opacity: 0.8;
+    border-radius: 24px;
+    top:-35px;
+    left:150px;
+}
 </style>
     <title> Farm Log-In</title>
 </head>
@@ -88,16 +117,20 @@ margin-top: 3%;
                         </ul>
                     {% endif %}
                 {% endwith %}
-
+                
                 <form action="{{url_for('farm_logIn')}}" method="post" class="box">
-                    <h1> Log In as Farm </h1>
+                    <div class="b" style="font-family: 'IBM Plex Sans', sans-serif">
+                    <h1> Log In as a Farm:</h1>
+                </div>
 
                     <input class="form-control" type="text" placeholder="Enter Farm name" name="farmname" required>
                     <input class="form-control" type="password" placeholder="Enter Password" name="password" required>
-
+                    
                     <input type="submit" value="Login">
-                    <p><a href="{{url_for('farm_signUp')}}"> Sign Up ? </a></p>
-                    <p><a href="{{url_for('home')}}"> HomePage </a></p>
+                    <div class="c">
+                    <p><a href="{{url_for('farm_signUp')}}"> Didn't Sign Up yet ?</a></p>
+                    <p><a href="{{url_for('home')}}" style="font-size:50px" > &#127968;</a></p>
+                </div>
                 </form>
     </div>
 </body>

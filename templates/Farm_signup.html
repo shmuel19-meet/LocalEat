@@ -1,46 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet"> 
 <style>
 body{
     margin: 0%;
     font-family: sans-serif;
-    background-image: url("/static/images/b1.png");
+    background-image: url("/static/666.gif");
     background-repeat: no-repeat;
     background-size: cover;
 }
 .box {
-    border-radius: 25px;
-    box-shadow: 5px 10px 18px #888888;
+    border-radius: 10px;
+    /*box-shadow: 5px 10px 18px #888888;*/
     width: 600px;
     padding: 40px;
     position: absolute;
-    top: 65%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background: #ffff;
+    /*background: #ffff;*/
     text-align: center;
 }
 .box h1 {
     color: black;
     font-weight: 500;
 }
+div.c {
+  position: absolute;
+  left: 550px;
+  top: 500px;
+  
+  width: 400px;
+  height: 70px;
+  border: 3px solid white;
+  background-color: white;
+    opacity: 0.8;
+    border-radius: 24px;
+} 
+div.b {
+  position: absolute;
+  /*left: 550px;
+  top: 500px;
+  
+  width: 400px;
+  height: 70px;*/
+  border: 3px solid white;
+  background-color: white;
+    opacity: 0.8;
+    border-radius: 24px;
+    left:310px;
+} 
 .box input[type="text"],.box input[type="password"] {
     border: 0;
-    background: none;
+    font-weight: 1000;
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #3498db;
+    border: 2px solid white;
     padding: 14px 10px;
     outline: none;
     color: black;
     border-radius: 24px;
     transition: 0.25s;
+    background-color: white;
+    opacity: 0.8;
 }
 .box input[type="text"]:focus,.box input[type="password"]:focus{
     width: 280px;
-    border-color: #2ecc71;  
+    /*border-color: #2ecc71; */
+    background-color: white;
+    opacity: 0.8;
+    font-weight: 1000; 
 }
 .box input[type="submit"] {
     border:0;
@@ -48,13 +79,16 @@ body{
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #2ecc71;
+    /*border: 2px solid #2ecc71;*/
     padding: 14px 40px;
     outline: none;
     color: black;
     border-radius: 24px;
     transition: 0.25s;
     cursor: pointer;
+    background-color: white;
+    opacity: 0.8;
+    font-weight: 1000;
 }
 .box input[type="submit"]:hover {
     background: #2ecc71
@@ -78,8 +112,10 @@ margin-top: 3%;
     <title> Farm Sign-Up </title>
 </head>
 <body>
+    <div class="b" style="font-family: 'IBM Plex Sans', sans-serif";>
                         <h1 style="text-align: center;"> Sign Up as Farm: </h1>
         <h3 style="text-align: center;">As a Farm you will be able to add products for Users to view and buy.</h3>
+    </div>
 
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
@@ -104,11 +140,14 @@ margin-top: 3%;
                 <input class="form-control" type="text" placeholder="address" name="address" required>
 
                 <input class="form-control" type="password" placeholder="Enter Password" name="password" required>
+                
+                 <input class="form-control" type="password" placeholder="Reenter Password"  name="Reenter_password" required>
 
                     <input type="submit" value="Signup">
-
-                <p><a href="/farm_log-in">already have a Farm account ?</a></p>
-                <p><a href="{{url_for('home')}}"> HomePage </a></p>
+                <div class="c">
+                <p><a href="/farm_log-in">already have a Farmer account ?</a></p>
+                <p><a href="{{url_for('home')}}" style="font-size:50px" > &#127968;</a></p>
+            </div>
                 </form>
 </body>
 </html>
