@@ -164,7 +164,7 @@ def farm_logOut():
     else:
         return redirect(url_for('home'))
 
-
+"""
 # ########################################3
 #@app.route('/payment/<str:', methods=['POST'],)
 @app.route('/payment:', methods=['POST'],)
@@ -195,8 +195,9 @@ def payment():
         print(payment.error)
 
 	return jsonify({'paymentID' : 'PAYMENTID'})
+"""
 #######################################
-
+"""
 @app.route('/execute', methods=['POST'])
 def execute():
 	payment = paypalrestsdk.payment.find(request.form['paymentID'])
@@ -208,6 +209,7 @@ def execute():
 		print(payment.error)
 
 	return""
+"""
 
 @app.route('/add_food_type', methods=['GET','POST'])
 def add_Type():
