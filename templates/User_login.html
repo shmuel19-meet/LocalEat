@@ -25,6 +25,18 @@ body{
     text-align: center;
     
 }
+div.d {
+  position: absolute;
+  left: 70px;
+    top: 335px;
+  width: 400px;
+  height: 70px;
+  border: 3px solid white;
+  background-color: white;
+    opacity: 0.8;
+    border-radius: 24px;
+text-align: center;
+} 
 div.c {
   position: absolute;
   left: 550px;
@@ -119,7 +131,9 @@ position: absolute;
                         </ul>
                     {% endif %}
                 {% endwith %}
-                
+                     <div class="d">
+                <p><a href='/farm_log-in'>Want to Log In as a Farmer?</a></p>
+            </div>
               
                 <form action="{{url_for('user_logIn')}}" method="post" class="box">
                         
@@ -137,6 +151,7 @@ position: absolute;
                     <p><a href="{{url_for('user_signUp')}}">Didn't Sign Up yet ?</a></p>
                     <p><a href="{{url_for('home')}}" style="font-size:50px" > &#127968;</a></p>
                 </div>
+
                 </form>
     </div>
 </body>
