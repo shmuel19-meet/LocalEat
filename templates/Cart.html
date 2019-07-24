@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> my cart </title>
+  <title> my cart </title>
 </head>
 <body>
 
-	<p>cart</p>  
+  <p>cart</p>  
 {% for item in cartList%}
       <div class="col-sm-4">
         <div class="card">
@@ -24,9 +24,9 @@
 <script src="https://checkout.stripe.com/checkout.js"
     class="stripe-button"
     data-key="pk_test_ZZrzfxhEbKLG0UcURfipQYJ700o7uKh6DN"
-    data-amount="{{2000}}"
+    data-amount="{{total*100}}"
     data-name="Demo Site"
-    data-description="2 widgets ($20.00)"
+    data-description=" LocalEat payment (${{total}})"
     data-image="/128x128.png">
 </script>
 </body>

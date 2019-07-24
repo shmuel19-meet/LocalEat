@@ -216,4 +216,3 @@ def update_min_max_types():
     for item in types:
       item.Min_price = get_type_products_lowestPrice(item.Name)
       item.Max_price = get_type_products_highestPrice(item.Name)
-
