@@ -1,25 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<style>
+img {
+	margin-left: 35%
+}		
+#cart {
+	text-align: center;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin-left: 10%;
+}
+
+#cart td, #cart th {
+	text-align: center;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#cart tr:nth-child(even){background-color: #f2f2f2;}
+
+#cart tr:hover {background-color: #ddd;}
+
+#cart th {
+  text-align: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
 	<title>{{Type_1.Name}}</title>
+	<h1 style="text-align: center;">{{Type_1.Name}}</h1>
 	<img src="{{Type_1.Img}}" width="420" height="420">
 </head>
 <body>
 
-{% for food in foodlist%}
-      <div class="col-sm-4">
-        <div class="card">
-            <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">{{food.Owner}}</h5>
-                  <p class="card-text">{{food.cost}} </p>
-                  <a href="/buy_product/{{food.id_table}}"> add to cart </a>
-                </div>
-              </div>
-        </div>
-      </div>
-{% endfor%}
-<br>
+
+<table id="cart">
+  <tr>
+    <th>Owner</th>
+    <th>Cost</th>
+    <th></th>
+  </tr>
+  {% for food in foodlist %}
+  <tr>
+    <td>{{food.Owner}}</td>
+    <td>{{food.cost}}</td>
+    <td><a href="/buy_product/{{food.id_table}}"> add to cart </a></td>
+  </tr>
+  {% endfor %}
+
+</table>
 
 
 	</body>
