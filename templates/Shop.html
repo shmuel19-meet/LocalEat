@@ -127,14 +127,19 @@ text-decoration-color: white;
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="/">Home</a>
           </li>
+          {%if 'username' in session%}
+            <li><a href="/user_log-out">Log out</a></li>
+
+          {%elif 'farmname' in session%}
+            <li><a href="/farm_log-out">Log out</a></li>
+          {%else%}
           <li class="nav-item">
            <a class="nav-link js-scroll-trigger" href="/user_log-in">Log In</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="/user_sign-up">Sign Up</a>
           </li>
-
-          
+          {%endif%}
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="/contact">Contact Farmers</a>
           </li>
