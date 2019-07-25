@@ -76,22 +76,23 @@ text-decoration-color: white;
 
 .navbar-inverse .navbar-nav > li > a {
   color:white;
+  font-size: 15px;
 }
 
 }
 </style>
 </head>
 <body>
-<<<<<<< HEAD
-<!-- Navigation -->
+
+<!-- Navigation 
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #212529">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
         <img src="/static/white.png" width="100%" height="100%">
-      <!--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
-      </button>-->
+      </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
@@ -114,23 +115,26 @@ text-decoration-color: white;
         </ul>
       </div>
     </div>
-  </nav>
-=======
+  </nav>-->
+
   <nav class="navbar navbar-inverse" style="margin-bottom: -1%;">
   <div class="container-fluid">
+     <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <img src="/static/white.png" width="100%" height="100%">
     <ul class="nav navbar-nav" style="display: inline-block;margin-left: 60%;">
+      <li><a href="/HomePage">Home</a></li>
+      <a></a>
+      <li><a href="/cart">cart</a></li>
        {% if 'username' in session%}
       <li><a href="/user_log-out">Log out</a></li>
         {% endif %}
         {% if 'farmname' in session%}
       <li><a href="/farm_log-out">Log out</a></li>
         {% endif %}
-    <li><a href="/cart">cart</a></li>
-    <li><a href="/">Home</a></li>
+    
     </ul>
   </div>
 </nav>
->>>>>>> 8f6004927ba096b48871386d2c3771dea5248d0c
 <div class="container">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
