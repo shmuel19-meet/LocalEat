@@ -19,6 +19,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>  
 </head>
 <style>
+  a {
+    text-decoration: none;
+  }
 body{
     margin: 0%;
     font-family: sans-serif;
@@ -27,25 +30,30 @@ body{
     background-size: cover;
 }
 
-  /*.element {
-    position: relative;
+.btn-group {
+  margin-left: 5%;
 }
- 
-.element:before {
-    content: "\f003";
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: inherit;
-    color: black;
-    font-size: 18px;
-    padding-right: 0.5em;
-    position: absolute;
-    top: 10px;
-    left: 0;
+.btn-group .button {
+  margin-left: 5%;
+  background-color: #4CAF50; /* Green */
+  border: 1px solid green;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  float: left;
 }
-*/
 
+.btn-group .button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+.btn-group .button:hover {
+  background-color: #3e8e41;
+}
 .contactt{
     margin-left:50%;
 }
@@ -97,10 +105,6 @@ body{
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
         <img src="/static/white.png" width="100%" height="100%">
-      <!--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>-->
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
@@ -115,11 +119,6 @@ body{
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="/user_sign-up">Sign Up</a>
           </li>
-
-          
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="/contact">Contact Farmers</a>
-          </li>
         </ul>
       </div>
     </div>
@@ -131,35 +130,16 @@ body{
   <br>
   <br>
   <br>
-{%for farm in Farm_list%}
 
-<button>
-  <a rel="nofollow" href="https://api.whatsapp.com/send?phone=972{{farm.phone}}&amp;text=Hello {{farm.Farm_name}}, . I am  {{Current_user}} contacting you via LocalEat to ask questions about your product."   target="_blank">CONTACT {{farm.Farm_name}} </a> 
+  {% if Farm_list == []: %}
+    <h2 style="text-align: center;">No Farmers are currently available !</h2>
+    {%endif%}
+{%for farm in Farm_list%}
+<div class="btn-group">
+<button class="button" style="color: black;">
+  <a style="color: black;text-decoration: none;" rel="nofollow" href="https://api.whatsapp.com/send?phone=972{{farm.phone}}&amp;text=Hello {{farm.Farm_name}}, . I am  {{Current_user}} contacting you via LocalEat to ask questions about your product."   target="_blank">CONTACT {{farm.Farm_name}} </a> 
 </button>
+</div>
 {% endfor %}
 
-
-
-<table style="width:100%">
-  <tr>
-    <th style="text-align: center"><img src="/static/images/8.png"  class="contactt"></th>
-    <th><img src="/static/images/contact1.png" class="contactt"></th> 
-  </tr>
-  <tr>
-  </table>
-
-
-<!-- <div class="img">
-  
-<a href="tel:1-562-867-5309"><img src="/static/images/8.png" style="width:20%"><h1 align="center"></h1></a> </div>
-
- <div class="img">  
-        <div class="img">
-          <img src="/static/images/mm.png">
-        </div>
-
- -->
-
-
-</body>
 </html>
