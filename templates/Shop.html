@@ -122,6 +122,7 @@ text-decoration-color: white;
      <a class="navbar-brand js-scroll-trigger" href="#page-top">
         <img src="/static/white.png" width="100%" height="100%">
     <ul class="nav navbar-nav" style="display: inline-block;margin-left: 60%;">
+      <li><a></a></li>
       <li><a href="/HomePage">Home</a></li>
       <a></a>
       <li><a href="/cart">cart</a></li>
@@ -131,62 +132,34 @@ text-decoration-color: white;
         {% if 'farmname' in session%}
       <li><a href="/farm_log-out">Log out</a></li>
         {% endif %}
-    
+          
     </ul>
   </div>
 </nav>
-<div class="container">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-<!--         <p align="center">  style="z-index:5;"><b>Order now and get the best quality produce, directly to you.</b></p>
- -->
-        <img src="/static/images/sf.png" style="width:100%;">
-      </div>
-
-      <div class="item">
-        <img src="/static/images/sg.png" style="width:100%;">
-      </div>
-    
-      <div class="item">
-        <img src="/static/images/sl.png" style="width:100%;">
-      </div>
-    </div>
-
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <localeat class="glyphicon glyphicon-chevron-left"></localeat>
-      <localeat class="sr-only">Previous</localeat>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <localeat class="glyphicon glyphicon-chevron-right"></localeat>
-      <localeat class="sr-only">Next</localeat>
-    </a>
-  </div>
-</div> <br>
- <br>
 
 {% for type in types%}
-      <div class="col-sm-4">
-        <div class="card">
-            <div class="card">
-                <img class="card-img-top" src="{{type.Img}}" width="670" height="440">
-                <div class="card-body">
-                  <h5 class="card-title">{{type.Name}}</h5>
-                  <p class="card-text">{{type.Min_price}} - {{type.Max_price}} </p>
-                  <a href="product/{{type.Name}}" class="button button5">Compare and buy</a>
-                </div>
+              <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="product/{{type.Name}}"><img class="card-img-top" src="{{type.Img}}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="product/{{type.Name}}">{{type.Name}}</a>
+                </h4>
+                <h5>{{type.Min_price}} - {{type.Max_price}} </h5>
+                <p class="card-text">you are welcome to check out the different products</p>
               </div>
-        </div>
-      </div>
+                  <a href="product/{{type.Name}}" class="button button5">Compare and buy</a>              
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
 {% endfor%}
+
+
+
+
 
 </body>
 </html>
