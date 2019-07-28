@@ -19,13 +19,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>   
 </head>
 <style>
-  body{
+body{
     font-family: sans-serif;
     background-size: cover;
-}
-.card{
-  width:200px;
-  height:200px;
 }
 ul {
   list-style-type: none;
@@ -58,12 +54,8 @@ margin-right: 0px;
 margin-left: 0px;
 padding-left: 0px;
 padding-right: 0px;
-width:100%;
-max-width: 100% !important;
 text-align: center;
 text-decoration-color: white;
-
-
 }
 .button:hover{
   font-size: 15px;
@@ -79,32 +71,40 @@ text-decoration-color: white;
   font-size: 15px;
 }
 
- .custom_nav {
-    background-color: #180000 ;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-top: 2%;
-    border-width: 2px;
-    border-radius: 25px ;
-  }
-  #custom_text {
-    color: #f5f5f5;
-    cursor: pointer;
-  }
-  .quote p {
-    text-align: center;
-    margin-top: 2%;
-    line-height: 0%;
-    font-style: italic;
-    font-weight: 30%;
-    font-size: 30px;
-    font-family: Apple Chancery;
-    color: #05bb7b;
-  }
-  #two {
-    margin-left: 15%;
-  }
+.container {
+  position: relative;
+  width: 50%;
+}
 
+.image {
+  opacity: 1;
+  display: inline-block;
+  margin:0% 2% 2% 4%;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  text-align: center;
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
 
 </style>
 </head>
@@ -115,10 +115,6 @@ text-decoration-color: white;
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
         <img src="/static/white.png" width="100%" height="100%">
-      <!--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>-->
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
@@ -128,10 +124,13 @@ text-decoration-color: white;
             <a class="nav-link js-scroll-trigger" href="/">Home</a>
           </li>
           {%if 'username' in session%}
-            <li><a href="/user_log-out">Log out</a></li>
-
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/user_log-out">Log out</a>
+          </li>
           {%elif 'farmname' in session%}
-            <li><a href="/farm_log-out">Log out</a></li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/farm_log-out">Log out</a>
+          </li>
           {%else%}
           <li class="nav-item">
            <a class="nav-link js-scroll-trigger" href="/user_log-in">Log In</a>
@@ -148,59 +147,20 @@ text-decoration-color: white;
     </div>
   </nav>
 
-<div class="container">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-<!--         <p align="center">  style="z-index:5;"><b>Order now and get the best quality produce, directly to you.</b></p>
- -->
-        <img src="/static/images/sf.png" style="width:100%;">
-      </div>
-
-      <div class="item">
-        <img src="/static/images/sg.png" style="width:100%;">
-      </div>
-    
-      <div class="item">
-        <img src="/static/images/sl.png" style="width:100%;">
-      </div>
-    </div>
-
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <localeat class="glyphicon glyphicon-chevron-left"></localeat>
-      <localeat class="sr-only">Previous</localeat>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <localeat class="glyphicon glyphicon-chevron-right"></localeat>
-      <localeat class="sr-only">Next</localeat>
-    </a>
-  </div>
-</div> <br>
- <br>
 
 {% for type in types%}
-  
-      <div class="col-sm-4">
-        <div class="card">
-            <div class="card">
-                <img class="card-img-top" src="{{type.Img}}" width="670" height="440">
-                <div class="card-body">
-                  <h5 class="card-title">{{type.Name}}</h5>
-                  <p class="card-text">{{type.Min_price}} - {{type.Max_price}} </p>
-                  <a href="product/{{type.Name}}" class="button button5">Compare and buy</a>
-                </div>
-              </div>
-        </div>
-      </div>
+
+<div class="container">
+  <img src="{{type.Img}}" alt="Avatar" class="image" style="width:100%%;">
+  <div class="middle">
+    <h5> {{type.Name}} </h5>
+    <p> {{type.Min_price}} - {{type.Max_price}} </p>
+    <a href="product/{{type.Name}}" class="button button5">Compare & buy</a>
+  </div>
+</div>
+
 {% endfor%}
+
 
 </body>
 </html>

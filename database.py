@@ -30,9 +30,10 @@ def add_type(Name,img,min_price, max_price):
     session.close()
     raise
 
-def add_Farm(Farm_name,bank_name,bank_account,phone,address,password):
+def add_Farm(Farm_name,bank_name,bank_account,phone,address,password,description):
     try:
-        Farm_object = Farm(Farm_name=Farm_name,bank_name=bank_name,bank_account=bank_account,phone=phone,address=address,password=password)
+        Farm_object = Farm(Farm_name=Farm_name,bank_name=bank_name,
+          bank_account=bank_account,phone=phone,address=address,password=password,description=description)
         session.add(Farm_object)
         session.commit()
         session.close()
@@ -57,6 +58,8 @@ def query_product_by_id(id):
        Product).filter_by(
        id_table=id).first() 
 
+def get_description_by_farmname(farmname):
+  return session.query(Farm).filter_by(Farm_name=farmname).first().description
 
 def update_cost_product_by_id(id):
     product = session.query(
@@ -95,6 +98,12 @@ def update_product_to_user(username,product_id):
     product.buyer = username
     session.commit()
     session.close()
+
+def remove_from_cart(product_id):
+    product = query_product_by_id(product_id)
+    product.buyer = ""
+    session.commit()
+    session.close() 
 
 def delete_product_by_id(id):
     product = session.query(Product).filter_by(id_table=id).delete()
@@ -214,3 +223,5 @@ def update_min_max_types():
     for item in types:
       item.Min_price = get_type_products_lowestPrice(item.Name)
       item.Max_price = get_type_products_highestPrice(item.Name)
+
+#get_description_by_farmname('mousa')

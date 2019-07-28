@@ -36,6 +36,7 @@ class Farm(Base):
     phone = Column(Integer)
     address = Column(String)
     password = Column(String)
+    description = Column(String)
 
     def __repr__(self):
         return ("Farm_name: {},\n"
@@ -43,14 +44,17 @@ class Farm(Base):
             "bank_account: {},\n"
             "phone: {},\n"
             "address: {},\n"
-            "password: {}. \n"
+            "password: {}, \n"
+            "description: {}. \n"
+
             ).format(
                 self.Farm_name,
                 self.bank_name,
                 self.bank_account,
                 self.phone,
                 self.address,
-                self.password)
+                self.password,
+                self.description)
 
 class Product(Base):
     __tablename__ = "products"

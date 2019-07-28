@@ -4,6 +4,41 @@
 	<style>
 img {
 	margin-left: 35%
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }		
 #cart {
 	text-align: center;
@@ -36,8 +71,7 @@ img {
 	<img src="{{Type_1.Img}}" width="420" height="420">
 </head>
 <body>
-
-
+	
 <table id="cart">
   <tr>
     <th>Owner</th>
@@ -46,7 +80,11 @@ img {
   </tr>
   {% for food in foodlist %}
   <tr>
-    <td>{{food.Owner}}</td>
+    <td>
+    	<div class="tooltip">{{food.Owner}}
+ 		 <span class="tooltiptext">{{clever_function(food.Owner)}}</span>
+		</div>
+	</td>
     <td>{{food.cost}}</td>
     <td><a href="/buy_product/{{food.id_table}}"> add to cart </a></td>
   </tr>

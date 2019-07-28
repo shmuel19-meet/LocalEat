@@ -102,7 +102,7 @@ body, html {
       </div>                    
                     <h4 style= "font-family: 'Sawarabi Gothic', sans-serif" class="nomargin">{{item.Type}}</h4>
                     <div class="body" style= "font-family: 'Sawarabi Gothic', sans-serif">
-                    <p>this item will arrive from {{item.Owner}}, if you want, you are welcome to reach out to the farm.</p>
+                    <p>this item will arrive from {{item.Owner}}, if you want, you are welcome to reach out to the farm through contact farmers page.</p>
                   </div>
                   </div>
                 </div>
@@ -110,6 +110,7 @@ body, html {
               <div class="body" style= "font-family: 'Sawarabi Gothic', sans-serif">
               <td data-th="Price">{{item.cost}}</td>
               <td data-th="Quantity"> 1</td>
+              <td><a href="/remove/{{item.id_table}}">remove from cart ?</td></a>
             </tr>
           </div>
             {% endfor%}
@@ -139,7 +140,6 @@ body, html {
                 data-description=" Payment (${{total}})"
                 data-image="/128x128.png">
                 </script></td>
-
             </tr>
           </tfoot>
         </table>

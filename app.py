@@ -71,7 +71,8 @@ def farm_signUp():
                  flash('The password dont match')
                  return render_template('Farm_signup.html')
             else :
-                add_Farm(request.form['farmname'],request.form['bank_name'],request.form['bank_account'],request.form['phone'],request.form['address'],request.form['password'])
+                add_Farm(request.form['farmname'],request.form['bank_name'],request.form['bank_account'],
+                    request.form['phone'],request.form['address'],request.form['password'],request.form['description'])
                 return redirect(url_for('farm_logIn'))
         else:
             flash('Farm name already taken, please choose another one.')
@@ -116,6 +117,16 @@ def buy_prduct(id_table):
     else:
         return redirect(url_for('shop'))
 
+@app.route('/remove/<int:id_table>', methods=['GET','POST'])
+def remove(id_table):
+    if 'username' in flask_session:
+        remove_from_cart(id_table)
+        username = flask_session['username']
+        cartList = query_products_by_buyer(username)
+        total = query_productsCost_by_user(username)
+        return render_template('Cart.html',cartList=cartList,total=total)
+    else:
+        return redirect(url_for('shop'))
 
 @app.route('/user_log-in', methods=['GET','POST'])
 def user_logIn():
@@ -218,6 +229,10 @@ def add_Type():
         add_type(request.form['name'],request.form['img'],0,0)       
         return redirect(url_for('home'))
 
+def clever_function(owner):
+    return get_description_by_farmname(owner)
+
+app.jinja_env.globals.update(clever_function=clever_function)
 
 if __name__ == "__main__":
     app.run(debug=True)
