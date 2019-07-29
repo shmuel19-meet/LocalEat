@@ -81,9 +81,10 @@ img {
   {% for food in foodlist %}
   <tr>
     <td>
-    	<div class="tooltip">{{food.Owner}}
+    	 <a href="/farmer/{{food.Owner}}"><div class="tooltip">{{food.Owner}}
  		 <span class="tooltiptext">{{clever_function(food.Owner)}}</span>
 		</div>
+  </a>
 	</td>
     <td>{{food.cost}}</td>
     <td><a href="/buy_product/{{food.id_table}}"> add to cart </a></td>

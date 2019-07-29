@@ -131,6 +131,9 @@ def get_owner_products(Owner):
 def query_products_by_buyer(buyer):
   return session.query(Product).filter_by(buyer=buyer).all()
 
+def query_products_by_farmer(Owner):
+    return session.query(Product).filter_by(Owner=Owner).all()
+
 def query_productsCost_by_user(buyer):
     total = 0
     somethngs = session.query(Product).filter_by(buyer=buyer).all()
@@ -224,4 +227,5 @@ def update_min_max_types():
       item.Min_price = get_type_products_lowestPrice(item.Name)
       item.Max_price = get_type_products_highestPrice(item.Name)
 
-#get_description_by_farmname('mousa')
+#print(get_all_products())
+

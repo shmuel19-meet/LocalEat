@@ -9,13 +9,30 @@
 
   <title>LocalEat</title>
 <style >
+  a:hover {
+    color: green !important;
+  }
   #mainNav {
     background-color: none !important;
   transition: background-color 200ms linear;
   }
   #blacknav {
+    width: 100%;
     background-color: #212529;
+    letter-spacing: 1px;
+    font-size: 90%;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
   }
+
+@media (min-width: 1000px) {
+  /* This part is only read by viewports wider than 1000 pixels */
+#blacknav {
+  width: 100%;
+  background-color: #212529;
+    letter-spacing: 1px;
+    font-size: 90%;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';}
+}
 
 </style>
   <!-- Bootstrap core CSS -->
@@ -26,6 +43,16 @@
   if(this.scrollY <= 40) nav.id = 'blacknav'; else nav.id = 'mainNav';
   if(this.scrollY == 0) nav.id = 'mainNav'; else nav.id = 'blacknav';
 };
+
+  function myFunction() {
+  var x = document.getElementById("mainNav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
 </script>
 
   <!-- Custom fonts for this template -->
@@ -57,7 +84,7 @@
   </div>
 </header>
 
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+  <nav class="navbar navbar-expand navbar-dark fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger">
         <img src="static/white.png" width="50%" height="50%">
