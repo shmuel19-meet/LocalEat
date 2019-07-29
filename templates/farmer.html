@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{Owner}}</title>
+</head>
+<body>	
+  <h1 style="text-align: center;">{{Owner}}</h1>
+
+
+{% for item in products%}
+
+<!-- <div class="container"> -->
+  <div class="tooltip">
+    <h5>{{item.Type}}</h5>
+    <td>{{item.cost}}</td>
+</div>
+
+{% endfor%}
+</body>
+</html>

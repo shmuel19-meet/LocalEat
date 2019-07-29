@@ -36,6 +36,11 @@ def Contact():
     else:
         return render_template('Contact.html', Farm_list = Farm_list)
 
+@app.route('/farmer/<string:Owner>')
+def farmer(Owner):
+    products = query_products_by_farmer(Owner)
+    return render_template('farmer.html',Owner=Owner,products=products)
+
 @app.route('/shop')
 def shop():
     if 'username' or 'farmname' in flask_session:
