@@ -4,6 +4,7 @@
 	<title>Shop</title>
 <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+
   <!-- Custom fonts for this template -->
   <link href="/static/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -18,7 +19,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>   
 </head>
+
 <style>
+
 body{
     font-family: sans-serif;
     background-size: cover;
@@ -49,14 +52,16 @@ li a:hover {
 .item > img{
   min-height: 450px;
 }
-.container{
+/*.container{
 margin-right: 0px;
 margin-left: 0px;
 padding-left: 0px;
 padding-right: 0px;
 text-align: center;
 text-decoration-color: white;
-}
+  position: relative;
+  width: 50%;
+}*/
 .button:hover{
   font-size: 15px;
   padding: 10px;
@@ -71,18 +76,16 @@ text-decoration-color: white;
   font-size: 15px;
 }
 
-.container {
-  position: relative;
-  width: 50%;
+.item {
 }
 
 .image {
+  /*height: 200px;*/
   opacity: 1;
   display: inline-block;
-  margin:0% 2% 2% 4%;
-  width: 100%;
-  height: auto;
-  transition: .5s ease;
+/*  margin:0% 2% 2% 4%;
+  /*float:left;*/
+  transition: .5s ease;*/
   backface-visibility: hidden;
 }
 
@@ -98,11 +101,11 @@ text-decoration-color: white;
   text-align: center;
 }
 
-.container:hover .image {
+.item:hover .image {
   opacity: 0.3;
 }
 
-.container:hover .middle {
+.middle:hover {
   opacity: 1;
 }
 
@@ -147,19 +150,28 @@ text-decoration-color: white;
     </div>
   </nav>
 
+<div class="container" >
 
-{% for type in types%}
+  <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">SHOP NOW!</h1>
 
-<div class="container">
-  <img src="{{type.Img}}" alt="Avatar" class="image" style="width:50%;">
-  <div class="middle">
-    <h5> {{type.Name}} </h5>
-    <p> {{type.Min_price}} - {{type.Max_price}} </p>
-    <a href="product/{{type.Name}}" class="button button5">Compare & buy</a>
+  <hr class="mt-2 mb-5">
+
+  <div class="row text-center text-lg-left">
+    {% for type in types%}
+    <div class="item col-lg-3 col-md-4 col-6 h-100">
+      <a href="#" class="shopping_list d-block mb-3 h-100">
+        <img src="{{type.Img}}" alt="Avatar" class="image img-fluid img-thumbnail">
+        <div class="middle">
+          <h5> {{type.Name}} </h5>
+          <p> {{type.Min_price}} - {{type.Max_price}} </p>
+          <a href="product/{{type.Name}}" class="button button5">Compare & buy</a>
+        </div>
+      </a>        
+    </div>
+
+    {% endfor%}
   </div>
 </div>
-
-{% endfor%}
 
 
 </body>
