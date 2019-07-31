@@ -1,13 +1,23 @@
-from flask import Flask, flash, render_template, url_for, redirect, request ,jsonify, session  as flask_session
+from flask import Flask, flash,send_from_directory, render_template, url_for,redirect, request ,jsonify, session  as flask_session
 # from flask import Flask, flash, render_template, url_for, redirect, request, session as flask_session
 
 from database import *
+from flask_mail import Mail, Message
 import paypalrestsdk
 
 app = Flask(__name__)
 app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'
-
+app.config.update(dict(
+    DEBUG = True,
+    MAIL_SERVER = 'smtp.gmail.com',
+    MAIL_PORT = 587,
+    MAIL_USE_TLS = True,
+    MAIL_USE_SSL = False,
+    MAIL_USERNAME = 'localeatteam@gmail.com',
+    MAIL_PASSWORD = 'localeat2019',
+))
+mail = Mail(app)
 
 #
 #paypalrestsdk.configure({
@@ -20,7 +30,8 @@ app.config['SESSION_TYPE'] = 'filesystem'
 def home():
     if 'username' in flask_session:
         username = flask_session['username']
-        return render_template('User_HomePage.html',user=username)
+        name = username.split('@')[0]
+        return render_template('User_HomePage.html',user=name)
     elif 'farmname' in flask_session:
         farmname = flask_session['farmname']
         return render_template('Farm_HomePage.html',farm=farmname,my_products=get_owner_products(farmname), log = False)
@@ -235,8 +246,31 @@ def add_Type():
         add_type(request.form['name'],request.form['img'],0,0)       
         return redirect(url_for('home'))
 
+@app.route('/forgot_password', methods = ['GET', 'POST'])
+def forgot_password():
+    if request.method == 'GET':
+        return render_template("forgot_password.html", msg = "insert your email")
+    else:
+        email = request.form['username']
+        username = query_username(email)
+        exsists = False
+        # for student in students:
+        if username != None:
+            #user = query_user_by_username(username)
+            msg = Message("your password recovery",
+                sender='LocalEatteam@gmail.com',
+                recipients=[email])
+            msg.body = username.username + ", your password is: "+ username.password
+            mail.send(msg)
+
+            return render_template("forgot_password.html", msg = "successfully sent an email")
+        else:
+            return render_template("forgot_password.html", msg = "email does not exsist!")
+
 def clever_function(owner):
     return get_description_by_farmname(owner)
+
+
 
 app.jinja_env.globals.update(clever_function=clever_function)
 

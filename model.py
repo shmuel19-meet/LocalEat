@@ -94,3 +94,18 @@ class Type(Base):
                 self.Img,
                 self.Min_price,
                 self.Max_price)
+
+class Messages(Base):
+    __tablename__ = "messages"
+    id = Column(Integer, primary_key = True, autoincrement=True)
+    name = Column(String)
+    sender = Column(String)
+    message = Column(String)
+    time = Column(String)
+    def __repr__(self):
+        return str(self.id) + "+\n" + str(self.message)
+
+class Online(Base):
+    __tablename__ = "online"
+    id = Column(Integer, primary_key = True)
+    username = Column(String)
