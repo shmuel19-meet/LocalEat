@@ -227,5 +227,15 @@ def update_min_max_types():
       item.Min_price = get_type_products_lowestPrice(item.Name)
       item.Max_price = get_type_products_highestPrice(item.Name)
 
-#print(get_all_products())
+
+def send_message(name, username, message):
+  now = str(datetime.datetime.now())[0:-7]
+  message = Messages(name = name, message = message, sender = username, time = now)
+  print(message)
+  session.add(message)
+  session.commit()
+
+def query_username(username):
+  username = session.query(User).filter_by(username=username).first()
+  return username
 
