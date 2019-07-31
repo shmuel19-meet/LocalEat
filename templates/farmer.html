@@ -5,7 +5,12 @@
 
 <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<style>
-	
+body {
+	margin: 5%;
+}
+.smaller {
+	font-size: small;
+}
 #cart {
 	text-align: center;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -35,8 +40,13 @@
 </head>
 <body>	
   <h1 style="text-align: left;">Welcome to {{farmer.Farm_name}}'s farm page </h1>
-  <h3 style="text-align: left;margin-left: 5%;">Description : {{farmer.description}}</h3>
-  <h3 style="text-align: left;margin-left: 5%;">Address : {{farmer.address}}</h3>
+  <h3 style="text-align: left;margin-left: 5%;display: inline;">Description : <h5 style="display: inline;max-width: 100px;white-space: nowrap;
+  margin-left: 8%;
+  overflow: hidden;
+  text-overflow: ellipsis;">{{farmer.description}}</h5></h3>
+  <h3 style="text-align: left;margin-left: 5%;">Address : <h5 style="display: inline;max-width: 100px;white-space: nowrap;margin-left:8%;
+  overflow: hidden;
+  text-overflow: ellipsis;">{{farmer.address}}</h5></h3>
 
 
 <div style="text-align: center;margin-bottom: 2%;">
