@@ -4,13 +4,21 @@
 <title>{{farmer.Farm_name}}</title>
 
 <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="/static/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+   <link href="https://fonts.googleapis.com/css?family=Sintony&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<style>
-body {
-	margin: 5%;
-}
-.smaller {
-	font-size: small;
-}
+		body {
+			margin: 0%;
+		}
+
 #cart {
 	text-align: center;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -38,8 +46,31 @@ body {
 }
 </style>
 </head>
-<body>	
-  <h1 style="text-align: left;">Welcome to {{farmer.Farm_name}}'s farm page </h1>
+<body>
+	  <nav class="navbar navbar-inverse" style="margin-bottom: -1%;">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav" style="display: inline-block;margin-left:60%;">
+   		 {%if 'username' in session %}
+          <li >
+            <a href="/">Home</a>
+          </li>
+          <li><a href="/shop">shop</a></li>
+          <li><a href="/cart">cart</a></li>
+          {%elif 'farmname' in session%}
+          <li >
+            <a href="/">Home</a>
+          </li>
+          <li><a href="/add-product" >add product</a></li>
+          {%else%}
+          <li >
+           <a  href="/user_log-in">Log In</a>
+          </li>
+     	{%endif%}
+    </ul>
+  </div>
+</nav>
+
+  <h1 style="text-align: left;margin: 4%;">Welcome to {{farmer.Farm_name}}'s farm page </h1>
   <h3 style="text-align: left;margin-left: 5%;display: inline;">Description : <h5 style="display: inline;max-width: 100px;white-space: nowrap;
   margin-left: 8%;
   overflow: hidden;
