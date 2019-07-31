@@ -3,6 +3,7 @@
 <head>
 <title>{{farmer.Farm_name}}</title>
 
+<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<style>
 	
 #cart {
@@ -39,10 +40,11 @@
 
 
 <div style="text-align: center;margin-bottom: 2%;">
-<button style="color: black;">
-  <a style="color: black;text-decoration: none;" rel="nofollow" href="https://api.whatsapp.com/send?phone=972{{farmer.phone}}&amp;text=Hello {{farmer.Farm_name}}}, . I am contacting you via LocalEat to ask questions about your product."   target="_blank"> CONTACT {{farmer.Farm_name}}
-  </a>
+	<a style="color: black;text-decoration: none;" rel="nofollow" href="https://api.whatsapp.com/send?phone=972{{farmer.phone}}&amp;text=Hello {{farmer.Farm_name}}}, . I am contacting you via LocalEat to ask questions about your product."   target="_blank">
+<button type="button" class="btn btn-outline-success">
+ CONTACT {{farmer.Farm_name}}
 </button>
+</a>
 </div>
 
 <table id="cart">
