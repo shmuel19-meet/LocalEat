@@ -30,7 +30,7 @@ div.d {
   left: 70px;
     top: 335px;
   width: 300px;
-  height: 50px;
+  height: 80px;
   border: 3px solid white;
   background-color: white;
     opacity: 0.8;
@@ -133,14 +133,15 @@ position: absolute;
                     {% endif %}
                 {% endwith %}
                      <div class="d">
-                <p><a href='/farm_log-in'>Want to Log In as a Farmer?</a></p>
+                <p><a href='/farm_log-in'>Want to Log In as a Farmer ?</a></p>
+                <p><a href="/forgot_password">forgot your password ?</a></p>
             </div>
               
                 <form action="{{url_for('user_logIn')}}" method="post" class="box">
                         
                     <div class="b" style="font-family: 'IBM Plex Sans', sans-serif">
                     <h1 > Log In as User: </h1>
-                </div>
+                    </div>
 
                                      
                     <input class="form-control" type="text" placeholder="Enter EMAIL" name="username" required>
