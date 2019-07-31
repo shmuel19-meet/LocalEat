@@ -68,7 +68,7 @@ div.b {
     margin-left: 2%;
     vertical-align: middle;
 } 
-.box input[type="text"],.box input[type="password"] {
+.box input[type="text"],.box input[type="password"],.box input[type="email"] {
     border: 0;
     font-weight: 1000;
     display: block;
@@ -83,7 +83,7 @@ div.b {
     background-color: white;
     opacity: 0.8;
 }
-.box input[type="text"]:focus,.box input[type="password"]:focus{
+.box input[type="text"]:focus,.box input[type="password"]:focus,.box input[type="email"]:focus{
     width: 280px;
     /*border-color: #2ecc71; */
     background-color: white;
@@ -140,7 +140,7 @@ margin-top: 3%;
                     {% if messages %}
                         <ul>
                             {% for message in messages %}
-                                <li>{{ message }}</li>
+                                <font color="white"><li>{{ message }}</li></font>
                             {% endfor %}
                         </ul>
                     {% endif %}
@@ -151,7 +151,7 @@ margin-top: 3%;
 
                  <form action="/user_sign-up" method="post" class="box">
 
-                <input class="form-control" type="text" placeholder="username" name="username" required>
+                <input class="form-control" type="email" placeholder="email" name="username" required>
 
                 <input class="form-control" type="text" placeholder="Enter phonenumber" pattern="^\d{10}$"  name="phone" required>
 
