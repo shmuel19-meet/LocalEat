@@ -39,7 +39,8 @@ def Contact():
 @app.route('/farmer/<string:Owner>')
 def farmer(Owner):
     products = query_products_by_farmer(Owner)
-    return render_template('farmer.html',Owner=Owner,products=products)
+    farmer = query_by_farmname(Owner)
+    return render_template('farmer.html',farmer=farmer,products=products)
 
 @app.route('/shop')
 def shop():
