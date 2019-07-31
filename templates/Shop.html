@@ -81,7 +81,8 @@ text-decoration-color: white;
 }
 
 .image {
-  /*height: 200px;*/
+  width: 214.5px;
+  height: 200p
   opacity: 1;
   display: inline-block;
 /*  margin:0% 2% 2% 4%;
@@ -103,13 +104,10 @@ text-decoration-color: white;
 }
 
 .item:hover .image {
-
-}
-.container:hover .image {
   opacity: 0.3;
 }
 
-.middle:hover {
+.item:hover .middle {
   opacity: 1;
 }
 </style>
@@ -163,7 +161,7 @@ text-decoration-color: white;
     {% for type in types%}
     <div class="item col-lg-3 col-md-4 col-6 h-100">
       <a href="#" class="shopping_list d-block mb-3 h-100">
-        <img src="{{type.Img}}" alt="Avatar" class="image img-fluid img-thumbnail">
+        <img src="{{type.Img}}" class="image img-fluid img-thumbnail">
         <div class="middle">
           <h5> {{type.Name}} </h5>
           <p> {{type.Min_price}} - {{type.Max_price}} </p>
