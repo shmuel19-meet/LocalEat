@@ -37,6 +37,9 @@ img {
   border-style: solid;
   border-color: black transparent transparent transparent;
 }
+.d {
+  font-family: 'Sintony';
+}
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
@@ -47,6 +50,7 @@ img {
   border-collapse: collapse;
   width: 80%;
   margin-left: 10%;
+  font-size: 17px;
 }
 
 #cart td, #cart th {
@@ -65,26 +69,61 @@ img {
   padding-bottom: 12px;
   background-color: #4CAF50;
   color: white;
+
+  
+
+  }
 }
 </style>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Bootstrap core CSS -->
+  <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="/static/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+   <link href="https://fonts.googleapis.com/css?family=Sintony&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ <link href="/static/css/agency.min.css" rel="stylesheet">
+<nav class="navbar navbar-inverse" style="margin-bottom: -1%;">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav" style="display: inline-block;margin-left: 40%;">
+    <li><a href="/user_log-out">Log out</a></li>
+    <li><a href="/cart">cart</a></li>
+     <li><a href="/shop">Shop</a></li>
+    </ul>
+  </div>
+</nav>
 	<title>{{Type_1.Name}}</title>
-	<h1 style="text-align: center;">{{Type_1.Name}}</h1>
+  <div class ="d">
+	<h1 style="text-align: center">{{Type_1.Name}}</h1>
+</div>
 	<img src="{{Type_1.Img}}" width="420" height="420">
+
 </head>
 <body>
 	
 <table id="cart">
   <tr>
-    <th>Owner</th>
-    <th>Cost</th>
+    <th>Owner(Farmer)</th>
+    <th>Cost(Shekels per kg)</th>
     <th></th>
   </tr>
   {% for food in foodlist %}
   <tr>
     <td>
-    	 <a href="/farmer/{{food.Owner}}"><div class="tooltip">{{food.Owner}}
- 		 <span class="tooltiptext">{{clever_function(food.Owner)}}</span>
-		</div>
+    	 <a href="/farmer/{{food.Owner}}">
+        {{food.Owner}}
   </a>
 	</td>
     <td>{{food.cost}}</td>

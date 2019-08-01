@@ -17,8 +17,12 @@
 	<style>
 		body {
 			margin: 0%;
-		}
-
+      background-image: url("/static/999.jpg");
+      background-position: 0px 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
 #cart {
 	text-align: center;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -70,21 +74,25 @@
   </div>
 </nav>
 
-  <h1 style="text-align: left;margin: 4%;">Welcome to {{farmer.Farm_name}}'s farm page </h1>
-  <h3 style="text-align: left;margin-left: 5%;display: inline;">Description : <h5 style="display: inline;max-width: 100px;white-space: nowrap;
+  <h1 style="text-align: left;font-family: 'Sintony';margin: 4%;">Welcome to {{farmer.Farm_name}}'s farm page </h1>
+  <h3 style="text-align: left;font-family: 'Sintony';margin-left: 5%;display: inline;">Description : <h5 style="display: inline;max-width: 100px;white-space: nowrap;
   margin-left: 1%;
   overflow: hidden;
+  font-family: 'Sintony';
+  font-size: 15px;
   text-overflow: ellipsis;">{{farmer.description}}</h5></h3>
   <br>
   <br>
-  <h3 style="text-align: left;margin-left: 5%;display: inline;">Address : <h5 style="display: inline;max-width: 100px;white-space: nowrap;margin-left:1%;
+  <h3 style="text-align: left;font-family: 'Sintony';margin-left: 5%;display: inline;">Address : <h5 style="display: inline;max-width: 100px;white-space: nowrap;margin-left:1%;
   overflow: hidden;
+   font-size: 15px;
+  font-family: 'Sintony';
   text-overflow: ellipsis;">{{farmer.address}}</h5></h3>
 
 
 <div style="text-align: center;margin-bottom: 2%;">
 	<a style="color: black;text-decoration: none;" rel="nofollow" href="https://api.whatsapp.com/send?phone=972{{farmer.phone}}&amp;text=Hello {{farmer.Farm_name}}}, . I am contacting you via LocalEat to ask questions about your product."   target="_blank">
-<button type="button" class="btn btn-outline-success">
+<button type="button" style="font-family: 'Sitony'" class="btn btn-outline-success">
  CONTACT {{farmer.Farm_name}}
 </button>
 </a>
