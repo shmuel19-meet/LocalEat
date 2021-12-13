@@ -35,7 +35,7 @@ jupyterlab-launcher==0.10.5
 keyring==10.6.0
 keyrings.alt==3.0
 kiwisolver==1.0.1
-lxml==4.2.1
+lxml==4.6.5
 MarkupSafe==1.0
 matplotlib==2.2.2
 mistune==0.8.3
